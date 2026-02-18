@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hillside Stays | Short-Term Rental Co-Hosting | Western North Carolina</title>
+  <meta name="description" content="Hillside Stays is a full-service short-term rental co-hosting company in Asheville and Western North Carolina. We manage your property, handle guests, and maximize your revenue — completely hands-off for you." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <span class="logo-mark">⌂</span>
+        <span class="logo-text">Hillside <em>Stays</em></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#why-us">Why Us</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact" class="nav-cta">Get Started</a></li>
+      </ul>
+      <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="mobileMenu">
+      <a href="#services">Services</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#why-us">Why Us</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Get Started</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <div class="hero-mountains">
+        <svg viewBox="0 0 1440 500" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#0a1a0f"/>
+              <stop offset="100%" stop-color="#1a3322"/>
+            </linearGradient>
+            <linearGradient id="mtn1" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#1c3d28"/>
+              <stop offset="100%" stop-color="#0d2018"/>
+            </linearGradient>
+            <linearGradient id="mtn2" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#254d32"/>
+              <stop offset="100%" stop-color="#142a1c"/>
+            </linearGradient>
+            <linearGradient id="mtn3" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#1a3a24"/>
+              <stop offset="100%" stop-color="#0f2218"/>
+            </linearGradient>
+          </defs>
+          <rect width="1440" height="500" fill="url(#skyGrad)"/>
+          <!-- Stars -->
+          <circle cx="200" cy="40" r="1" fill="#c9a84c" opacity="0.6"/>
+          <circle cx="450" cy="20" r="1.5" fill="#c9a84c" opacity="0.4"/>
+          <circle cx="700" cy="55" r="1" fill="#fff" opacity="0.3"/>
+          <circle cx="950" cy="30" r="1" fill="#c9a84c" opacity="0.5"/>
+          <circle cx="1200" cy="15" r="1.5" fill="#fff" opacity="0.35"/>
+          <circle cx="1350" cy="60" r="1" fill="#c9a84c" opacity="0.4"/>
+          <circle cx="80" cy="80" r="1" fill="#fff" opacity="0.3"/>
+          <circle cx="350" cy="65" r="1" fill="#c9a84c" opacity="0.3"/>
+          <circle cx="600" cy="35" r="1" fill="#fff" opacity="0.4"/>
+          <circle cx="850" cy="70" r="1" fill="#c9a84c" opacity="0.3"/>
+          <circle cx="1100" cy="45" r="1" fill="#fff" opacity="0.4"/>
+          <!-- Far background mountains -->
+          <path d="M0 320 L120 180 L240 240 L360 150 L480 210 L600 130 L720 200 L840 140 L960 190 L1080 120 L1200 175 L1320 145 L1440 200 L1440 500 L0 500Z" fill="url(#mtn3)" opacity="0.5"/>
+          <!-- Mid mountains -->
+          <path d="M0 380 L180 220 L300 280 L440 180 L560 260 L680 170 L800 240 L920 160 L1040 230 L1160 175 L1280 250 L1440 200 L1440 500 L0 500Z" fill="url(#mtn2)" opacity="0.7"/>
+          <!-- Foreground mountains -->
+          <path d="M0 440 L200 280 L360 360 L520 240 L680 320 L840 220 L1000 310 L1160 260 L1300 340 L1440 290 L1440 500 L0 500Z" fill="url(#mtn1)"/>
+          <!-- Mist layers -->
+          <path d="M0 370 Q360 340 720 360 Q1080 380 1440 355 L1440 420 Q1080 445 720 425 Q360 405 0 430Z" fill="#1a3322" opacity="0.4"/>
+          <path d="M0 400 Q360 380 720 395 Q1080 410 1440 390 L1440 450 Q1080 470 720 455 Q360 440 0 460Z" fill="#1a3322" opacity="0.3"/>
+        </svg>
+      </div>
+      <div class="hero-noise"></div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow">Western North Carolina's Premier Co-Host</div>
+      <h1 class="hero-heading">
+        Your Mountain Property.<br/>
+        <em>Our Full-Time Job.</em>
+      </h1>
+      <p class="hero-sub">
+        We handle everything — guest communications, dynamic pricing, cleaning coordination, and maintenance — so you collect the revenue without the headaches.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Get a Free Revenue Estimate</a>
+        <a href="#how-it-works" class="btn-ghost">See How It Works</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">$280<small>+</small></span>
+          <span class="stat-label">Avg. Nightly Rate in WNC</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">73<small>%</small></span>
+          <span class="stat-label">Avg. Occupancy Rate</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">18<small>%</small></span>
+          <span class="stat-label">Simple Flat Management Fee</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <span>Scroll to explore</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <section class="trust-bar">
+    <div class="container">
+      <p class="trust-text">Serving property owners across</p>
+      <div class="trust-locations">
+        <span>Asheville</span>
+        <span class="dot">·</span>
+        <span>Weaverville</span>
+        <span class="dot">·</span>
+        <span>Black Mountain</span>
+        <span class="dot">·</span>
+        <span>Waynesville</span>
+        <span class="dot">·</span>
+        <span>Brevard</span>
+        <span class="dot">·</span>
+        <span>Hendersonville</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM / HOOK -->
+  <section class="hook" id="about">
+    <div class="container">
+      <div class="hook-grid">
+        <div class="hook-text">
+          <div class="section-eyebrow">Sound Familiar?</div>
+          <h2>Owning a short-term rental shouldn't feel like a second job.</h2>
+          <p>Most property owners in Asheville and the surrounding mountains bought their cabin or home as an investment — not a full-time obligation. But between answering guest messages at 11pm, chasing cleaners, managing maintenance, and trying to keep up with pricing on 4 different platforms… that's exactly what it becomes.</p>
+          <p>Hillside Stays was built to change that. We take on the entire operational burden so your property earns more — and you spend less time on it.</p>
+        </div>
+        <div class="hook-cards">
+          <div class="pain-card">
+            <div class="pain-icon">🕐</div>
+            <h3>No Time</h3>
+            <p>Constant guest messages, check-in issues, and last-minute requests eat up hours every week.</p>
+          </div>
+          <div class="pain-card">
+            <div class="pain-icon">💸</div>
+            <h3>Lost Revenue</h3>
+            <p>Static pricing and gaps in your calendar leave thousands of dollars on the table each year.</p>
+          </div>
+          <div class="pain-card">
+            <div class="pain-icon">🔧</div>
+            <h3>Operations Chaos</h3>
+            <p>Coordinating cleaners, vendors, and maintenance without a system creates constant stress.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">What We Do</div>
+        <h2>Everything your property needs.<br/><em>Nothing you have to touch.</em></h2>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card" data-num="01">
+          <div class="service-icon">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 28L14 22M14 22C14 22 16 25 20 25C24 25 26 22 26 22M26 22L32 28M20 8C14.477 8 10 12.477 10 18C10 21.5 11.8 24.6 14.5 26.4L13 32H27L25.5 26.4C28.2 24.6 30 21.5 30 18C30 12.477 25.523 8 20 8Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>24/7 Guest Communications</h3>
+          <p>Every message, inquiry, and issue handled promptly — day or night. Guests feel cared for. You never get woken up at midnight.</p>
+          <ul class="service-details">
+            <li>Instant message response</li>
+            <li>Check-in & check-out coordination</li>
+            <li>Issue resolution & escalation</li>
+            <li>5-star review management</li>
+          </ul>
+        </div>
+
+        <div class="service-card featured" data-num="02">
+          <div class="service-icon">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 28L20 10L30 28H10Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M14 22H26" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="20" cy="10" r="2" fill="currentColor"/>
+            </svg>
+          </div>
+          <div class="featured-badge">Most Impactful</div>
+          <h3>Dynamic Pricing Management</h3>
+          <p>We use AI-powered pricing tools to adjust your rates daily based on local demand, events, competitor rates, and seasonal trends — maximizing every single night.</p>
+          <ul class="service-details">
+            <li>Daily rate optimization</li>
+            <li>Event & season surge pricing</li>
+            <li>Competitor market analysis</li>
+            <li>Multi-platform sync (Airbnb, VRBO, direct)</li>
+          </ul>
+        </div>
+
+        <div class="service-card" data-num="03">
+          <div class="service-icon">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 20C12 16 15 12 20 12C25 12 28 16 28 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M8 26H32" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M14 26V30M20 26V30M26 26V30" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M16 20H24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Cleaning Coordination</h3>
+          <p>We manage your cleaning team so every turnover happens on time, every time. No gaps. No excuses. Guests walk into a spotless property.</p>
+          <ul class="service-details">
+            <li>Turnover scheduling & oversight</li>
+            <li>Quality control inspections</li>
+            <li>Supplies restocking coordination</li>
+            <li>Deep clean management</li>
+          </ul>
+        </div>
+
+        <div class="service-card" data-num="04">
+          <div class="service-icon">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="20" cy="20" r="10" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M20 14V20L24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12 8L10 6M28 8L30 6M20 10V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Maintenance Coordination</h3>
+          <p>When something breaks, we handle it. We maintain a trusted network of local vendors in the WNC area and coordinate repairs quickly — keeping your property in top shape.</p>
+          <ul class="service-details">
+            <li>24/7 issue reporting & triage</li>
+            <li>Trusted local vendor network</li>
+            <li>Owner approval for larger repairs</li>
+            <li>Preventative maintenance scheduling</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="services-footer">
+        <p>All services included in one simple flat fee — <strong>18% of gross revenue.</strong> No hidden charges. No nickel-and-diming.</p>
+        <a href="#contact" class="btn-primary">Get Your Free Estimate</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI ADVANTAGE -->
+  <section class="ai-section" id="why-us">
+    <div class="container">
+      <div class="ai-grid">
+        <div class="ai-text">
+          <div class="section-eyebrow">The Hillside Stays Difference</div>
+          <h2>Powered by AI.<br/><em>Built for the mountains.</em></h2>
+          <p>Most co-hosts are just people with spreadsheets. We've built an AI-powered operations system that lets us respond faster, price smarter, and manage more properties without sacrificing the personal touch that WNC guests expect.</p>
+          <p>The result? Higher occupancy, better reviews, and fewer problems — for every owner we work with.</p>
+          <a href="#contact" class="btn-primary">Learn More</a>
+        </div>
+        <div class="ai-compare">
+          <div class="compare-header">
+            <div class="compare-col-label empty"></div>
+            <div class="compare-col-label other">Typical Co-Host</div>
+            <div class="compare-col-label us">Hillside Stays</div>
+          </div>
+          <div class="compare-row">
+            <div class="compare-feature">Guest Response Time</div>
+            <div class="compare-other">Hours</div>
+            <div class="compare-us">Under 5 min</div>
+          </div>
+          <div class="compare-row">
+            <div class="compare-feature">Pricing Updates</div>
+            <div class="compare-other">Weekly</div>
+            <div class="compare-us">Daily, AI-driven</div>
+          </div>
+          <div class="compare-row">
+            <div class="compare-feature">Owner Reporting</div>
+            <div class="compare-other">Monthly PDF</div>
+            <div class="compare-us">Real-time dashboard</div>
+          </div>
+          <div class="compare-row">
+            <div class="compare-feature">Local Vendor Network</div>
+            <div class="compare-other">1-2 contacts</div>
+            <div class="compare-us">Vetted WNC network</div>
+          </div>
+          <div class="compare-row">
+            <div class="compare-feature">Platform Coverage</div>
+            <div class="compare-other">Airbnb only</div>
+            <div class="compare-us">Airbnb, VRBO + more</div>
+          </div>
+          <div class="compare-row">
+            <div class="compare-feature">Your Time Spent</div>
+            <div class="compare-other">Still too much</div>
+            <div class="compare-us highlight-cell">Zero</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">The Process</div>
+        <h2>From signed agreement<br/><em>to first deposit.</em></h2>
+        <p>Getting started is simple. We do the heavy lifting from day one.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">01</div>
+          <div class="step-content">
+            <h3>Free Consultation & Revenue Estimate</h3>
+            <p>We'll review your property, walk through current market data for your area, and give you a realistic projection of what your cabin or home can earn with professional management.</p>
+          </div>
+          <div class="step-connector"></div>
+        </div>
+        <div class="step">
+          <div class="step-number">02</div>
+          <div class="step-content">
+            <h3>Agreement & Onboarding</h3>
+            <p>We handle the paperwork. You sign our straightforward co-hosting agreement, we get access to your listing accounts, and we build out your property profile across all platforms.</p>
+          </div>
+          <div class="step-connector"></div>
+        </div>
+        <div class="step">
+          <div class="step-number">03</div>
+          <div class="step-content">
+            <h3>Listing Optimization</h3>
+            <p>We rewrite your listing, update photos and descriptions, set up dynamic pricing, and configure your house rules and automated messages for a seamless guest experience.</p>
+          </div>
+          <div class="step-connector"></div>
+        </div>
+        <div class="step">
+          <div class="step-number">04</div>
+          <div class="step-content">
+            <h3>We Go Live — You Step Back</h3>
+            <p>From the moment your listing is live, we handle everything. Guests, cleaning, maintenance, pricing — all of it. You get monthly statements and can check in on your property anytime.</p>
+          </div>
+          <div class="step-connector"></div>
+        </div>
+        <div class="step">
+          <div class="step-number">05</div>
+          <div class="step-content">
+            <h3>Collect Your Revenue</h3>
+            <p>Funds are disbursed monthly. Our fee is automatically deducted — no invoices, no chasing payments. Just a clean deposit and a detailed earnings report.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVENUE SECTION -->
+  <section class="revenue-section">
+    <div class="container">
+      <div class="revenue-grid">
+        <div class="revenue-text">
+          <div class="section-eyebrow">The Numbers</div>
+          <h2>WNC is one of the strongest STR markets in the Southeast.</h2>
+          <p>Asheville and the surrounding mountain region attract year-round visitors — not just summer tourists. Fall color season, winter cabin seekers, spring hikers, and summer families create consistent demand 12 months a year.</p>
+          <p>With the right management, most properties in this region earn 20–35% more than self-managed owners realize.</p>
+        </div>
+        <div class="revenue-cards">
+          <div class="revenue-card">
+            <div class="rev-market">Asheville</div>
+            <div class="rev-rate">$285<span>/night avg</span></div>
+            <div class="rev-occ">74% occupancy</div>
+          </div>
+          <div class="revenue-card">
+            <div class="rev-market">Black Mountain</div>
+            <div class="rev-rate">$245<span>/night avg</span></div>
+            <div class="rev-occ">71% occupancy</div>
+          </div>
+          <div class="revenue-card">
+            <div class="rev-market">Brevard</div>
+            <div class="rev-rate">$230<span>/night avg</span></div>
+            <div class="rev-occ">69% occupancy</div>
+          </div>
+          <div class="revenue-card">
+            <div class="rev-market">Waynesville</div>
+            <div class="rev-rate">$220<span>/night avg</span></div>
+            <div class="rev-occ">68% occupancy</div>
+          </div>
+        </div>
+      </div>
+      <div class="revenue-cta">
+        <p>Want to know what <em>your specific property</em> could earn?</p>
+        <a href="#contact" class="btn-primary">Get My Free Revenue Estimate</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Common Questions</div>
+        <h2>Everything you need to know<br/><em>before getting started.</em></h2>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            What does 18% of gross revenue actually mean?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>It means we take 18% of whatever your property earns before any platform fees. If your property earns $5,000 in a month, our fee is $900. There are no additional charges, setup fees, or monthly minimums. The only other costs you'll have are Airbnb's standard host service fee (typically 3%) and your cleaning fees, which are passed through to guests.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Do I need to already have a listing set up?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>No — we can start from scratch. Whether you have an existing listing we're taking over or a property that's never been listed, we handle the full setup: photography coordination, listing writing, platform account creation, pricing configuration, and everything else needed to go live.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            What if I want to use my property myself?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Your property stays yours. We build in owner-block periods whenever you need them — just let us know and we'll block the calendar. We ask for reasonable advance notice (especially during peak seasons) so we're not canceling existing guest reservations, but you have full rights to use your own property.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            How do I know what my property is earning?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>You'll receive a detailed monthly earnings statement showing all bookings, total revenue, fees deducted, and net payout. We also provide access to a simple owner dashboard where you can check upcoming bookings and historical performance at any time.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            What areas do you serve?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>We currently serve the greater Western North Carolina region including Asheville, Weaverville, Black Mountain, Old Fort, Swannanoa, Hendersonville, Brevard, Waynesville, Maggie Valley, and the surrounding mountain communities. Not sure if your property qualifies? Reach out and we'll let you know.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            What happens if there's damage to my property?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>We document property condition before and after every stay and have processes in place to file claims with Airbnb's AirCover (up to $3M in host protection) or VRBO's equivalent programs when damage occurs. We handle the entire claims process on your behalf, and we recommend you maintain a short-term rental rider on your homeowner's insurance as an additional layer of protection.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            How long is the co-hosting agreement?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Our standard agreement is for an initial 6-month term, after which it renews month-to-month. We believe in earning your continued business — not locking you in. Either party can terminate with 30 days written notice after the initial term.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT / LEAD FORM -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-text">
+          <div class="section-eyebrow">Get Started</div>
+          <h2>Let's talk about<br/><em>your property.</em></h2>
+          <p>Fill out the form and we'll get back to you within 24 hours with a free, no-obligation revenue estimate for your property.</p>
+          <div class="contact-details">
+            <div class="contact-item">
+              <span class="contact-icon">📍</span>
+              <span>Serving Western North Carolina</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">📧</span>
+              <span>smithdj789@gmail.com</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">⏱</span>
+              <span>Response within 24 hours</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-wrap">
+          <form class="contact-form" id="contactForm" action="https://formspree.io/f/mdaldwkw" method="POST">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="Jane Smith" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="jane@email.com" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="(828) 555-0100" />
+              </div>
+              <div class="form-group">
+                <label for="location">Property Location</label>
+                <input type="text" id="location" name="location" placeholder="e.g. Asheville, Black Mountain..." required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="property-type">Property Type</label>
+              <select id="property-type" name="property-type">
+                <option value="">Select a property type...</option>
+                <option>Cabin / Mountain Retreat</option>
+                <option>House / Single Family Home</option>
+                <option>Condo / Townhouse</option>
+                <option>Cottage / Bungalow</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="status">Current Listing Status</label>
+              <select id="status" name="status">
+                <option value="">Select current status...</option>
+                <option>Currently listed & self-managed</option>
+                <option>Currently listed with another manager</option>
+                <option>Not yet listed — new to STR</option>
+                <option>Just exploring options</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Anything else you'd like us to know?</label>
+              <textarea id="message" name="message" rows="4" placeholder="Tell us about your property, your goals, or any questions you have..."></textarea>
+            </div>
+            <button type="submit" class="btn-primary btn-full">Send My Request →</button>
+            <p class="form-note">No spam. No pressure. Just an honest conversation about your property's potential.</p>
+          </form>
+          <div class="form-success" id="formSuccess">
+            <div class="success-icon">✓</div>
+            <h3>Got it — thank you!</h3>
+            <p>We'll review your property details and get back to you within 24 hours with your free revenue estimate.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OWNER PORTAL -->
+  <section class="owner-portal" id="owner-portal">
+    <div class="container">
+      <div class="portal-inner">
+        <div class="portal-icon">🔒</div>
+        <h2>Existing Owner?</h2>
+        <p>Access your property dashboard, view upcoming reservations, download earnings statements, and message our team.</p>
+        <a href="owner-portal.html" class="btn-ghost-light">Access Owner Portal →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="nav-logo">
+            <span class="logo-mark">⌂</span>
+            <span class="logo-text">Hillside <em>Stays</em></span>
+          </a>
+          <p>Full-service short-term rental co-hosting in Western North Carolina. We manage your property. You enjoy the returns.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Navigation</h4>
+          <a href="#services">Services</a>
+          <a href="#how-it-works">How It Works</a>
+          <a href="#why-us">Why Hillside Stays</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-links">
+          <h4>Service Area</h4>
+          <span>Asheville</span>
+          <span>Black Mountain</span>
+          <span>Weaverville</span>
+          <span>Hendersonville</span>
+          <span>Brevard</span>
+          <span>Waynesville</span>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact</h4>
+          <p>smithdj789@gmail.com</p>
+          <p>Western North Carolina</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+            </a>
+            <a href="#" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Hillside Stays LLC. All rights reserved. | Western North Carolina</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
