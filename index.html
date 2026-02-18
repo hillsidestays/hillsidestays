@@ -42,50 +42,12 @@
   <!-- HERO -->
   <section class="hero" id="home">
     <div class="hero-bg">
-      <div class="hero-mountains">
-        <svg viewBox="0 0 1440 500" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#0a1a0f"/>
-              <stop offset="100%" stop-color="#1a3322"/>
-            </linearGradient>
-            <linearGradient id="mtn1" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#1c3d28"/>
-              <stop offset="100%" stop-color="#0d2018"/>
-            </linearGradient>
-            <linearGradient id="mtn2" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#254d32"/>
-              <stop offset="100%" stop-color="#142a1c"/>
-            </linearGradient>
-            <linearGradient id="mtn3" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#1a3a24"/>
-              <stop offset="100%" stop-color="#0f2218"/>
-            </linearGradient>
-          </defs>
-          <rect width="1440" height="500" fill="url(#skyGrad)"/>
-          <!-- Stars -->
-          <circle cx="200" cy="40" r="1" fill="#c9a84c" opacity="0.6"/>
-          <circle cx="450" cy="20" r="1.5" fill="#c9a84c" opacity="0.4"/>
-          <circle cx="700" cy="55" r="1" fill="#fff" opacity="0.3"/>
-          <circle cx="950" cy="30" r="1" fill="#c9a84c" opacity="0.5"/>
-          <circle cx="1200" cy="15" r="1.5" fill="#fff" opacity="0.35"/>
-          <circle cx="1350" cy="60" r="1" fill="#c9a84c" opacity="0.4"/>
-          <circle cx="80" cy="80" r="1" fill="#fff" opacity="0.3"/>
-          <circle cx="350" cy="65" r="1" fill="#c9a84c" opacity="0.3"/>
-          <circle cx="600" cy="35" r="1" fill="#fff" opacity="0.4"/>
-          <circle cx="850" cy="70" r="1" fill="#c9a84c" opacity="0.3"/>
-          <circle cx="1100" cy="45" r="1" fill="#fff" opacity="0.4"/>
-          <!-- Far background mountains -->
-          <path d="M0 320 L120 180 L240 240 L360 150 L480 210 L600 130 L720 200 L840 140 L960 190 L1080 120 L1200 175 L1320 145 L1440 200 L1440 500 L0 500Z" fill="url(#mtn3)" opacity="0.5"/>
-          <!-- Mid mountains -->
-          <path d="M0 380 L180 220 L300 280 L440 180 L560 260 L680 170 L800 240 L920 160 L1040 230 L1160 175 L1280 250 L1440 200 L1440 500 L0 500Z" fill="url(#mtn2)" opacity="0.7"/>
-          <!-- Foreground mountains -->
-          <path d="M0 440 L200 280 L360 360 L520 240 L680 320 L840 220 L1000 310 L1160 260 L1300 340 L1440 290 L1440 500 L0 500Z" fill="url(#mtn1)"/>
-          <!-- Mist layers -->
-          <path d="M0 370 Q360 340 720 360 Q1080 380 1440 355 L1440 420 Q1080 445 720 425 Q360 405 0 430Z" fill="#1a3322" opacity="0.4"/>
-          <path d="M0 400 Q360 380 720 395 Q1080 410 1440 390 L1440 450 Q1080 470 720 455 Q360 440 0 460Z" fill="#1a3322" opacity="0.3"/>
-        </svg>
+      <div class="hero-photo-slideshow">
+        <div class="slide active" style="background-image: url('hero-bg.jpg')"></div>
+        <div class="slide" style="background-image: url('fall-bg.jpg')"></div>
+        <div class="slide" style="background-image: url('mist-bg.jpg')"></div>
       </div>
+      <div class="hero-overlay"></div>
       <div class="hero-noise"></div>
     </div>
 

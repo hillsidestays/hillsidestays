@@ -2,6 +2,17 @@
    HILLSIDE STAYS — Main JavaScript
    ============================================ */
 
+// ---- Photo slideshow ----
+const slides = document.querySelectorAll('.slide');
+let currentSlide = 0;
+if (slides.length > 1) {
+  setInterval(() => {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add('active');
+  }, 6000);
+}
+
 // ---- NAV: scroll effect ----
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
