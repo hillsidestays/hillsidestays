@@ -257,7 +257,7 @@
     </div>
     <button class="login-btn" onclick="handleLogin()">Sign In →</button>
     <div class="login-error" id="login-error">⚠ Incorrect email or access code. Contact your Hillside Stays account manager.</div>
-    <div class="login-footer">Don't have access yet?<br/><a href="mailto:smithdj789@gmail.com?subject=Owner Portal Access">Contact Dylan to get set up →</a></div>
+    <div class="login-footer">Don't have access yet?<br/><a href="/cdn-cgi/l/email-protection#0d7e6064796569673a35344d6a606c6461236e6260327e786f67686e7930427a63687f2d5d627f796c612d4c6e6e687e7e">Contact Dylan to get set up →</a></div>
   </div>
 </div>
 
@@ -326,8 +326,8 @@
           <div class="card">
             <div class="card-header"><div class="card-title">Your Hillside Stays Team</div></div>
             <div class="breakdown">
-              <div class="brow"><span class="bl">Dylan Smith — Account Manager</span><a href="mailto:smithdj789@gmail.com" style="font-size:12px;font-weight:600;color:var(--forest-mid);text-decoration:none">✉ Email</a></div>
-              <div class="brow"><span class="bl">24/7 Guest Support</span><a href="mailto:smithdj789@gmail.com?subject=Urgent Guest Issue" style="font-size:12px;font-weight:600;color:var(--forest-mid);text-decoration:none">✉ Email</a></div>
+              <div class="brow"><span class="bl">Dylan Smith — Account Manager</span><a href="/cdn-cgi/l/email-protection#57243a3e233f333d606f6e17303a363e3b7934383a" style="font-size:12px;font-weight:600;color:var(--forest-mid);text-decoration:none">✉ Email</a></div>
+              <div class="brow"><span class="bl">24/7 Guest Support</span><a href="/cdn-cgi/l/email-protection#cfbca2a6bba7aba5f8f7f68fa8a2aea6a3e1aca0a2f0bcbaada5aaacbbf29abda8aaa1bbef88baaabcbbef86bcbcbaaa" style="font-size:12px;font-weight:600;color:var(--forest-mid);text-decoration:none">✉ Email</a></div>
             </div>
           </div>
         </div>
@@ -374,7 +374,7 @@
           <div class="msg-body" id="msg-body">
             <div class="bubble-row"><div class="bubble-av">DS</div><div><div class="bubble them">Welcome to your Hillside Stays owner portal! Your dashboard is now live and pulling real-time data from your property sheet. Reach out anytime with questions!</div><div class="bubble-time">Today</div></div></div>
           </div>
-          <div class="msg-notice">For urgent guest issues, email <strong>smithdj789@gmail.com</strong> with subject "Urgent"</div>
+          <div class="msg-notice">For urgent guest issues, email <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0d7e6064796569673a35344d6a606c6461236e6260">[email&#160;protected]</a></strong> with subject "Urgent"</div>
           <div class="msg-compose">
             <textarea class="msg-input" id="msg-input" rows="2" placeholder="Send a message to your Hillside Stays team…"></textarea>
             <button class="send-btn" onclick="sendMessage()">Send</button>
@@ -391,7 +391,7 @@
   </div>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ══════════════════════════════════════════
    CONFIG — Dylan edits this section only
 ══════════════════════════════════════════ */
@@ -404,7 +404,7 @@ const CONFIG = {
   // Owner logins — add one per property owner
   // Give each owner their email + a unique code
   owners: [
-    { email: "smithdj789@gmail.com",   code: "HILLSIDE01", name: "Dylan Smith", initials: "DS" },
+    { email: "owner@example.com",   code: "HILLSIDE01", name: "John Sullivan", initials: "JS" },
     // { email: "jane@example.com", code: "RIDGE2026",  name: "Jane Doe",      initials: "JD" },
   ],
 };
@@ -724,11 +724,4 @@ function platClass(p) { return (p||'').toLowerCase().replace(/\s/g,''); }
 function statClass(s) { return (s||'upcoming').toLowerCase(); }
 function setText(id,v) { const e=document.getElementById(id); if(e) e.textContent=v; }
 function show(id,d='block') { document.getElementById(id).style.display=d; }
-function hide(id) { document.getElementById(id).style.display='none'; }
-function parseDollar(s) { return parseFloat((s||'').replace(/[$,−\-\s]/g,''))||0; }
-function fmt(n) { return '$'+n.toLocaleString('en-US',{minimumFractionDigits:0}); }
-function cap(s) { return s?s.charAt(0).toUpperCase()+s.slice(1):''; }
-function esc(s) { const d=document.createElement('div'); d.textContent=s; return d.innerHTML; }
-</script>
-</body>
-</html>
+function hide(id) {
