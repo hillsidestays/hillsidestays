@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STR Co-Host · AI & Automation Playbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0f1a14;
+  --forest: #1a3a2a;
+  --forest-mid: #254d35;
+  --forest-light: #2d6040;
+  --gold: #c9a84c;
+  --gold-light: #e4c76b;
+  --cream: #faf6ec;
+  --cream-dark: #f0ead8;
+  --muted: #6b7a6f;
+  --border: #d4c9a8;
+  --white: #ffffff;
+  --green-tag-bg: #d4edda; --green-tag-text: #1a4d2a;
+  --amber-tag-bg: #fff3cd; --amber-tag-text: #7a5800;
+  --red-tag-bg: #f8d7da;   --red-tag-text: #6b1a1a;
+  --blue-tag-bg: #d0e8ff;  --blue-tag-text: #0a3a6b;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);line-height:1.7;font-size:15px}
+
+/* ── HEADER ── */
+.site-header{background:var(--forest);position:sticky;top:0;z-index:100;box-shadow:0 2px 20px rgba(0,0,0,.25)}
+.header-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
+.header-logo{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--gold);letter-spacing:.04em;display:flex;align-items:center;gap:8px;flex-shrink:0}
+.header-logo span{color:rgba(255,255,255,.4);font-size:.72rem;font-family:'DM Sans',sans-serif;font-weight:300}
+.header-nav{display:flex;gap:1px;flex-shrink:1;min-width:0;overflow:hidden}
+.header-nav a{color:rgba(255,255,255,.6);text-decoration:none;font-size:.71rem;padding:5px 7px;border-radius:4px;transition:all .2s;white-space:nowrap}
+.header-nav a:hover{color:var(--gold);background:rgba(255,255,255,.05)}
+.back-link{color:var(--gold);text-decoration:none;font-size:.72rem;font-family:'DM Mono',monospace;letter-spacing:.05em;border:1px solid rgba(201,168,76,.3);padding:5px 11px;border-radius:5px;transition:all .2s;white-space:nowrap;flex-shrink:0}
+.back-link:hover{background:rgba(201,168,76,.1);border-color:var(--gold)}
+
+/* ── HERO ── */
+.hero{background:var(--forest);background-image:radial-gradient(ellipse at 90% 10%,rgba(201,168,76,.15) 0%,transparent 55%),radial-gradient(ellipse at 5% 90%,rgba(45,96,64,.5) 0%,transparent 50%);padding:80px 32px 72px;text-align:center;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.05) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
+.hero-content{position:relative;z-index:1}
+.hero-eyebrow{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;margin-bottom:20px}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4.5vw,3.5rem);font-weight:300;color:var(--white);line-height:1.15;margin-bottom:20px}
+.hero h1 em{color:var(--gold);font-style:italic}
+.hero-sub{color:rgba(255,255,255,.6);font-size:.95rem;font-weight:300;max-width:620px;margin:0 auto 44px;line-height:1.8}
+.hero-meta{display:flex;gap:32px;justify-content:center;flex-wrap:wrap}
+.hero-meta-item{text-align:center}
+.hero-meta-item .num{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:600;color:var(--gold);display:block}
+.hero-meta-item .label{font-size:.68rem;color:rgba(255,255,255,.4);letter-spacing:.08em;text-transform:uppercase}
+.hero-divider{width:1px;background:rgba(255,255,255,.12)}
+
+/* ── ARCH BANNER ── */
+.arch-banner{background:var(--forest);border-bottom:3px solid var(--gold);padding:52px 32px}
+.arch-inner{max-width:920px;margin:0 auto;text-align:center}
+.arch-eyebrow{font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.16em;color:var(--gold);text-transform:uppercase;margin-bottom:12px}
+.arch-heading{font-family:'Cormorant Garamond',serif;font-size:1.75rem;color:var(--white);font-weight:300;margin-bottom:36px}
+.arch-row{display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;margin-bottom:28px}
+.arch-node{background:rgba(255,255,255,.06);border:1px solid rgba(201,168,76,.22);border-radius:10px;padding:16px 20px;min-width:120px;text-align:center}
+.arch-node.primary{background:rgba(201,168,76,.14);border-color:var(--gold);transform:scale(1.07)}
+.arch-node-icon{font-size:1.3rem;margin-bottom:5px}
+.arch-node-name{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--gold);letter-spacing:.06em;display:block;margin-bottom:2px}
+.arch-node-desc{font-size:.71rem;color:rgba(255,255,255,.5);line-height:1.4}
+.arch-arrow{font-size:1.2rem;color:rgba(201,168,76,.45);padding:0 8px;flex-shrink:0}
+.arch-outputs{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin-top:4px}
+.arch-out{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:11px 14px;text-align:left}
+.arch-out-label{font-family:'DM Mono',monospace;font-size:.63rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:3px}
+.arch-out-desc{font-size:.76rem;color:rgba(255,255,255,.55);line-height:1.45}
+
+/* ── LAYOUT ── */
+.wrapper{max-width:1100px;margin:0 auto;padding:0 24px}
+
+/* ── SECTIONS ── */
+.section{padding:60px 0 44px;border-bottom:1px solid var(--border)}
+.section:last-child{border-bottom:none}
+.section-header{display:flex;align-items:flex-start;gap:20px;margin-bottom:32px}
+.section-number{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--border);line-height:1;flex-shrink:0;margin-top:-4px}
+.section-phase{font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:1.85rem;font-weight:400;color:var(--forest);line-height:1.2;margin-bottom:6px}
+.section-desc{color:var(--muted);font-size:.87rem;line-height:1.65;max-width:640px}
+
+/* ── PATH CARDS ── */
+.path-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px}
+.path-card{border-radius:12px;padding:22px 24px}
+.path-card.recommended{background:var(--forest);color:white}
+.path-card.alternative{background:var(--white);border:1px solid var(--border)}
+.path-eyebrow{font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
+.path-card.recommended .path-eyebrow{color:var(--gold)}
+.path-card.alternative .path-eyebrow{color:var(--muted)}
+.path-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;margin-bottom:8px}
+.path-card.recommended .path-title{color:white}
+.path-card.alternative .path-title{color:var(--forest)}
+.path-desc{font-size:.82rem;line-height:1.65}
+.path-card.recommended .path-desc{color:rgba(255,255,255,.7)}
+.path-card.alternative .path-desc{color:var(--muted)}
+
+/* ── STEP CARDS ── */
+.steps{display:flex;flex-direction:column;gap:14px}
+.step-card{background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.step-header{display:flex;align-items:center;gap:14px;padding:18px 22px;cursor:pointer;user-select:none;transition:background .15s}
+.step-header:hover{background:var(--cream)}
+.step-num{width:32px;height:32px;background:var(--forest);color:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:.76rem;font-weight:500;flex-shrink:0}
+.step-title{font-weight:500;font-size:.93rem;color:var(--forest);flex:1}
+.step-time{font-size:.7rem;color:var(--muted);font-family:'DM Mono',monospace;flex-shrink:0}
+.step-chevron{color:var(--muted);font-size:.8rem;transition:transform .25s;flex-shrink:0}
+.step-card.open .step-chevron{transform:rotate(180deg)}
+.step-body{display:none;padding:0 22px 22px;border-top:1px solid var(--cream-dark)}
+.step-card.open .step-body{display:block}
+
+/* ── BLOCKS ── */
+.edu-block{background:linear-gradient(135deg,var(--forest) 0%,var(--forest-mid) 100%);border-radius:10px;padding:17px 20px;margin:14px 0;color:rgba(255,255,255,.82);font-size:.85rem;line-height:1.7;position:relative}
+.edu-block::before{content:'💡 WHY THIS MATTERS';display:block;font-family:'DM Mono',monospace;font-size:.63rem;letter-spacing:.12em;color:var(--gold);margin-bottom:7px}
+.edu-block strong{color:var(--gold-light)}
+.warn-block{background:#fff8e6;border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:13px 17px;margin:13px 0;font-size:.85rem;line-height:1.65;color:#5a4400}
+.warn-block::before{content:'⚠️ WATCH OUT';display:block;font-family:'DM Mono',monospace;font-size:.63rem;letter-spacing:.12em;color:#7a5800;margin-bottom:5px;font-weight:500}
+.note-block{background:#f0f6ff;border-left:3px solid #4a90d9;border-radius:0 8px 8px 0;padding:13px 17px;margin:13px 0;font-size:.85rem;line-height:1.65;color:#1a3a6b}
+.note-block::before{content:'📌 NOTE';display:block;font-family:'DM Mono',monospace;font-size:.63rem;letter-spacing:.12em;color:#2a5a9b;margin-bottom:5px;font-weight:500}
+
+.action-link{display:inline-flex;align-items:center;gap:7px;background:var(--forest);color:var(--gold);text-decoration:none;padding:8px 16px;border-radius:7px;font-size:.8rem;font-weight:500;transition:all .2s;margin:5px 5px 5px 0;border:1px solid rgba(201,168,76,.3)}
+.action-link:hover{background:var(--forest-mid);border-color:var(--gold);transform:translateY(-1px);box-shadow:0 4px 12px rgba(26,58,42,.3)}
+
+.step-instruction{font-size:.87rem;color:var(--ink);line-height:1.7;margin:13px 0 7px}
+.sub-steps{margin:11px 0 11px 14px;display:flex;flex-direction:column;gap:8px}
+.sub-step{display:flex;gap:11px;align-items:flex-start;font-size:.85rem;color:var(--ink);line-height:1.6}
+.sub-step-alpha{width:20px;height:20px;background:var(--cream-dark);border:1px solid var(--border);border-radius:4px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:.63rem;font-weight:500;color:var(--forest);flex-shrink:0;margin-top:2px}
+
+/* ── PROMPT BLOCKS ── */
+.prompt-block{background:#0f1a14;border-radius:10px;margin:14px 0;overflow:hidden}
+.prompt-label{background:rgba(201,168,76,.11);padding:9px 15px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(201,168,76,.18)}
+.prompt-label span{font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.12em;color:var(--gold);text-transform:uppercase}
+.copy-btn{background:none;border:1px solid rgba(201,168,76,.4);color:var(--gold);padding:3px 11px;border-radius:5px;font-size:.7rem;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s}
+.copy-btn:hover{background:rgba(201,168,76,.15);border-color:var(--gold)}
+.copy-btn.copied{color:#6fcf97;border-color:#6fcf97}
+.prompt-content{padding:16px 15px;font-family:'DM Mono',monospace;font-size:.78rem;color:rgba(255,255,255,.82);line-height:1.75;white-space:pre-wrap;word-break:break-word}
+
+/* ── TABLE ── */
+.comp-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.83rem}
+.comp-table th{background:var(--forest);color:var(--gold);padding:11px 15px;text-align:left;font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:400}
+.comp-table td{padding:9px 15px;border-bottom:1px solid var(--border);color:var(--ink);vertical-align:top;line-height:1.5}
+.comp-table tr:last-child td{border-bottom:none}
+.comp-table tr:nth-child(even) td{background:var(--cream)}
+.tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:.7rem;font-weight:500;font-family:'DM Mono',monospace}
+.tag-green{background:var(--green-tag-bg);color:var(--green-tag-text)}
+.tag-amber{background:var(--amber-tag-bg);color:var(--amber-tag-text)}
+.tag-red{background:var(--red-tag-bg);color:var(--red-tag-text)}
+.tag-blue{background:var(--blue-tag-bg);color:var(--blue-tag-text)}
+
+/* ── WORKFLOW DIAGRAM ── */
+.wf-diagram{background:var(--ink);border-radius:12px;padding:22px;margin:14px 0;overflow-x:auto}
+.wf-steps{display:flex;align-items:flex-start;gap:0;min-width:560px}
+.wf-step{flex:1;text-align:center;position:relative}
+.wf-step::after{content:'→';position:absolute;right:-10px;top:16px;color:rgba(201,168,76,.45);font-size:1.1rem}
+.wf-step:last-child::after{display:none}
+.wf-box{background:rgba(255,255,255,.06);border:1px solid rgba(201,168,76,.18);border-radius:8px;padding:11px 8px;margin:0 14px}
+.wf-box.trigger{border-color:rgba(111,207,151,.5);background:rgba(111,207,151,.07)}
+.wf-box.ai{border-color:var(--gold);background:rgba(201,168,76,.09)}
+.wf-box.output{border-color:rgba(74,144,217,.5);background:rgba(74,144,217,.07)}
+.wf-icon{font-size:1.15rem;margin-bottom:5px}
+.wf-label{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.08em;color:rgba(255,255,255,.45);text-transform:uppercase;margin-bottom:2px}
+.wf-name{font-size:.76rem;color:rgba(255,255,255,.85);font-weight:500;line-height:1.3}
+
+/* ── COST GRID ── */
+.cost-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:12px;margin:14px 0}
+.cost-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px 18px}
+.cost-service{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+.cost-price{font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:400;color:var(--forest);line-height:1;margin-bottom:3px}
+.cost-desc{font-size:.77rem;color:var(--muted);line-height:1.5}
+
+/* ── TOOLBAR ── */
+.toolbar{display:flex;justify-content:flex-end;margin-bottom:14px;gap:7px}
+.toolbar-btn{background:none;border:1px solid var(--border);color:var(--forest);padding:5px 13px;border-radius:6px;font-size:.76rem;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s}
+.toolbar-btn:hover{background:var(--forest);color:var(--cream);border-color:var(--forest)}
+
+.divider-line{height:1px;background:var(--border);margin:22px 0 18px}
+h4.sub-heading{font-family:'Cormorant Garamond',serif;font-size:1.12rem;font-weight:400;color:var(--forest);margin:18px 0 7px}
+p.body-text{font-size:.87rem;color:var(--ink);line-height:1.75;margin-bottom:11px}
+code.inline{font-family:'DM Mono',monospace;font-size:.81em;background:var(--cream-dark);border:1px solid var(--border);border-radius:4px;padding:1px 6px;color:var(--forest)}
+
+/* ── INVESTOR GATE ── */
+.investor-gate{background:var(--ink);border:1px solid rgba(201,168,76,.2);border-radius:14px;padding:40px;text-align:center;margin:14px 0}
+.investor-gate-icon{font-size:2rem;margin-bottom:14px}
+.investor-gate-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--white);font-weight:300;margin-bottom:8px}
+.investor-gate-sub{color:rgba(255,255,255,.5);font-size:.84rem;margin-bottom:24px;line-height:1.6}
+.investor-gate-form{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.investor-input{background:rgba(255,255,255,.07);border:1px solid rgba(201,168,76,.3);color:var(--white);padding:10px 16px;border-radius:7px;font-family:'DM Mono',monospace;font-size:.85rem;letter-spacing:.1em;width:220px;outline:none;transition:all .2s}
+.investor-input:focus{border-color:var(--gold);background:rgba(255,255,255,.1)}
+.investor-input::placeholder{color:rgba(255,255,255,.25);letter-spacing:.08em}
+.investor-submit{background:var(--gold);color:var(--ink);border:none;padding:10px 22px;border-radius:7px;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;cursor:pointer;transition:all .2s}
+.investor-submit:hover{background:var(--gold-light);transform:translateY(-1px)}
+.investor-error{color:#ff8a8a;font-size:.78rem;font-family:'DM Mono',monospace;margin-top:10px;display:none}
+.investor-content{display:none}
+.investor-content.unlocked{display:block}
+
+/* ── GITHUB DEPLOY ── */
+.deploy-step{display:flex;gap:16px;align-items:flex-start;padding:16px 0;border-bottom:1px solid var(--border)}
+.deploy-step:last-child{border-bottom:none}
+.deploy-num{width:36px;height:36px;background:var(--forest);color:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:500;flex-shrink:0;margin-top:2px}
+.deploy-step-body{flex:1}
+.deploy-step-title{font-weight:500;font-size:.92rem;color:var(--forest);margin-bottom:5px}
+.deploy-step-desc{font-size:.85rem;color:var(--ink);line-height:1.65}
+
+
+.site-footer{background:var(--forest);padding:36px 32px;text-align:center}
+.site-footer p{color:rgba(255,255,255,.4);font-size:.77rem;line-height:1.7}
+.site-footer a{color:var(--gold);text-decoration:none}
+
+@media(max-width:960px){
+  .header-nav a:nth-child(n+6){display:none}
+}
+@media(max-width:700px){
+  .header-nav{display:none}
+  .hero{padding:52px 20px 48px}
+  .wrapper{padding:0 20px}
+  .arch-banner{padding:40px 20px}
+  .arch-row{flex-direction:column;align-items:center}
+  .arch-arrow{transform:rotate(90deg)}
+  .section{padding:44px 0 30px}
+  .path-grid{grid-template-columns:1fr}
+  .hero-divider{display:none}
+  .wf-steps{min-width:100%}
+  .cost-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:440px){
+  .cost-grid{grid-template-columns:1fr}
+  .hero-meta{gap:20px}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-logo">🤖 AI & Automation Playbook <span>/ STR Co-Host · Phase 6</span></div>
+    <nav class="header-nav">
+      <a href="#pms">PMS</a>
+      <a href="#n8n">n8n</a>
+      <a href="#claude-api">Claude API</a>
+      <a href="#wf1">Booking Sync</a>
+      <a href="#wf2">Guest Msgs</a>
+      <a href="#wf3">Reviews</a>
+      <a href="#wf4">Reports</a>
+      <a href="#prompts">AI Prompts</a>
+      <a href="#monitoring">Monitoring</a>
+      <a href="#costs">Costs</a>
+    </nav>
+    <a href="STR_CoHost_Playbook.html" class="back-link">← Main Playbook</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">Phase 6 · AI & Automation · STR Co-Host System</div>
+    <h1>Fully Hands-Off Operations<br><em>Powered by AI</em></h1>
+    <p class="hero-sub">A complete technical playbook for automating guest messaging, owner reporting, review responses, and booking data sync — so the system runs itself while you grow.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item"><span class="num">4</span><span class="label">Core Workflows</span></div>
+      <div class="hero-divider"></div>
+      <div class="hero-meta-item"><span class="num">$22–74/mo</span><span class="label">Stack Cost</span></div>
+      <div class="hero-divider"></div>
+      <div class="hero-meta-item"><span class="num">$0.01–0.05</span><span class="label">Per Booking (AI)</span></div>
+      <div class="hero-divider"></div>
+      <div class="hero-meta-item"><span class="num">1–3 hrs</span><span class="label">Setup Per Client</span></div>
+      <div class="hero-divider"></div>
+      <div class="hero-meta-item"><span class="num">~15 min</span><span class="label">Weekly Pulse Check</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ARCHITECTURE BANNER -->
+<div class="arch-banner">
+  <div class="arch-inner">
+    <div class="arch-eyebrow">System Architecture</div>
+    <div class="arch-heading">How every piece connects</div>
+    <div class="arch-row">
+      <div class="arch-node">
+        <div class="arch-node-icon">🏠</div>
+        <span class="arch-node-name">PMS</span>
+        <div class="arch-node-desc">OwnerRez or Hospitable. Source of truth for bookings, guests, reviews.</div>
+      </div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-node primary">
+        <div class="arch-node-icon">⚙️</div>
+        <span class="arch-node-name">n8n</span>
+        <div class="arch-node-desc">The automation brain. Receives events, routes data, calls Claude.</div>
+      </div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-node">
+        <div class="arch-node-icon">🤖</div>
+        <span class="arch-node-name">Claude API</span>
+        <div class="arch-node-desc">Drafts messages, writes reports, responds to reviews.</div>
+      </div>
+    </div>
+    <div class="arch-outputs">
+      <div class="arch-out"><div class="arch-out-label">→ Google Sheets</div><div class="arch-out-desc">Booking data auto-updates owner portal. Zero manual entry.</div></div>
+      <div class="arch-out"><div class="arch-out-label">→ Slack</div><div class="arch-out-desc">AI drafts sent for approval. 30-min auto-send if no response.</div></div>
+      <div class="arch-out"><div class="arch-out-label">→ PMS / Email</div><div class="arch-out-desc">Approved messages delivered to guests on their booking channel.</div></div>
+      <div class="arch-out"><div class="arch-out-label">→ Owner Email</div><div class="arch-out-desc">Monthly narrative report sent automatically on the 1st.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- CROSS-LINK BANNER -->
+<div style="background: #0f1a14; border-bottom: 2px solid rgba(201,168,76,0.3); padding: 16px 32px;">
+  <div style="max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <span style="font-size: 1.3rem;">🏔</span>
+      <div>
+        <div style="font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 2px;">Phases 1–4 · Website & Portal</div>
+        <div style="font-size: 0.84rem; color: rgba(255,255,255,0.7);">Need to set up your website, GitHub Pages, or Softr owner portal first?</div>
+      </div>
+    </div>
+    <a href="STR_CoHost_Playbook.html" style="display: inline-flex; align-items: center; gap: 8px; background: rgba(201,168,76,0.15); color: var(--gold); text-decoration: none; padding: 9px 18px; border-radius: 7px; font-size: 0.82rem; font-weight: 500; border: 1px solid rgba(201,168,76,0.4); white-space: nowrap; transition: all 0.2s;" onmouseover="this.style.background='rgba(201,168,76,0.25)'" onmouseout="this.style.background='rgba(201,168,76,0.15)'">← Back to Main Playbook</a>
+  </div>
+</div>
+
+<!-- ═══════ MAIN CONTENT ═══════ -->
+<div class="wrapper">
+
+<!-- ═══ 6A — PMS ═══ -->
+<section class="section" id="pms">
+  <div class="section-header">
+    <div class="section-number">6A</div>
+    <div>
+      <div class="section-phase">Step 1 · PMS Selection & Setup</div>
+      <div class="section-title">Choosing & Configuring Your PMS</div>
+      <div class="section-desc">Your Property Management System is the source of truth for all booking data. OwnerRez is recommended for AI-focused operations. Hospitable is the faster alternative.</div>
+    </div>
+  </div>
+
+  <div class="path-grid">
+    <div class="path-card recommended">
+      <div class="path-eyebrow">⭐ Recommended</div>
+      <div class="path-title">OwnerRez</div>
+      <div class="path-desc">Stronger API with full entity data embedded in webhook payloads, built-in owner accounting, trust accounting, and detailed financial statements. Longer initial setup — but that investment pays off immediately in automation quality and client reporting.</div>
+    </div>
+    <div class="path-card alternative">
+      <div class="path-eyebrow">Alternative</div>
+      <div class="path-title">Hospitable</div>
+      <div class="path-desc">Faster to configure, clean modern v2 API, PAT-based auth with no OAuth app required for webhooks. Good coverage for reservations, messages, and reviews. Use when a client is already on Hospitable or needs to be live fast.</div>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <button class="toolbar-btn" data-action="expand">Expand All</button>
+    <button class="toolbar-btn" data-action="collapse">Collapse All</button>
+  </div>
+  <div class="steps">
+
+    <div class="step-card" id="pms1">
+      <div class="step-header"><div class="step-num">1</div><div class="step-title">OwnerRez — Account setup & property onboarding</div><div class="step-time">~60–90 min</div><div class="step-chevron">▼</div></div>
+      <div class="step-body">
+        <a href="https://www.ownerrez.com" target="_blank" class="action-link">→ OwnerRez.com ↗</a>
+        <a href="https://www.ownerrez.com/support/articles/api-overview" target="_blank" class="action-link">→ API Docs ↗</a>
+        <div class="sub-steps" style="margin-top:14px">
+          <div class="sub-step"><div class="sub-step-alpha">a</div><div>Sign up at ownerrez.com using the client's business email. Free trial — no credit card to start.</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">b</div><div>Complete the property setup wizard: property name, address, bedrooms/bathrooms, amenities, check-in/out times, and house rules. Take your time — this data feeds every guest message Claude writes.</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">c</div><div>Connect listing channels: <strong>Settings → Channels</strong>. Complete the OAuth connection for Airbnb and VRBO. OwnerRez pulls existing bookings automatically.</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">d</div><div>Configure owner accounting: <strong>Settings → Owner Statements</strong>. Set the management fee percentage, payout schedule, and expense categories. This is what powers owner financial reporting.</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">e</div><div>Add the owner contact — their name, email, and payout details — so statements generate automatically each month.</div></div>
+        </div>
+        <div class="edu-block">
+          Every detail you enter here — property amenities, house rules, check-in instructions — becomes context Claude draws on when writing guest messages. <strong>A well-configured OwnerRez account is the difference between messages that feel generic and messages that feel like they came from someone who genuinely knows and cares about the property.</strong> This is your competitive advantage made operational.
+        </div>
+      </div>
+    </div>
+
+    <div class="step-card" id="pms2">
+      <div class="step-header"><div class="step-num">2</div><div class="step-title">OwnerRez — Generate API credentials & configure webhooks</div><div class="step-time">~20 min</div><div class="step-chevron">▼</div></div>
+      <div class="step-body">
+        <a href="https://www.ownerrez.com/support/articles/api-auth" target="_blank" class="action-link">→ API Authentication Docs ↗</a>
+        <a href="https://www.ownerrez.com/support/articles/api-webhooks" target="_blank" class="action-link">→ Webhook Docs ↗</a>
+
+        <h4 class="sub-heading">Personal Access Token (for reading data via API)</h4>
+        <div class="sub-steps">
+          <div class="sub-step"><div class="sub-step-alpha">a</div><div>Top-right dropdown → <strong>Settings → Advanced Tools → Developer/API Settings → Create Personal Access Token</strong></div></div>
+          <div class="sub-step"><div class="sub-step-alpha">b</div><div>Name it "n8n Automation". Copy the token immediately — shown only once. Starts with <code class="inline">pt_</code>.</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">c</div><div>Authentication uses Basic Auth: username = your OwnerRez email, password = the token</div></div>
+        </div>
+
+        <h4 class="sub-heading">OAuth App (required for webhooks)</h4>
+        <div class="sub-steps">
+          <div class="sub-step"><div class="sub-step-alpha">a</div><div>OwnerRez webhooks only work with OAuth apps, not Personal Access Tokens. Go to <strong>Developer/API Settings → Create App</strong></div></div>
+          <div class="sub-step"><div class="sub-step-alpha">b</div><div>Name it "n8n Webhook Receiver". Set the Webhook URL to your n8n webhook endpoint (you'll get this in Section 6B)</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">c</div><div>Set a Webhook username and password — these are credentials OwnerRez uses when calling your n8n endpoint to prevent spoofed requests</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">d</div><div>Subscribe to: <strong>Booking</strong> entity (created, modified, cancelled) and <strong>Review</strong> entity (posted)</div></div>
+        </div>
+        <div class="note-block">As of August 2025, OwnerRez webhook payloads now include the <strong>full entity record inline</strong> — you don't need a second API call to fetch booking details. n8n receives everything in one payload, which simplifies all four workflows significantly.</div>
+        <div class="warn-block">OwnerRez's messaging API (to send guest messages directly through OwnerRez) requires a separate partnership agreement. Contact <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="05756477716b60776d606975456a726b607777607f2b666a68">[email&#160;protected]</a></strong> with subject "Messaging API Access." Until approved, route guest messages via email or the platform's native messaging tools.</div>
+      </div>
+    </div>
+
+    <div class="step-card" id="pms3">
+      <div class="step-header"><div class="step-num">3</div><div class="step-title">Hospitable — Account setup & API credentials</div><div class="step-time">~30–45 min</div><div class="step-chevron">▼</div></div>
+      <div class="step-body">
+        <a href="https://hospitable.com" target="_blank" class="action-link">→ Hospitable.com ↗</a>
+        <a href="https://developer.hospitable.com" target="_blank" class="action-link">→ API Docs ↗</a>
+
+        <div class="sub-steps" style="margin-top:14px">
+          <div class="sub-step"><div class="sub-step-alpha">a</div><div>Sign up and connect Airbnb/VRBO — Hospitable imports existing listings automatically</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">b</div><div>Complete property profiles: house manual, check-in instructions, WiFi details, local recommendations. This context feeds Claude's guest messages.</div></div>
+        </div>
+
+        <h4 class="sub-heading">Generate a Personal Access Token (PAT)</h4>
+        <div class="sub-steps">
+          <div class="sub-step"><div class="sub-step-alpha">a</div><div><strong>Settings → API → Personal Access Tokens → Generate Token</strong></div></div>
+          <div class="sub-step"><div class="sub-step-alpha">b</div><div>Set permissions: read reservations, read/write messages, read reviews, read properties</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">c</div><div>Copy the token. Authentication: <code class="inline">Authorization: Bearer YOUR_PAT</code>. Base URL: <code class="inline">https://public.api.hospitable.com/v2/</code></div></div>
+        </div>
+
+        <h4 class="sub-heading">Configure Webhooks</h4>
+        <div class="sub-steps">
+          <div class="sub-step"><div class="sub-step-alpha">a</div><div><strong>Settings → API → Webhooks → Add Webhook</strong>. Enter your n8n webhook URL.</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">b</div><div>Subscribe to: <code class="inline">reservation.created</code>, <code class="inline">reservation.updated</code>, <code class="inline">message.created</code>, <code class="inline">review.created</code></div></div>
+          <div class="sub-step"><div class="sub-step-alpha">c</div><div>Hospitable signs payloads with HMAC-SHA256. Save the signing secret — use it in n8n to verify requests are genuinely from Hospitable.</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══ 6B — n8n ═══ -->
+<section class="section" id="n8n">
+  <div class="section-header">
+    <div class="section-number">6B</div>
+    <div>
+      <div class="section-phase">Step 2 · Automation Engine</div>
+      <div class="section-title">Setting Up n8n</div>
+      <div class="section-desc">n8n is the central nervous system — it receives PMS events, calls Claude for AI-generated content, and routes everything to the right destination. Two hosting options, same end result.</div>
+    </div>
+  </div>
+
+  <table class="comp-table" style="margin-bottom:24px">
+    <thead><tr><th>Factor</th><th>n8n Cloud (Starter)</th><th>Self-Hosted (DigitalOcean)</th></tr></thead>
+    <tbody>
+      <tr><td>Monthly Cost</td><td><span class="tag tag-amber">~$20/mo · 2,500 executions</span></td><td><span class="tag tag-green">~$12/mo (server + extras)</span></td></tr>
+      <tr><td>Setup Time</td><td><span class="tag tag-green">5 minutes</span></td><td><span class="tag tag-amber">45–60 min first time</span></td></tr>
+      <tr><td>Execution Limits</td><td>2,500/mo (plenty for most STR operations — a 3-property client uses ~200–400/mo)</td><td><span class="tag tag-green">Unlimited</span></td></tr>
+      <tr><td>Maintenance</td><td><span class="tag tag-green">None — n8n manages everything</span></td><td>You handle updates, SSL, uptime</td></tr>
+      <tr><td>Technical Skill</td><td><span class="tag tag-green">None required</span></td><td>Comfortable with terminal / Docker</td></tr>
+      <tr><td>Best For</td><td>Getting started, individual client setups</td><td>Managing multiple clients from one central instance</td></tr>
+    </tbody>
+  </table>
+
+  <div class="note-block">n8n's pricing model is uniquely fair: <strong>1 execution = 1 complete workflow run, regardless of how many steps it has.</strong> A 15-step guest messaging workflow counts as 1 execution. Unlike Zapier (which charges per step), costs stay predictable as your workflows grow more sophisticated.</div>
+
+  <div class="toolbar" style="margin-top:20px">
+    <button class="toolbar-btn" data-action="expand">Expand All</button>
+    <button class="toolbar-btn" data-action="collapse">Collapse All</button>
+  </div>
+  <div class="steps">
+
+    <div class="step-card" id="n8n-cloud">
+      <div class="step-header"><div class="step-num">A</div><div class="step-title">Path A — n8n Cloud (recommended for most clients)</div><div class="step-time">~5 min</div><div class="step-chevron">▼</div></div>
+      <div class="step-body">
+        <a href="https://n8n.io" target="_blank" class="action-link">→ n8n.io ↗</a>
+        <a href="https://n8n.io/pricing" target="_blank" class="action-link">→ Pricing ↗</a>
+        <div class="sub-steps" style="margin-top:14px">
+          <div class="sub-step"><div class="sub-step-alpha">a</div><div>Go to n8n.io → <strong>Get Started</strong> → sign up with your business email</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">b</div><div>Choose <strong>Starter (~$20/mo)</strong>. 2,500 executions/month is more than enough to start.</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">c</div><div>Your instance URL will be something like <code class="inline">https://yourname.app.n8n.cloud</code> — this becomes your webhook base URL for the PMS setup</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">d</div><div>Log in and explore the canvas. Workflows are built by connecting nodes (boxes) with edges (arrows). Every integration in this playbook uses the visual editor — no code required.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-card" id="n8n-self">
+      <div class="step-header"><div class="step-num">B</div><div class="step-title">Path B — Self-hosted on DigitalOcean</div><div class="step-time">~60 min</div><div class="step-chevron">▼</div></div>
+      <div class="step-body">
+        <a href="https://digitalocean.com" target="_blank" class="action-link">→ DigitalOcean.com ↗</a>
+        <a href="https://docs.n8n.io/hosting/" target="_blank" class="action-link">→ n8n Self-Hosting Docs ↗</a>
+        <div class="sub-steps" style="margin-top:14px">
+          <div class="sub-step"><div class="sub-step-alpha">a</div><div>Create a DigitalOcean account. New accounts get $200 in free credits — roughly 16 months of the basic droplet.</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">b</div><div>Create a Droplet: <strong>Ubuntu 24.04 LTS, Basic plan → $12/mo (2 vCPU, 2GB RAM)</strong>. Choose a datacenter near your clients (New York or San Francisco for US-based).</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">c</div><div>Connect via SSH: <code class="inline">ssh root@YOUR_DROPLET_IP</code></div></div>
+        </div>
+
+        <div class="prompt-block">
+          <div class="prompt-label"><span>💻 Install Docker</span><button class="copy-btn" data-target="docker">Copy</button></div>
+          <div class="prompt-content" id="docker">apt update && apt upgrade -y
+apt install -y docker.io docker-compose
+systemctl enable docker && systemctl start docker</div>
+        </div>
+
+        <div class="prompt-block">
+          <div class="prompt-label"><span>💻 Create n8n docker-compose.yml</span><button class="copy-btn" data-target="dockercompose">Copy</button></div>
+          <div class="prompt-content" id="dockercompose">mkdir ~/n8n && cd ~/n8n
+cat > docker-compose.yml << 'EOF'
+version: "3"
+services:
+  n8n:
+    image: n8nio/n8n
+    restart: always
+    ports:
+      - "5678:5678"
+    environment:
+      - N8N_HOST=n8n.yourdomain.com
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=https
+      - NODE_ENV=production
+      - WEBHOOK_URL=https://n8n.yourdomain.com/
+      - GENERIC_TIMEZONE=America/New_York
+    volumes:
+      - n8n_data:/home/node/.n8n
+volumes:
+  n8n_data:
+EOF</div>
+        </div>
+
+        <div class="prompt-block">
+          <div class="prompt-label"><span>💻 Install Caddy (auto-HTTPS reverse proxy)</span><button class="copy-btn" data-target="caddy">Copy</button></div>
+          <div class="prompt-content" id="caddy">apt install -y debian-keyring debian-archive-keyring apt-transport-https
+curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg
+curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | tee /etc/apt/sources.list.d/caddy-stable.list
+apt update && apt install caddy -y
+
+cat > /etc/caddy/Caddyfile << 'EOF'
+n8n.yourdomain.com {
+  reverse_proxy localhost:5678
+}
+EOF
+
+systemctl reload caddy</div>
+        </div>
+
+        <div class="sub-steps">
+          <div class="sub-step"><div class="sub-step-alpha">d</div><div>Add an A record in Namecheap DNS: host = <code class="inline">n8n</code>, value = your Droplet IP</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">e</div><div>Start n8n: <code class="inline">cd ~/n8n && docker-compose up -d</code></div></div>
+          <div class="sub-step"><div class="sub-step-alpha">f</div><div>Visit <code class="inline">https://n8n.yourdomain.com</code> — create your admin account on first load</div></div>
+        </div>
+        <div class="warn-block">Set a monthly calendar reminder to update n8n: <code class="inline">cd ~/n8n && docker-compose pull && docker-compose up -d</code>. This pulls the latest image and restarts with zero downtime.</div>
+      </div>
+    </div>
+
+    <div class="step-card" id="slack-setup">
+      <div class="step-header"><div class="step-num">3</div><div class="step-title">Connect Slack for approval notifications</div><div class="step-time">~20 min</div><div class="step-chevron">▼</div></div>
+      <div class="step-body">
+        <a href="https://api.slack.com/apps" target="_blank" class="action-link">→ Slack API Dashboard ↗</a>
+        <a href="https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.slack/" target="_blank" class="action-link">→ n8n Slack Node Docs ↗</a>
+        <div class="edu-block">When Claude drafts a guest message, n8n sends it to a private Slack channel showing the guest name, property, check-in date, and the full message draft — with an Approve button. Tap Approve and it sends immediately. Do nothing for 30 minutes and it auto-sends. <strong>You stay in control by default, but the system never stalls waiting for you.</strong></div>
+
+        <h4 class="sub-heading">Create a Slack App</h4>
+        <div class="sub-steps">
+          <div class="sub-step"><div class="sub-step-alpha">a</div><div>api.slack.com/apps → <strong>Create New App → From Scratch</strong>. Name it "STR Automation", select your workspace.</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">b</div><div><strong>OAuth & Permissions → Bot Token Scopes</strong>. Add: <code class="inline">chat:write</code>, <code class="inline">chat:write.public</code>, <code class="inline">channels:read</code></div></div>
+          <div class="sub-step"><div class="sub-step-alpha">c</div><div><strong>Install to Workspace</strong> → copy the Bot User OAuth Token (starts with <code class="inline">xoxb-</code>)</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">d</div><div><strong>Interactivity & Shortcuts → Enable Interactivity</strong>. Set the Request URL to: <code class="inline">https://[your-n8n-url]/webhook/slack-interactions</code></div></div>
+        </div>
+
+        <h4 class="sub-heading">Add to n8n & create the channel</h4>
+        <div class="sub-steps">
+          <div class="sub-step"><div class="sub-step-alpha">a</div><div>In n8n: <strong>Credentials → New → Slack API</strong>. Paste your Bot Token. Name it "Slack STR Bot".</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">b</div><div>Create a private Slack channel called <code class="inline">#str-approvals</code> and invite your bot to it</div></div>
+        </div>
+        <div class="note-block">n8n's built-in Slack node has a <strong>"Send and Wait for Response"</strong> action that handles the entire approval loop natively — sends the message, pauses the workflow, waits for a button click, then resumes with the result. The interactivity URL above is what connects Slack button clicks back to n8n.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══ 6C — CLAUDE API ═══ -->
+<section class="section" id="claude-api">
+  <div class="section-header">
+    <div class="section-number">6C</div>
+    <div>
+      <div class="section-phase">Step 3 · AI Intelligence Layer</div>
+      <div class="section-title">Connecting the Claude API</div>
+      <div class="section-desc">Claude is called directly from n8n via Anthropic's API — no wrappers, no middleware. Full control over every prompt, model, and parameter. Haiku 4.5 for speed-sensitive messaging. Sonnet 4.5 for nuance-heavy reports and review responses.</div>
+    </div>
+  </div>
+
+  <div class="cost-grid" style="margin-bottom:24px">
+    <div class="cost-card"><div class="cost-service">Claude Haiku 4.5</div><div class="cost-price">$1 / $5</div><div class="cost-desc">Per million input/output tokens. Fast, capable. Use for all 6 guest messages and check-in sequences.</div></div>
+    <div class="cost-card"><div class="cost-service">Claude Sonnet 4.5</div><div class="cost-price">$3 / $15</div><div class="cost-desc">Per million tokens. Better nuance. Use for review responses and owner reports where tone matters most.</div></div>
+    <div class="cost-card"><div class="cost-service">Per Booking (all msgs)</div><div class="cost-price">~$0.02</div><div class="cost-desc">Estimated total AI cost for all 6 guest messages + review response for one 4-night stay.</div></div>
+    <div class="cost-card"><div class="cost-service">Monthly (3 properties)</div><div class="cost-price">~$2</div><div class="cost-desc">Total estimated Claude API spend at average occupancy across 3 properties. Less than a coffee.</div></div>
+  </div>
+
+  <div class="toolbar">
+    <button class="toolbar-btn" data-action="expand">Expand All</button>
+    <button class="toolbar-btn" data-action="collapse">Collapse All</button>
+  </div>
+  <div class="steps">
+
+    <div class="step-card" id="api1">
+      <div class="step-header"><div class="step-num">1</div><div class="step-title">Create an Anthropic account & generate an API key</div><div class="step-time">~5 min</div><div class="step-chevron">▼</div></div>
+      <div class="step-body">
+        <a href="https://console.anthropic.com" target="_blank" class="action-link">→ Anthropic Console ↗</a>
+        <a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" class="action-link">→ API Pricing ↗</a>
+        <div class="sub-steps" style="margin-top:14px">
+          <div class="sub-step"><div class="sub-step-alpha">a</div><div>console.anthropic.com → sign up with your business email. Add a payment method — pay-as-you-go, no monthly minimum. New accounts get $5 in free credits.</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">b</div><div><strong>API Keys → Create Key</strong>. Name it "n8n STR Automation". Copy immediately — shown only once.</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">c</div><div>Set a monthly spend limit under <strong>Settings → Limits</strong>. $10–20/month is more than enough to start and prevents any surprise billing.</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">d</div><div>In n8n: <strong>Credentials → New → Anthropic API</strong>. Paste your key. Name it "Anthropic — STR Automation". Test to confirm it works.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-card" id="api2">
+      <div class="step-header"><div class="step-num">2</div><div class="step-title">HTTP Request node template for Claude calls</div><div class="step-time">Reference</div><div class="step-chevron">▼</div></div>
+      <div class="step-body">
+        <p class="step-instruction">n8n has a built-in Anthropic node — use it for most workflows. For fine-grained control, use the HTTP Request node directly with this configuration:</p>
+        <div class="prompt-block">
+          <div class="prompt-label"><span>⚙️ n8n HTTP Request — Claude API Config</span><button class="copy-btn" data-target="claudehttp">Copy</button></div>
+          <div class="prompt-content" id="claudehttp">Method:  POST
+URL:     https://api.anthropic.com/v1/messages
+Auth:    Header Auth
+  Name:  x-api-key
+  Value: {{ $credentials.anthropicApi.apiKey }}
+
+Headers:
+  anthropic-version: 2023-06-01
+  content-type: application/json
+
+Body (JSON):
+{
+  "model": "claude-haiku-4-5-20251001",
+  "max_tokens": 1024,
+  "system": "{{ $json.systemPrompt }}",
+  "messages": [{ "role": "user", "content": "{{ $json.userMessage }}" }]
+}
+
+// For review responses and owner reports, use Sonnet:
+// "model": "claude-sonnet-4-6"</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══ WORKFLOW 1 — BOOKING SYNC ═══ -->
+<section class="section" id="wf1">
+  <div class="section-header">
+    <div class="section-number">W1</div>
+    <div>
+      <div class="section-phase">Workflow 1 · Fully Automated · No AI Required</div>
+      <div class="section-title">Booking Sync → Google Sheets</div>
+      <div class="section-desc">Every new, modified, or cancelled booking automatically updates the owner's Google Sheet — and therefore their Softr portal. The end of manual monthly data entry.</div>
+    </div>
+  </div>
+
+  <div class="wf-diagram">
+    <div class="wf-steps">
+      <div class="wf-step"><div class="wf-box trigger"><div class="wf-icon">🏠</div><div class="wf-label">Trigger</div><div class="wf-name">PMS Webhook<br>booking.created</div></div></div>
+      <div class="wf-step"><div class="wf-box"><div class="wf-icon">⚙️</div><div class="wf-label">n8n</div><div class="wf-name">Parse & extract<br>booking data</div></div></div>
+      <div class="wf-step"><div class="wf-box"><div class="wf-icon">🔀</div><div class="wf-label">n8n</div><div class="wf-name">Branch: created /<br>modified / cancelled</div></div></div>
+      <div class="wf-step"><div class="wf-box"><div class="wf-icon">🔍</div><div class="wf-label">n8n</div><div class="wf-name">Look up owner's<br>Sheet & tab</div></div></div>
+      <div class="wf-step"><div class="wf-box output"><div class="wf-icon">📊</div><div class="wf-label">Output</div><div class="wf-name">Update Sheet +<br>recalculate YTD</div></div></div>
+    </div>
+  </div>
+
+  <div class="toolbar" style="margin-top:18px">
+    <button class="toolbar-btn" data-action="expand">Expand All</button>
+    <button class="toolbar-btn" data-action="collapse">Collapse All</button>
+  </div>
+  <div class="steps">
+
+    <div class="step-card" id="wf1s1">
+      <div class="step-header"><div class="step-num">1</div><div class="step-title">Build the booking sync workflow in n8n</div><div class="step-time">~30 min</div><div class="step-chevron">▼</div></div>
+      <div class="step-body">
+        <p class="step-instruction">Add these nodes in order on the n8n canvas:</p>
+        <div class="sub-steps">
+          <div class="sub-step"><div class="sub-step-alpha">1</div><div><strong>Webhook node</strong> (trigger) — set to POST. Copy the webhook URL and paste into your PMS webhook settings. For OwnerRez, enable Basic Auth using the username/password from your OAuth app. For Hospitable, add an IF node to verify the HMAC-SHA256 signature header.</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">2</div><div><strong>Set node</strong> — extract key fields from the payload: guest name, check-in date, check-out date, number of nights, gross revenue, booking status, property ID.</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">3</div><div><strong>Switch node</strong> — branch on booking action: <code class="inline">created</code> → append new row, <code class="inline">modified</code> → find and update existing row, <code class="inline">cancelled</code> → update status column to "Cancelled".</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">4</div><div><strong>Google Sheets node</strong> — connect with your Google account. Select the owner's spreadsheet and their property tab. On the created branch: append a new row to the RESERVATIONS section. Format revenue as <code class="inline">$X,XXX</code> before writing — the portal expects pre-formatted strings.</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">5</div><div><strong>Google Sheets node (second)</strong> — update the stats block: recalculate YTD revenue, nights, average rate, and occupancy. Write these back to rows 4–7 in the stats block.</div></div>
+        </div>
+
+        <div class="warn-block"><strong>Multi-property clients:</strong> Create a "Config" tab in your master Google spreadsheet with columns for PMS property ID, spreadsheet ID, and tab name. The workflow reads this lookup table first to find the right destination for each incoming booking.</div>
+
+        <h4 class="sub-heading">Webhook payload reference — OwnerRez vs. Hospitable</h4>
+        <div class="prompt-block">
+          <div class="prompt-label"><span>📦 OwnerRez Payload (Aug 2025+) — full entity inline</span></div>
+          <div class="prompt-content">{
+  "action": "entity_update",
+  "entity_type": "booking",
+  "entity": {
+    "arrival": "2026-03-15",       // check-in
+    "departure": "2026-03-19",     // check-out
+    "adults": 2,
+    "guest": { "name": "Marcus Webb", "email": "..." },
+    "amount": 924.00,              // gross revenue (dollars)
+    "status": "confirmed"
+  }
+  // No second API call needed — all data is here
+}</div>
+        </div>
+        <div class="prompt-block">
+          <div class="prompt-label"><span>📦 Hospitable Payload — reservation.created</span></div>
+          <div class="prompt-content">{
+  "event": "reservation.created",
+  "data": {
+    "uuid": "res-abc123",
+    "check_in": "2026-03-15",
+    "check_out": "2026-03-19",
+    "nights": 4,
+    "guest": { "name": "Marcus Webb", "email": "..." },
+    "payout": { "host_payout_amount": 82400 }, // CENTS — divide by 100
+    "property_id": "prop-xyz789"
+  }
+}</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══ WORKFLOW 2 — GUEST MESSAGING ═══ -->
+<section class="section" id="wf2">
+  <div class="section-header">
+    <div class="section-number">W2</div>
+    <div>
+      <div class="section-phase">Workflow 2 · Slack Approval + 30-Min Auto-Send</div>
+      <div class="section-title">AI Guest Messaging Sequence</div>
+      <div class="section-desc">Six touchpoints across every stay — each drafted by Claude with property-specific context, sent to Slack for a quick approval, then auto-sent after 30 minutes if you don't respond. Guests feel genuinely attended to. You barely touch it.</div>
+    </div>
+  </div>
+
+  <div class="wf-diagram">
+    <div class="wf-steps">
+      <div class="wf-step"><div class="wf-box trigger"><div class="wf-icon">📅</div><div class="wf-label">Trigger</div><div class="wf-name">Booking created<br>or scheduled time</div></div></div>
+      <div class="wf-step"><div class="wf-box"><div class="wf-icon">📋</div><div class="wf-label">n8n</div><div class="wf-name">Pull property<br>context from PMS</div></div></div>
+      <div class="wf-step"><div class="wf-box ai"><div class="wf-icon">🤖</div><div class="wf-label">Claude Haiku</div><div class="wf-name">Draft personalized<br>guest message</div></div></div>
+      <div class="wf-step"><div class="wf-box"><div class="wf-icon">💬</div><div class="wf-label">Slack</div><div class="wf-name">Send for approval<br>30-min auto-send</div></div></div>
+      <div class="wf-step"><div class="wf-box output"><div class="wf-icon">✉️</div><div class="wf-label">Output</div><div class="wf-name">Send to guest<br>via PMS/email</div></div></div>
+    </div>
+  </div>
+
+  <h4 class="sub-heading" style="margin:22px 0 10px; font-size:1.15rem;">The 6-Message Guest Journey</h4>
+  <table class="comp-table" style="margin-bottom:22px">
+    <thead><tr><th>#</th><th>Message</th><th>Trigger</th><th>Model</th></tr></thead>
+    <tbody>
+      <tr><td><strong>1</strong></td><td>Booking Confirmation & Welcome</td><td>reservation.created — immediate</td><td><span class="tag tag-green">Haiku 4.5</span></td></tr>
+      <tr><td><strong>2</strong></td><td>Pre-Arrival Info & Logistics</td><td>Scheduled: 48 hrs before check-in, 10am</td><td><span class="tag tag-green">Haiku 4.5</span></td></tr>
+      <tr><td><strong>3</strong></td><td>Check-In Day Welcome</td><td>Scheduled: morning of check-in, 8am</td><td><span class="tag tag-green">Haiku 4.5</span></td></tr>
+      <tr><td><strong>4</strong></td><td>Mid-Stay Check-In</td><td>Scheduled: day 2 of stay (3+ night bookings only)</td><td><span class="tag tag-green">Haiku 4.5</span></td></tr>
+      <tr><td><strong>5</strong></td><td>Checkout Reminder</td><td>Scheduled: evening before checkout, 7pm</td><td><span class="tag tag-green">Haiku 4.5</span></td></tr>
+      <tr><td><strong>6</strong></td><td>Post-Stay Review Request</td><td>Scheduled: 2 hrs after checkout time</td><td><span class="tag tag-green">Haiku 4.5</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="toolbar">
+    <button class="toolbar-btn" data-action="expand">Expand All</button>
+    <button class="toolbar-btn" data-action="collapse">Collapse All</button>
+  </div>
+  <div class="steps">
+
+    <div class="step-card" id="wf2s1">
+      <div class="step-header"><div class="step-num">1</div><div class="step-title">Message trigger & scheduling logic</div><div class="step-time">~45 min</div><div class="step-chevron">▼</div></div>
+      <div class="step-body">
+        <div class="sub-steps">
+          <div class="sub-step"><div class="sub-step-alpha">1</div><div><strong>Webhook trigger</strong> — fires on reservation.created. Immediately queues all 6 messages by writing their scheduled send times to a "Message Queue" tab in Google Sheets.</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">2</div><div><strong>Schedule trigger</strong> — runs every 30 minutes. Reads the Message Queue, finds messages due in the next 30 minutes, calls Claude to draft them, then routes to Slack for approval.</div></div>
+        </div>
+
+        <h4 class="sub-heading">Message Queue tab structure</h4>
+        <div class="prompt-block">
+          <div class="prompt-label"><span>📊 Message Queue Tab — Column Layout</span></div>
+          <div class="prompt-content">Col A: reservation_id      | res-abc123
+Col B: guest_name          | Marcus Webb
+Col C: guest_email         | <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="accbd9c9dfd8ecc9c1cdc5c082cfc3c1">[email&#160;protected]</a>
+Col D: property_id         | prop-xyz789
+Col E: message_type        | pre_arrival
+Col F: scheduled_send_time | 2026-03-13T10:00:00
+Col G: status              | pending → approved / auto_sent / sent
+Col H: drafted_message     | [Claude's draft stored here]
+Col I: channel             | email / airbnb_thread / vrbo_thread</div>
+        </div>
+
+        <div class="sub-steps">
+          <div class="sub-step"><div class="sub-step-alpha">3</div><div>When the 30-min scheduler fires, it finds pending rows where <code class="inline">scheduled_send_time ≤ now + 30min</code>, calls Claude to draft the message (stored in column H), then sends a Slack approval message.</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">4</div><div>Use n8n's <strong>Slack node → Send and Wait for Response</strong>. Set timeout to 30 minutes, timeout action to "Continue." If approved → send, update status to "approved". If timeout → send automatically, update status to "auto_sent".</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-card" id="wf2s2">
+      <div class="step-header"><div class="step-num">2</div><div class="step-title">Slack approval message block structure</div><div class="step-time">~20 min</div><div class="step-chevron">▼</div></div>
+      <div class="step-body">
+        <div class="prompt-block">
+          <div class="prompt-label"><span>💬 Slack Approval Message — n8n Block Template</span><button class="copy-btn" data-target="slackblock">Copy</button></div>
+          <div class="prompt-content" id="slackblock">{
+  "blocks": [
+    {
+      "type": "header",
+      "text": { "type": "plain_text", "text": "✉️ Guest Message — Approval Needed" }
+    },
+    {
+      "type": "section",
+      "fields": [
+        { "type": "mrkdwn", "text": "*Guest:*\n{{ $json.guest_name }}" },
+        { "type": "mrkdwn", "text": "*Property:*\n{{ $json.property_name }}" },
+        { "type": "mrkdwn", "text": "*Check-in:*\n{{ $json.checkin_date }}" },
+        { "type": "mrkdwn", "text": "*Message Type:*\n{{ $json.message_type }}" }
+      ]
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "*Drafted Message:*\n{{ $json.drafted_message }}"
+      }
+    },
+    {
+      "type": "context",
+      "elements": [
+        { "type": "mrkdwn", "text": "⏱️ Auto-sends in 30 minutes if no response" }
+      ]
+    }
+  ]
+}</div>
+        </div>
+        <div class="note-block">The "Send and Wait for Response" node handles the timeout natively. Set timeout to 30 minutes and action to "Continue" — the workflow resumes and sends regardless. You can track approved vs. auto-sent in the Message Queue status column (column G) to spot-check AI quality over time.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══ WORKFLOW 3 — REVIEW RESPONSES ═══ -->
+<section class="section" id="wf3">
+  <div class="section-header">
+    <div class="section-number">W3</div>
+    <div>
+      <div class="section-phase">Workflow 3 · Slack Approval — 1–2★ Never Auto-Send</div>
+      <div class="section-title">AI Review Response</div>
+      <div class="section-desc">When a guest review posts, Claude drafts a response, routes it through Slack for approval, and auto-sends after 30 minutes — except for 1–2 star reviews, which are flagged high-priority and always wait for your manual review.</div>
+    </div>
+  </div>
+
+  <div class="wf-diagram">
+    <div class="wf-steps">
+      <div class="wf-step"><div class="wf-box trigger"><div class="wf-icon">⭐</div><div class="wf-label">Trigger</div><div class="wf-name">review.created<br>webhook</div></div></div>
+      <div class="wf-step"><div class="wf-box"><div class="wf-icon">🔀</div><div class="wf-label">n8n</div><div class="wf-name">Branch:<br>1–2★ vs 3–5★</div></div></div>
+      <div class="wf-step"><div class="wf-box ai"><div class="wf-icon">🤖</div><div class="wf-label">Claude Sonnet</div><div class="wf-name">Draft response<br>with full context</div></div></div>
+      <div class="wf-step"><div class="wf-box"><div class="wf-icon">💬</div><div class="wf-label">Slack</div><div class="wf-name">1–2★: manual only<br>3–5★: 30-min auto</div></div></div>
+      <div class="wf-step"><div class="wf-box output"><div class="wf-icon">✅</div><div class="wf-label">Output</div><div class="wf-name">Post response<br>via PMS API</div></div></div>
+    </div>
+  </div>
+
+  <div class="toolbar" style="margin-top:18px">
+    <button class="toolbar-btn" data-action="expand">Expand All</button>
+    <button class="toolbar-btn" data-action="collapse">Collapse All</button>
+  </div>
+  <div class="steps">
+
+    <div class="step-card" id="wf3s1">
+      <div class="step-header"><div class="step-num">1</div><div class="step-title">Build the review response workflow</div><div class="step-time">~25 min</div><div class="step-chevron">▼</div></div>
+      <div class="step-body">
+        <div class="sub-steps">
+          <div class="sub-step"><div class="sub-step-alpha">1</div><div><strong>Webhook trigger</strong> — fires on review.created from your PMS</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">2</div><div><strong>IF node</strong> — check <code class="inline">rating ≤ 2</code>. True → high-priority path (no auto-send). False → standard path (30-min auto-send)</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">3</div><div><strong>Claude node (Sonnet 4.5)</strong> — send the review text, rating, guest name, stay dates, and property context. Use the review response system prompt from Section 6D.</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">4</div><div><strong>Slack node (Send and Wait)</strong> — high-priority path: set timeout to 0 (manual approval only, never auto-sends). Standard path: 30-minute timeout with auto-send. Label the Slack message clearly with the star rating.</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">5</div><div><strong>HTTP Request node</strong> — post the approved response via API. Hospitable: POST to <code class="inline">/v2/reservations/{uuid}/reviews/reply</code>. OwnerRez: via reviews endpoint (messaging partnership required — see 6A).</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══ WORKFLOW 4 — OWNER REPORTS ═══ -->
+<section class="section" id="wf4">
+  <div class="section-header">
+    <div class="section-number">W4</div>
+    <div>
+      <div class="section-phase">Workflow 4 · Fully Automated · No Approval Needed</div>
+      <div class="section-title">Monthly Owner Report</div>
+      <div class="section-desc">On the 1st of every month, n8n pulls each owner's data, Claude writes a warm narrative performance summary, and it emails the owner automatically. No human involved, no template that looks automated.</div>
+    </div>
+  </div>
+
+  <div class="wf-diagram">
+    <div class="wf-steps">
+      <div class="wf-step"><div class="wf-box trigger"><div class="wf-icon">🗓️</div><div class="wf-label">Trigger</div><div class="wf-name">Schedule: 1st<br>of month, 8am</div></div></div>
+      <div class="wf-step"><div class="wf-box"><div class="wf-icon">📊</div><div class="wf-label">n8n</div><div class="wf-name">Pull prior month's<br>data from Sheet</div></div></div>
+      <div class="wf-step"><div class="wf-box ai"><div class="wf-icon">🤖</div><div class="wf-label">Claude Sonnet</div><div class="wf-name">Write narrative<br>performance report</div></div></div>
+      <div class="wf-step"><div class="wf-box output"><div class="wf-icon">📧</div><div class="wf-label">Output</div><div class="wf-name">Email owner +<br>update portal notice</div></div></div>
+    </div>
+  </div>
+
+  <div class="toolbar" style="margin-top:18px">
+    <button class="toolbar-btn" data-action="expand">Expand All</button>
+    <button class="toolbar-btn" data-action="collapse">Collapse All</button>
+  </div>
+  <div class="steps">
+
+    <div class="step-card" id="wf4s1">
+      <div class="step-header"><div class="step-num">1</div><div class="step-title">Build the monthly report workflow</div><div class="step-time">~30 min</div><div class="step-chevron">▼</div></div>
+      <div class="step-body">
+        <div class="sub-steps">
+          <div class="sub-step"><div class="sub-step-alpha">1</div><div><strong>Schedule trigger</strong> — 1st of every month at 8:00am in the client's local timezone</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">2</div><div><strong>Google Sheets node</strong> — read the owner's MONTHLY_EARNINGS tab and RESERVATIONS tab for the prior month. Also pull the prior 2 months for comparison context.</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">3</div><div><strong>Claude node (Sonnet 4.5)</strong> — pass all data plus property context and the owner report system prompt from Section 6D. Claude returns a 200–300 word narrative in plain text.</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">4</div><div><strong>Gmail/Email node</strong> — send to the owner's email. Subject: <code class="inline">[Property Name] — [Month] Performance Summary</code>. Body: Claude's report with line breaks preserved.</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">5</div><div><strong>Google Sheets node</strong> — write a short notice to the NOTICES section of the owner's tab (e.g. "Your March report has been sent — $3,157 net payout on its way!"). This appears in the Softr portal automatically.</div></div>
+        </div>
+        <div class="note-block">This workflow reads from the same Sheet the portal displays — no duplicate data entry anywhere. Workflow 1 keeps the Sheet current; Workflow 4 reads it. The Sheet is the single source of truth for both the portal and the report generator.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══ 6D — CLAUDE PROMPTS ═══ -->
+<section class="section" id="prompts">
+  <div class="section-header">
+    <div class="section-number">6D</div>
+    <div>
+      <div class="section-phase">The Intelligence Layer · Copy Directly into n8n</div>
+      <div class="section-title">Claude System Prompts</div>
+      <div class="section-desc">These prompts are the heart of your competitive advantage. Each is written from the perspective of a seasoned STR property manager — warm, specific, never generic. Copy them directly into the Claude node's system prompt field in n8n.</div>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <button class="toolbar-btn" data-action="expand">Expand All</button>
+    <button class="toolbar-btn" data-action="collapse">Collapse All</button>
+  </div>
+  <div class="steps">
+
+    <div class="step-card" id="pr1">
+      <div class="step-header"><div class="step-num">📨</div><div class="step-title">Guest Messaging — System Prompt + User Message Template</div><div class="step-time">Workflow 2</div><div class="step-chevron">▼</div></div>
+      <div class="step-body">
+        <div class="prompt-block">
+          <div class="prompt-label"><span>🤖 System Prompt — Guest Messaging</span><button class="copy-btn" data-target="guestSys">Copy</button></div>
+          <div class="prompt-content" id="guestSys">You are a professional short-term rental property manager writing messages to guests on behalf of the property owner. Your tone is warm, welcoming, and genuinely helpful — like a thoughtful local host, not a corporate property management company.
+
+WRITING GUIDELINES:
+- Always use the guest's first name
+- Keep messages concise but personal — never generic or template-sounding
+- Reference specific details about the property and their stay when relevant
+- Never use the phrases "I hope this message finds you well" or "Please don't hesitate to reach out"
+- Write as if you know and care about the guest's experience, because you do
+- Sign off with the owner/manager name provided in context, not a company name
+- Match energy to the message type — a welcome should feel exciting; a checkout reminder should feel gracious
+
+RESPONSE FORMAT:
+Return only the message text itself — no subject line, no labels, no quotation marks. Just the message as it should appear to the guest, ready to send.</div>
+        </div>
+
+        <div class="prompt-block">
+          <div class="prompt-label"><span>💬 User Message Template — Guest Messaging</span><button class="copy-btn" data-target="guestUser">Copy</button></div>
+          <div class="prompt-content" id="guestUser">Write a {{ message_type }} message for the following guest stay.
+
+PROPERTY DETAILS:
+- Property name: {{ property_name }}
+- Location: {{ property_location }}
+- Check-in time: {{ checkin_time }}
+- Checkout time: {{ checkout_time }}
+- WiFi network: {{ wifi_name }} / Password: {{ wifi_password }}
+- Parking: {{ parking_instructions }}
+- Property highlights: {{ property_highlights }}
+- House rules summary: {{ house_rules_summary }}
+- Manager name for sign-off: {{ manager_name }}
+
+GUEST & BOOKING:
+- Guest first name: {{ guest_first_name }}
+- Check-in date: {{ checkin_date }}
+- Checkout date: {{ checkout_date }}
+- Number of nights: {{ num_nights }}
+- Number of guests: {{ num_guests }}
+
+MESSAGE TYPE INSTRUCTIONS:
+
+booking_confirmation: Welcome them, express genuine excitement about hosting them, give one or two things to look forward to about the property or area. Under 120 words.
+
+pre_arrival: Everything they need to arrive smoothly — address, check-in instructions, parking, WiFi. Add one personal local recommendation (restaurant, trail, or experience). 150–200 words.
+
+checkin_day: Short and warm (under 80 words). Let them know you're thinking of them and excited they're arriving today. Remind of check-in time and that you're available if needed.
+
+mid_stay: Brief check-in (under 60 words). Ask if everything is comfortable. Don't ask if they're enjoying it — ask if there's anything you can do to make it better.
+
+checkout_reminder: Warm reminder of checkout time ({{ checkout_time }}) and any checkout instructions. Thank them for choosing the property. Under 80 words.
+
+post_stay: Thank them sincerely. Mention that reviews help small property owners enormously, and invite them to share their experience if willing. Genuine, never pushy. Under 100 words.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-card" id="pr2">
+      <div class="step-header"><div class="step-num">⭐</div><div class="step-title">Review Response — System Prompt + User Message Template</div><div class="step-time">Workflow 3</div><div class="step-chevron">▼</div></div>
+      <div class="step-body">
+        <div class="prompt-block">
+          <div class="prompt-label"><span>🤖 System Prompt — Review Responses</span><button class="copy-btn" data-target="reviewSys">Copy</button></div>
+          <div class="prompt-content" id="reviewSys">You are a professional short-term rental property manager writing public responses to guest reviews on behalf of the property owner. These responses appear publicly on Airbnb and VRBO — they are read by future guests as much as by the reviewer.
+
+RESPONSE PHILOSOPHY:
+- Positive reviews (4–5 stars): Thank sincerely, reference something specific they mentioned, invite them back. Warm and brief — under 80 words.
+- Neutral reviews (3 stars): Thank them, acknowledge valid feedback with grace, note any improvements being made. 80–120 words.
+- Critical reviews (1–2 stars): More care required. Acknowledge the guest's experience without being defensive. If the criticism is valid, own it briefly. If it is factually incorrect or unfair, address it calmly — future guests will see this and appreciate professionalism. 100–150 words. Never argue. Never be sarcastic.
+
+WRITING GUIDELINES:
+- Always use the guest's name ("Thank you, Marcus!")
+- Reference specific details from their review — never write a generic response
+- Use "we" to speak as the management team, not "I"
+- End with a forward-looking statement — "We hope to welcome you back" (positive) or "We take all feedback seriously" (critical)
+- Never use: "We're sorry you felt that way" — it sounds dismissive to future readers
+
+RESPONSE FORMAT:
+Return only the response text, ready to post. No labels, no quotation marks.</div>
+        </div>
+
+        <div class="prompt-block">
+          <div class="prompt-label"><span>💬 User Message Template — Review Response</span><button class="copy-btn" data-target="reviewUser">Copy</button></div>
+          <div class="prompt-content" id="reviewUser">Write a public response to the following guest review.
+
+PROPERTY: {{ property_name }} in {{ property_location }}
+GUEST NAME: {{ guest_name }}
+STAY DATES: {{ checkin_date }} to {{ checkout_date }}
+REVIEW RATING: {{ rating }} out of 5 stars
+REVIEW TEXT: {{ review_text }}
+
+ADDITIONAL CONTEXT:
+- Known issues during this stay: {{ known_issues }}
+- Improvements made since this stay (if relevant): {{ recent_improvements }}
+- Manager name for sign-off: {{ manager_name }}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-card" id="pr3">
+      <div class="step-header"><div class="step-num">📊</div><div class="step-title">Monthly Owner Report — System Prompt + User Message Template</div><div class="step-time">Workflow 4</div><div class="step-chevron">▼</div></div>
+      <div class="step-body">
+        <div class="prompt-block">
+          <div class="prompt-label"><span>🤖 System Prompt — Monthly Owner Report</span><button class="copy-btn" data-target="reportSys">Copy</button></div>
+          <div class="prompt-content" id="reportSys">You are a professional short-term rental property manager writing a monthly performance report to a property owner. This report arrives by email on the 1st of each month and is the owner's primary window into their investment.
+
+TONE & APPROACH:
+- Write as a trusted advisor and expert, not a data summary
+- Lead with the headline number (net payout) in the very first sentence — owners want to see this immediately
+- Use plain English. "Your property earned $3,157 after our fee this month" — not "Net to owner: $3,157.00"
+- Be honest about performance. If occupancy was below target, say so and explain why (seasonality, market conditions, what's being done)
+- If performance was strong, celebrate it specifically — not generically
+
+REPORT STRUCTURE (follow this order):
+1. Headline: one sentence with net payout and a brief honest characterization of the month
+2. The numbers: 3–4 sentences covering revenue, occupancy, average rate, and management fee — written as narrative prose, not a table
+3. Notable stays: mention any interesting bookings (long stays, repeat guests, holidays) in 1–2 sentences. Skip if nothing notable.
+4. Comparison: one sentence comparing to last month and prior year if data available
+5. Looking ahead: 2–3 sentences on next month's bookings, pricing notes, anything the owner should know
+6. Personal close: one warm sentence and a sign-off from the manager
+
+RESPONSE FORMAT:
+Plain text only. No markdown, no headers, no bullet points — just paragraphs as they will appear in an email. Total length: 200–300 words.</div>
+        </div>
+
+        <div class="prompt-block">
+          <div class="prompt-label"><span>💬 User Message Template — Monthly Owner Report</span><button class="copy-btn" data-target="reportUser">Copy</button></div>
+          <div class="prompt-content" id="reportUser">Write a monthly performance report for this property owner.
+
+REPORT MONTH: {{ report_month }} {{ report_year }}
+PROPERTY: {{ property_name }} — {{ property_location }}
+OWNER NAME: {{ owner_name }}
+MANAGER NAME: {{ manager_name }}
+
+THIS MONTH:
+- Gross revenue: {{ gross_revenue }}
+- Management fee ({{ fee_pct }}%): {{ management_fee }}
+- Net to owner: {{ net_payout }}
+- Nights booked: {{ nights_booked }}
+- Occupancy rate: {{ occupancy_pct }}%
+- Average nightly rate: {{ avg_rate }}
+- Number of reservations: {{ num_reservations }}
+- Next payout date: {{ payout_date }}
+
+PRIOR MONTH (comparison):
+- Net to owner: {{ prior_net }}
+- Nights booked: {{ prior_nights }}
+- Occupancy: {{ prior_occupancy }}%
+
+NEXT 30 DAYS:
+- Confirmed bookings: {{ upcoming_bookings }}
+- Upcoming revenue: {{ upcoming_revenue }}
+- Current occupancy for next month: {{ upcoming_occupancy }}%
+
+ADDITIONAL CONTEXT (include only if relevant):
+- Issues this month: {{ issues_this_month }}
+- Improvements made: {{ improvements_made }}
+- Pricing notes: {{ pricing_notes }}</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══ 6E — MONITORING ═══ -->
+<section class="section" id="monitoring">
+  <div class="section-header">
+    <div class="section-number">6E</div>
+    <div>
+      <div class="section-phase">Ongoing Operations</div>
+      <div class="section-title">Monitoring & What Still Needs You</div>
+      <div class="section-desc">The system runs itself, but a brief weekly check keeps it healthy and lets you catch edge cases before they become client issues. Here's exactly what to look at — and the situations where your judgment is irreplaceable.</div>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <button class="toolbar-btn" data-action="expand">Expand All</button>
+    <button class="toolbar-btn" data-action="collapse">Collapse All</button>
+  </div>
+  <div class="steps">
+
+    <div class="step-card" id="mon1">
+      <div class="step-header"><div class="step-num">📋</div><div class="step-title">Weekly 15-minute audit checklist</div><div class="step-time">15 min/week</div><div class="step-chevron">▼</div></div>
+      <div class="step-body">
+        <div class="sub-steps">
+          <div class="sub-step"><div class="sub-step-alpha">1</div><div><strong>n8n Executions tab</strong> — scan for red (failed) executions. Click into failures to read the error. Most common causes: PMS webhook URL changed, Google Sheets auth expired, API rate limit hit. Most resolve with a reconnect or retry.</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">2</div><div><strong>Message Queue tab</strong> in Google Sheets — look for any rows stuck in "pending" status older than 24 hours. This means the Slack approval loop stalled. Manually update the status and resend if needed.</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">3</div><div><strong>Spot-check 2–3 auto-sent messages</strong> — read the actual text from column H of the queue. Confirm tone and content feel right. This is also how you catch prompt drift or data injection issues early.</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">4</div><div><strong>Anthropic console</strong> — check API usage and spend for the week. Should be well under $1 for most operations. A spend spike means a runaway workflow — investigate immediately.</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">5</div><div><strong>Upcoming bookings check</strong> — confirm the Message Queue has scheduled messages for all check-ins in the next 7 days. Missing entries mean a booking webhook failed on creation — add manually and investigate.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-card" id="mon2">
+      <div class="step-header"><div class="step-num">👤</div><div class="step-title">What always needs a human</div><div class="step-time">Reference</div><div class="step-chevron">▼</div></div>
+      <div class="step-body">
+        <p class="step-instruction">The automation handles the routine exceptionally well. These are the situations where your judgment is genuinely irreplaceable:</p>
+        <div class="sub-steps">
+          <div class="sub-step"><div class="sub-step-alpha">🚨</div><div><strong>Mid-stay guest complaints & maintenance issues</strong> — if a guest reports a broken appliance, safety concern, or is unhappy with the property, this needs a human response immediately. Consider adding an n8n keyword filter (e.g. "broken", "unsafe", "refund", "unacceptable") that routes flagged guest messages directly to your phone via Slack with a high-priority notification instead of the standard queue.</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">⭐</div><div><strong>1–2 star reviews</strong> — never auto-send. Claude drafts a response but you review every word before it posts publicly. A poorly handled negative review damages trust with future guests more than the original bad stay did.</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">💰</div><div><strong>Security deposit claims & damage disputes</strong> — always handled directly between you and the guest with full documentation. n8n can notify you when a claim is opened, but the resolution process is yours.</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">📈</div><div><strong>Pricing strategy</strong> — n8n can surface occupancy gaps and flag slow periods, but deciding when to drop rates, run a promotion, or hold firm for a holiday weekend requires your market knowledge and judgment. Tools like PriceLabs can assist, but a human sets the strategy.</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">🤝</div><div><strong>Owner relationship management</strong> — the monthly report and portal handle routine communication automatically. But when an owner is considering adding another property, has a concern about performance, or is thinking about exiting, those conversations happen with you. The automation creates the space for those conversations by handling everything else.</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">🔑</div><div><strong>New owner onboarding</strong> — adding a new client to the system (PMS setup, n8n workflow configuration, Softr portal, Google Sheet) is a 2-hour setup session that you run. The automation then takes over from the first booking onward.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-card" id="mon3">
+      <div class="step-header"><div class="step-num">🔁</div><div class="step-title">Monthly maintenance tasks</div><div class="step-time">~20 min/month</div><div class="step-chevron">▼</div></div>
+      <div class="step-body">
+        <div class="sub-steps">
+          <div class="sub-step"><div class="sub-step-alpha">1</div><div><strong>Google Sheets API token renewal</strong> — n8n's Google Sheets connection uses OAuth, which may require periodic re-authorization. If sheet writes start failing, reconnect the Google credential in n8n → Credentials.</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">2</div><div><strong>Review owner report emails</strong> — read one or two of the reports Claude generated. Confirm the narrative matches the actual data and the tone feels like you. Refine the system prompt if anything feels off.</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">3</div><div><strong>Self-hosted only</strong> — update n8n Docker image: <code class="inline">cd ~/n8n && docker-compose pull && docker-compose up -d</code>. Check the n8n changelog for any breaking changes before updating.</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">4</div><div><strong>Check n8n execution quota</strong> (Cloud plan) — log into n8n and check the Executions Insights dashboard. If you're approaching 2,500/month, consider whether you need to optimize workflows or upgrade the plan.</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══ 6F — COSTS ═══ -->
+<section class="section" id="costs">
+  <div class="section-header">
+    <div class="section-number">6F</div>
+    <div>
+      <div class="section-phase">Full Stack Cost Summary</div>
+      <div class="section-title">What the Complete AI System Costs</div>
+      <div class="section-desc">The full AI-enabled stack — website, portal, and automation — runs for a fraction of one booking's management fee. Everything below assumes the Softr portal path and n8n Cloud hosting.</div>
+    </div>
+  </div>
+
+  <table class="comp-table" style="margin-bottom:20px">
+    <thead><tr><th>Tool</th><th>Purpose</th><th>Cost</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td><strong>GitHub Pages</strong></td><td>Website hosting</td><td><span class="tag tag-green">Free</span></td><td>Unlimited sites, custom domain supported</td></tr>
+      <tr><td><strong>Namecheap</strong></td><td>Domain registration</td><td><span class="tag tag-green">~$15/yr</span></td><td>One-time annual renewal</td></tr>
+      <tr><td><strong>Formspree</strong></td><td>Contact form backend</td><td><span class="tag tag-green">Free</span></td><td>50 submissions/mo on free tier</td></tr>
+      <tr><td><strong>Google Sheets</strong></td><td>Owner portal data source</td><td><span class="tag tag-green">Free</span></td><td>Works with both Softr and HTML portal</td></tr>
+      <tr><td><strong>Softr</strong></td><td>Owner portal (recommended)</td><td><span class="tag tag-amber">$49/mo</span></td><td>Free to test; custom domain on paid plan</td></tr>
+      <tr><td><strong>n8n Cloud</strong></td><td>Automation engine</td><td><span class="tag tag-amber">~$20/mo</span></td><td>2,500 executions/mo — plenty for most clients</td></tr>
+      <tr><td><strong>Anthropic API</strong></td><td>AI content generation</td><td><span class="tag tag-green">~$2–5/mo</span></td><td>Pay-per-use; ~$0.02 per booking total</td></tr>
+      <tr><td><strong>Slack</strong></td><td>Approval notifications</td><td><span class="tag tag-green">Free</span></td><td>Free plan is sufficient</td></tr>
+      <tr><td><strong>OwnerRez</strong></td><td>PMS (recommended)</td><td><span class="tag tag-amber">~$40–80/mo</span></td><td>Pricing based on properties; includes channel management</td></tr>
+      <tr>
+        <td colspan="2"><strong>Total (ex. PMS) · Softr + n8n Cloud</strong></td>
+        <td colspan="2"><strong>~$71–74/mo + $15/yr</strong></td>
+      </tr>
+      <tr>
+        <td colspan="2"><strong>Total (ex. PMS) · HTML portal + n8n Cloud</strong></td>
+        <td colspan="2"><strong>~$22–25/mo + $15/yr</strong></td>
+      </tr>
+      <tr>
+        <td colspan="2"><strong>Total (ex. PMS) · Softr + self-hosted n8n</strong></td>
+        <td colspan="2"><strong>~$63–66/mo + $15/yr</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="edu-block">
+    At an 18% management fee, a single $400/night booking generates $72 in revenue — <strong>covering the entire monthly software stack in one night.</strong> Every additional booking is pure margin. The AI layer pays for itself in the first guest message you don't have to write.
+  </div>
+
+  <div class="divider-line"></div>
+  <h4 class="sub-heading" style="font-size:1.2rem;">Context Prompt for Future Claude Sessions</h4>
+  <p class="body-text">When you need help modifying, debugging, or extending this automation stack, paste this into a new Claude conversation to provide full context instantly:</p>
+
+  <div class="prompt-block">
+    <div class="prompt-label"><span>🤖 Context Prompt — AI Stack · Future Claude Sessions</span><button class="copy-btn" data-target="futurePrompt">Copy</button></div>
+    <div class="prompt-content" id="futurePrompt">I run an STR co-hosting business with a fully automated AI stack. Here's the full technical context:
+
+WEBSITE & PORTAL:
+- Website: pure HTML/CSS/JS hosted on GitHub Pages at [YOUR GITHUB URL]
+- Owner portal: [check which applies]
+  [ ] SOFTR: portal at [your-softr-domain]. Google Sheets connected as data source. Owners invited via email invite, set their own passwords. Data filtered by logged-in user email.
+  [ ] HTML PORTAL: owner-portal.html on GitHub Pages. CONFIG object auth, e('user','domain.com') email obfuscation, tab-specific CSV URLs per owner.
+
+PMS:
+- [ ] OwnerRez — Personal Access Token for API reads, OAuth app for webhooks. Full entity payload inline as of Aug 2025.
+- [ ] Hospitable — PAT auth, Bearer token. Base URL: https://public.api.hospitable.com/v2/. HMAC-SHA256 webhook verification.
+
+AUTOMATION:
+- n8n: [ ] Cloud (~$20/mo) at [your-n8n-url] / [ ] Self-hosted at [your-droplet-url]
+- Claude API: Anthropic API direct (no wrappers). Haiku 4.5 for guest messages, Sonnet 4.5 for review responses and owner reports.
+- Slack: #str-approvals channel, "Send and Wait" node with 30-min auto-send timeout. Interactivity webhook at [n8n-url]/webhook/slack-interactions.
+
+4 ACTIVE WORKFLOWS:
+1. Booking Sync — PMS webhook → parse → Google Sheets (reservations + YTD stats)
+2. Guest Messaging — 6-message sequence via Message Queue tab; Slack approval + 30-min auto-send
+3. Review Response — Claude Sonnet draft; 1–2★ manual-only, 3–5★ 30-min auto-send
+4. Monthly Owner Report — 1st of month scheduler → Sheet data → Claude narrative → email owner + update portal notice
+
+DATA LAYER:
+- Google Sheets: one spreadsheet per client, one tab per property. Stats block rows 1–9, section markers (RESERVATIONS, MONTHLY_EARNINGS, NOTICES, DOCUMENTS) for portal parsing. Message Queue tab for workflow 2.
+- All sheet values pre-formatted as strings ($3,850 not 3850, 81% not 0.81).
+
+I need help with: [DESCRIBE WHAT YOU NEED]</div>
+  </div>
+</section>
+
+</div><!-- /wrapper -->
+
+<!-- ═══ INVESTOR SECTION (CODE GATED) ═══ -->
+<div style="background:var(--cream-dark);border-top:3px solid var(--gold);padding:60px 24px">
+  <div style="max-width:900px;margin:0 auto">
+
+    <div style="text-align:center;margin-bottom:36px">
+      <div style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:10px">Private · For Investors & Partners</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--forest);margin-bottom:10px">Investor Overview</div>
+      <div style="color:var(--muted);font-size:.87rem;max-width:520px;margin:0 auto;line-height:1.7">This section contains proprietary business model details, unit economics, and growth projections. Access is restricted to invited investors and partners.</div>
+    </div>
+
+    <!-- GATE -->
+    <div class="investor-gate" id="investorGate">
+      <div class="investor-gate-icon">🔒</div>
+      <div class="investor-gate-title">Enter Investor Access Code</div>
+      <div class="investor-gate-sub">You should have received this code directly.<br>Reach out to <strong style="color:rgba(255,255,255,.75)">info@hillsidestays.net</strong> to request access.</div>
+      <div class="investor-gate-form">
+        <input type="text" class="investor-input" id="investorCode" placeholder="ACCESS CODE" autocomplete="off" spellcheck="false">
+        <button class="investor-submit" onclick="checkInvestorCode()">Unlock →</button>
+      </div>
+      <div class="investor-error" id="investorError">Incorrect code. Please try again or contact us for access.</div>
+    </div>
+
+    <!-- GATED CONTENT (hidden until unlocked) -->
+    <div class="investor-content" id="investorContent">
+
+      <!-- THE BUSINESS MODEL -->
+      <div style="background:var(--white);border:1px solid var(--border);border-radius:14px;padding:32px;margin-bottom:20px">
+        <div style="font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px">The Opportunity</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.55rem;color:var(--forest);margin-bottom:16px;font-weight:400">A high-margin, technology-first STR management business</div>
+        <p style="font-size:.87rem;color:var(--ink);line-height:1.8;margin-bottom:12px">Hillside Stays operates as a short-term rental co-hosting business in Western North Carolina — one of the fastest-growing STR markets in the Southeast. Our differentiation is structural: where most co-hosts rely on manual labor and generic software, we have built a proprietary AI automation stack that handles guest communications, performance reporting, and review management at near-zero marginal cost per additional property.</p>
+        <p style="font-size:.87rem;color:var(--ink);line-height:1.8">The result is a business that scales without proportionally scaling headcount. Each new owner-client we onboard adds revenue with minimal added operational burden — the system serves them automatically from the first booking onward.</p>
+      </div>
+
+      <!-- UNIT ECONOMICS -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:20px">
+        <div style="background:var(--forest);border-radius:12px;padding:22px;text-align:center">
+          <div style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(201,168,76,.7);margin-bottom:6px">Mgmt Fee</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--gold);font-weight:400">18%</div>
+          <div style="font-size:.75rem;color:rgba(255,255,255,.45);margin-top:3px">of gross booking revenue</div>
+        </div>
+        <div style="background:var(--forest);border-radius:12px;padding:22px;text-align:center">
+          <div style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(201,168,76,.7);margin-bottom:6px">Avg Property Rev</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--gold);font-weight:400">~$4,200</div>
+          <div style="font-size:.75rem;color:rgba(255,255,255,.45);margin-top:3px">gross / mo at 68% occ.</div>
+        </div>
+        <div style="background:var(--forest);border-radius:12px;padding:22px;text-align:center">
+          <div style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(201,168,76,.7);margin-bottom:6px">Fee per Property</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--gold);font-weight:400">~$756</div>
+          <div style="font-size:.75rem;color:rgba(255,255,255,.45);margin-top:3px">management fee / mo</div>
+        </div>
+        <div style="background:var(--forest);border-radius:12px;padding:22px;text-align:center">
+          <div style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(201,168,76,.7);margin-bottom:6px">Tech Cost / Property</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--gold);font-weight:400">&lt;$8</div>
+          <div style="font-size:.75rem;color:rgba(255,255,255,.45);margin-top:3px">all-in software / mo</div>
+        </div>
+      </div>
+
+      <!-- GROSS MARGIN TABLE -->
+      <div style="background:var(--white);border:1px solid var(--border);border-radius:14px;padding:32px;margin-bottom:20px">
+        <div style="font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:16px">Portfolio Economics — Illustrative Model</div>
+        <table class="comp-table">
+          <thead><tr><th>Properties</th><th>Gross Mgmt Fees/Mo</th><th>Stack Cost/Mo</th><th>Gross Margin</th></tr></thead>
+          <tbody>
+            <tr><td>3 properties</td><td>~$2,268</td><td>~$74</td><td><span class="tag tag-green">~97%</span></td></tr>
+            <tr><td>10 properties</td><td>~$7,560</td><td>~$95</td><td><span class="tag tag-green">~99%</span></td></tr>
+            <tr><td>25 properties</td><td>~$18,900</td><td>~$130</td><td><span class="tag tag-green">~99%</span></td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:.78rem;color:var(--muted);margin-top:12px;line-height:1.6">Stack cost grows slowly because n8n scales horizontally — additional properties add minimal execution volume at existing subscription tiers. The dominant cost driver is management/labor, which the automation stack systematically reduces. These figures exclude owner payouts, channel fees, and any property-level expenses.</p>
+      </div>
+
+      <!-- TECH MOAT -->
+      <div style="background:linear-gradient(135deg,var(--forest) 0%,var(--forest-mid) 100%);border-radius:14px;padding:28px 30px;margin-bottom:20px">
+        <div style="font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:12px">The Technology Moat</div>
+        <p style="color:rgba(255,255,255,.82);font-size:.87rem;line-height:1.8;margin-bottom:14px">Most co-hosting businesses are fundamentally manual labor businesses dressed up as property management. Their operational cost scales linearly with the number of properties they manage. Ours doesn't.</p>
+        <p style="color:rgba(255,255,255,.82);font-size:.87rem;line-height:1.8">Our AI stack (Claude API + n8n) handles the top five time costs of STR management — guest communications, owner reporting, review responses, booking data sync, and performance monitoring — with no human intervention for the vast majority of interactions. The time we save goes into relationship-building, market analysis, and portfolio growth: the work that actually creates competitive advantage.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px">
+          <div style="background:rgba(255,255,255,.06);border-radius:8px;padding:14px 16px">
+            <div style="font-family:'DM Mono',monospace;font-size:.68rem;color:var(--gold);margin-bottom:5px">TRADITIONAL CO-HOST</div>
+            <div style="font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.6">Manual messaging, templated responses, monthly reporting done in spreadsheets, ad-hoc review responses. Time per property: 3–5 hrs/week.</div>
+          </div>
+          <div style="background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);border-radius:8px;padding:14px 16px">
+            <div style="font-family:'DM Mono',monospace;font-size:.68rem;color:var(--gold);margin-bottom:5px">HILLSIDE STAYS</div>
+            <div style="font-size:.82rem;color:rgba(255,255,255,.75);line-height:1.6">AI-drafted messages approved in Slack, automated owner reports, flagged review queue. Time per property: &lt;30 min/week.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- GROWTH PATH -->
+      <div style="background:var(--white);border:1px solid var(--border);border-radius:14px;padding:32px;margin-bottom:20px">
+        <div style="font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:16px">Growth Path</div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+          <div style="text-align:center;padding:16px;background:var(--cream);border-radius:10px;border:1px solid var(--border)">
+            <div style="font-family:'DM Mono',monospace;font-size:.65rem;color:var(--muted);margin-bottom:6px">PHASE 1 · NOW</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--forest);margin-bottom:5px">3–5 Properties</div>
+            <div style="font-size:.78rem;color:var(--muted);line-height:1.5">Prove the model locally. Build owner testimonials. Refine AI prompts.</div>
+          </div>
+          <div style="text-align:center;padding:16px;background:var(--cream);border-radius:10px;border:1px solid var(--border)">
+            <div style="font-family:'DM Mono',monospace;font-size:.65rem;color:var(--muted);margin-bottom:6px">PHASE 2 · 12 MOS</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--forest);margin-bottom:5px">10–15 Properties</div>
+            <div style="font-size:.78rem;color:var(--muted);line-height:1.5">Expand in WNC market. First hire: dedicated property liaison. Automate onboarding flow.</div>
+          </div>
+          <div style="text-align:center;padding:16px;background:var(--cream);border-radius:10px;border:1px solid var(--border)">
+            <div style="font-family:'DM Mono',monospace;font-size:.65rem;color:var(--muted);margin-bottom:6px">PHASE 3 · 24 MOS</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--forest);margin-bottom:5px">25–40 Properties</div>
+            <div style="font-size:.78rem;color:var(--muted);line-height:1.5">Adjacent markets (Asheville metro, broader WNC). License playbook to non-competing markets.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONTACT CTA -->
+      <div style="text-align:center;padding:28px;background:var(--forest);border-radius:14px">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:var(--white);font-weight:300;margin-bottom:8px">Interested in learning more?</div>
+        <div style="font-size:.84rem;color:rgba(255,255,255,.55);margin-bottom:18px">We're selectively exploring partnerships with aligned investors and industry contacts.</div>
+        <a href="mailto:info@hillsidestays.net?subject=Investor%20Inquiry%20—%20Hillside%20Stays" style="display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--ink);text-decoration:none;padding:10px 24px;border-radius:8px;font-size:.85rem;font-weight:600;transition:all .2s">→ Get in Touch</a>
+      </div>
+
+    </div><!-- /investorContent -->
+  </div>
+</div><!-- /investor section wrapper -->
+
+<!-- ═══ GITHUB DEPLOYMENT SECTION ═══ -->
+<div style="background:var(--cream);border-top:1px solid var(--border);padding:60px 24px" id="github-deploy">
+  <div style="max-width:900px;margin:0 auto">
+
+    <div style="text-align:center;margin-bottom:36px">
+      <div style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:10px">Going Live</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--forest);margin-bottom:10px">Add This Page to Your GitHub Site</div>
+      <div style="color:var(--muted);font-size:.87rem;max-width:520px;margin:0 auto;line-height:1.7">This playbook lives alongside your main website files on GitHub Pages — accessible at <code style="font-family:'DM Mono',monospace;font-size:.82em;background:var(--cream-dark);border:1px solid var(--border);border-radius:4px;padding:1px 6px;color:var(--forest)">yourname.github.io/ai-automation</code> or via your custom domain.</div>
+    </div>
+
+    <div style="background:var(--white);border:1px solid var(--border);border-radius:14px;padding:32px;margin-bottom:20px">
+      <div style="font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:20px">Step-by-Step Deployment</div>
+
+      <div class="deploy-step">
+        <div class="deploy-num">1</div>
+        <div class="deploy-step-body">
+          <div class="deploy-step-title">Download this file</div>
+          <div class="deploy-step-desc">Save this page from your browser: <strong>File → Save Page As</strong> → choose <strong>Webpage, HTML Only</strong>. Name it exactly: <code style="font-family:'DM Mono',monospace;font-size:.82em;background:var(--cream-dark);border:1px solid var(--border);border-radius:4px;padding:1px 6px">STR_CoHost_AI_Automation_Playbook.html</code></div>
+        </div>
+      </div>
+
+      <div class="deploy-step">
+        <div class="deploy-num">2</div>
+        <div class="deploy-step-body">
+          <div class="deploy-step-title">Open your GitHub repository</div>
+          <div class="deploy-step-desc">Go to github.com → your site repository (e.g. <code style="font-family:'DM Mono',monospace;font-size:.82em;background:var(--cream-dark);border:1px solid var(--border);border-radius:4px;padding:1px 6px">hillsidestays/hillsidestays.github.io</code>). This is the same repo where your main website files already live.</div>
+        </div>
+      </div>
+
+      <div class="deploy-step">
+        <div class="deploy-num">3</div>
+        <div class="deploy-step-body">
+          <div class="deploy-step-title">Upload the file</div>
+          <div class="deploy-step-desc">Click <strong>Add file → Upload files</strong>. Drag in the HTML file. Also upload the main playbook file (<code style="font-family:'DM Mono',monospace;font-size:.82em;background:var(--cream-dark);border:1px solid var(--border);border-radius:4px;padding:1px 6px">STR_CoHost_Playbook.html</code>) if it's not already there — both files need to be in the same folder for the cross-links to work.</div>
+        </div>
+      </div>
+
+      <div class="deploy-step">
+        <div class="deploy-num">4</div>
+        <div class="deploy-step-body">
+          <div class="deploy-step-title">Commit the changes</div>
+          <div class="deploy-step-desc">Scroll down on the upload page. Write a commit message like <em>"Add AI automation playbook"</em>. Click <strong>Commit changes</strong>. GitHub Pages auto-deploys — your page will be live within 30–60 seconds.</div>
+        </div>
+      </div>
+
+      <div class="deploy-step">
+        <div class="deploy-num">5</div>
+        <div class="deploy-step-body">
+          <div class="deploy-step-title">Confirm the live URL</div>
+          <div class="deploy-step-desc">Visit <code style="font-family:'DM Mono',monospace;font-size:.82em;background:var(--cream-dark);border:1px solid var(--border);border-radius:4px;padding:1px 6px">https://yourdomain.com/STR_CoHost_AI_Automation_Playbook.html</code> — or if using GitHub's default domain, <code style="font-family:'DM Mono',monospace;font-size:.82em;background:var(--cream-dark);border:1px solid var(--border);border-radius:4px;padding:1px 6px">https://yourname.github.io/STR_CoHost_AI_Automation_Playbook.html</code>. All cross-links between the two playbooks will work automatically.</div>
+        </div>
+      </div>
+
+      <div class="deploy-step" style="border-bottom:none">
+        <div class="deploy-num">6</div>
+        <div class="deploy-step-body">
+          <div class="deploy-step-title">Share the investor URL</div>
+          <div class="deploy-step-desc">Send investors this URL with the access code in a separate message — never include the code in the same link. The access code is set in the JavaScript below. To change it: in the file, search for <code style="font-family:'DM Mono',monospace;font-size:.82em;background:var(--cream-dark);border:1px solid var(--border);border-radius:4px;padding:1px 6px">INVESTOR_CODE</code> and replace the value with your chosen code. Keep it simple — 6–8 characters, easy to type on mobile.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:var(--ink);border-radius:10px;overflow:hidden">
+      <div style="background:rgba(201,168,76,.11);padding:9px 15px;display:flex;align-items:center;justify-content:between;border-bottom:1px solid rgba(201,168,76,.18)">
+        <span style="font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.12em;color:var(--gold);text-transform:uppercase">⚙️ How the access code works</span>
+      </div>
+      <div style="padding:16px 15px;font-family:'DM Mono',monospace;font-size:.78rem;color:rgba(255,255,255,.75);line-height:1.8">The code is checked entirely in the browser — no server needed.
+It is intentionally lightweight (not cryptographic) because:
+  • The goal is friction-reduction and exclusivity, not military-grade security
+  • The content is business-sensitive but not personally identifying
+  • Anyone with the URL can view the public sections regardless
+
+To update the access code: open the HTML file in any text editor,
+search for "INVESTOR2026" and replace with your preferred code.
+Then re-upload to GitHub — takes 2 minutes.</div>
+    </div>
+
+  </div>
+</div>
+
+
+<footer class="site-footer">
+  <p>STR Co-Host AI & Automation Playbook · Phase 6 · Part of the <a href="STR_CoHost_Playbook.html">complete STR Co-Host System</a></p>
+  <p style="margin-top:6px">Built for client-facing STR co-hosting operations · Claude API · n8n · OwnerRez · Softr · Google Sheets</p>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+document.addEventListener('DOMContentLoaded', function() {
+
+  // ── INVESTOR GATE ──
+  function checkInvestorCode() {
+    var code = document.getElementById('investorCode').value.trim().toUpperCase();
+    var ACCESS_CODE = 'INVESTOR2026'; // ← change this to your preferred code
+    if (code === ACCESS_CODE) {
+      document.getElementById('investorGate').style.display = 'none';
+      document.getElementById('investorContent').classList.add('unlocked');
+      sessionStorage.setItem('hs_investor', '1');
+    } else {
+      document.getElementById('investorError').style.display = 'block';
+      document.getElementById('investorCode').focus();
+    }
+  }
+  window.checkInvestorCode = checkInvestorCode;
+
+  // Persist unlock within session
+  if (sessionStorage.getItem('hs_investor') === '1') {
+    var gate = document.getElementById('investorGate');
+    var content = document.getElementById('investorContent');
+    if (gate) gate.style.display = 'none';
+    if (content) content.classList.add('unlocked');
+  }
+
+  // Allow Enter key on input
+  var codeInput = document.getElementById('investorCode');
+  if (codeInput) {
+    codeInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') checkInvestorCode();
+    });
+  }
+
+  // Step card toggle
+  document.querySelectorAll('.step-header').forEach(function(header) {
+    header.addEventListener('click', function() {
+      var card = this.closest('.step-card');
+      card.classList.toggle('open');
+    });
+  });
+
+  // Toolbar expand/collapse
+  document.querySelectorAll('.toolbar-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var action = this.getAttribute('data-action');
+      var section = this.closest('section') || this.closest('.wrapper');
+      var cards = section.querySelectorAll('.step-card');
+      cards.forEach(function(card) {
+        if (action === 'expand') card.classList.add('open');
+        else card.classList.remove('open');
+      });
+    });
+  });
+
+  // Copy buttons
+  document.querySelectorAll('.copy-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var targetId = this.getAttribute('data-target');
+      var el = document.getElementById(targetId);
+      if (!el) return;
+      var text = el.textContent;
+      var self = this;
+      function markDone() {
+        var orig = self.textContent;
+        self.textContent = 'Copied!';
+        self.classList.add('copied');
+        setTimeout(function() { self.textContent = 'Copy'; self.classList.remove('copied'); }, 2000);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(markDone).catch(function() {
+          fallback(text, markDone);
+        });
+      } else { fallback(text, markDone); }
+    });
+  });
+
+  function fallback(text, cb) {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.cssText = 'position:fixed;opacity:0';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch(e) {}
+    document.body.removeChild(ta);
+    if (cb) cb();
+  }
+
+  // Open first step in each section by default
+  document.querySelectorAll('.steps').forEach(function(stepsEl) {
+    var first = stepsEl.querySelector('.step-card');
+    if (first) first.classList.add('open');
+  });
+
+});
+</script>
+</body>
+</html>
