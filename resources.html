@@ -480,4 +480,9 @@
   }
 
   // Allow Enter key
-  document.getElementById('codeField').addEventLi
+  document.getElementById('codeField').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') attemptUnlock();
+  });
+</script>
+</body>
+</html>
