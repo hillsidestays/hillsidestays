@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resources · Hillside Stays</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f1a14;
+    --forest: #1a3a2a;
+    --forest-mid: #254d35;
+    --gold: #c9a84c;
+    --gold-light: #e4c76b;
+    --cream: #faf6ec;
+    --cream-dark: #f0ead8;
+    --muted: #6b7a6f;
+    --border: #d4c9a8;
+    --white: #ffffff;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--forest);
+    padding: 0 32px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    color: var(--gold);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    letter-spacing: 0.03em;
+  }
+
+  .nav-logo em { font-style: italic; color: rgba(201,168,76,0.75); }
+
+  .nav-back {
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .nav-back:hover { color: var(--gold); }
+
+  /* ── MAIN ── */
+  main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 24px;
+  }
+
+  .gate-wrap {
+    width: 100%;
+    max-width: 520px;
+  }
+
+  /* ── HEADER BLOCK ── */
+  .gate-header {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+
+  .gate-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+
+  .gate-header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 5vw, 2.7rem);
+    font-weight: 300;
+    color: var(--forest);
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .gate-header h1 em {
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  .gate-header p {
+    color: var(--muted);
+    font-size: 0.88rem;
+    line-height: 1.7;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+
+  /* ── CARD ── */
+  .gate-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 32px rgba(26,58,42,0.08);
+    margin-bottom: 20px;
+  }
+
+  .gate-card-top {
+    background: var(--forest);
+    padding: 24px 28px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .lock-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(201,168,76,0.15);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .gate-card-top-text strong {
+    display: block;
+    color: var(--white);
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 3px;
+  }
+
+  .gate-card-top-text span {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.78rem;
+    line-height: 1.5;
+  }
+
+  .gate-card-body {
+    padding: 28px;
+  }
+
+  .input-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .code-input {
+    width: 100%;
+    background: var(--cream);
+    border: 2px solid var(--border);
+    border-radius: 9px;
+    padding: 13px 16px;
+    font-family: 'DM Mono', monospace;
+    font-size: 1.1rem;
+    letter-spacing: 0.2em;
+    color: var(--forest);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  .code-input:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(201,168,76,0.12);
+  }
+
+  .code-input.error {
+    border-color: #c0392b;
+    box-shadow: 0 0 0 3px rgba(192,57,43,0.1);
+    animation: shake 0.35s ease;
+  }
+
+  @keyframes shake {
+    0%,100% { transform: translateX(0); }
+    20%      { transform: translateX(-6px); }
+    40%      { transform: translateX(6px); }
+    60%      { transform: translateX(-4px); }
+    80%      { transform: translateX(4px); }
+  }
+
+  .unlock-btn {
+    width: 100%;
+    background: var(--forest);
+    color: var(--gold);
+    border: none;
+    border-radius: 9px;
+    padding: 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .unlock-btn:hover {
+    background: var(--forest-mid);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(26,58,42,0.25);
+  }
+
+  .unlock-btn:active { transform: translateY(0); }
+
+  .error-msg {
+    display: none;
+    color: #c0392b;
+    font-size: 0.8rem;
+    text-align: center;
+    margin-top: 12px;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── PLAYBOOK PICKER (shown after unlock) ── */
+  .playbook-picker {
+    display: none;
+  }
+
+  .playbook-picker.visible {
+    display: block;
+  }
+
+  .picker-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: center;
+    margin-bottom: 14px;
+  }
+
+  .playbook-link {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 20px;
+    text-decoration: none;
+    color: var(--ink);
+    margin-bottom: 10px;
+    transition: all 0.2s;
+    box-shadow: 0 2px 8px rgba(26,58,42,0.05);
+  }
+
+  .playbook-link:hover {
+    border-color: var(--gold);
+    box-shadow: 0 4px 20px rgba(26,58,42,0.12);
+    transform: translateY(-2px);
+  }
+
+  .playbook-link:last-child { margin-bottom: 0; }
+
+  .playbook-emoji {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    background: var(--cream);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .playbook-link-text strong {
+    display: block;
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: var(--forest);
+    margin-bottom: 3px;
+  }
+
+  .playbook-link-text span {
+    font-size: 0.78rem;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  .playbook-arrow {
+    margin-left: auto;
+    color: var(--gold);
+    font-size: 1rem;
+    flex-shrink: 0;
+    transition: transform 0.2s;
+  }
+
+  .playbook-link:hover .playbook-arrow {
+    transform: translateX(4px);
+  }
+
+  /* ── FOOTER NOTE ── */
+  .gate-footer-note {
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin-top: 20px;
+    line-height: 1.6;
+  }
+
+  .gate-footer-note a {
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  .gate-footer-note a:hover { text-decoration: underline; }
+
+  /* ── PAGE FOOTER ── */
+  footer {
+    background: var(--forest);
+    text-align: center;
+    padding: 20px 32px;
+  }
+
+  footer p {
+    color: rgba(255,255,255,0.35);
+    font-size: 0.75rem;
+  }
+
+  footer a {
+    color: rgba(201,168,76,0.6);
+    text-decoration: none;
+  }
+
+  @media (max-width: 480px) {
+    nav { padding: 0 20px; }
+    main { padding: 32px 16px; align-items: flex-start; }
+    .gate-card-body { padding: 22px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">⌂ Hillside <em>Stays</em></a>
+  <a href="index.html" class="nav-back">← Back to site</a>
+</nav>
+
+<main>
+  <div class="gate-wrap">
+
+    <div class="gate-header">
+      <div class="gate-eyebrow">Hillside Stays · Private Resources</div>
+      <h1>Our <em>Playbooks</em></h1>
+      <p>Internal documentation for how we build and operate our co-hosting business. Enter your access code to continue.</p>
+    </div>
+
+    <!-- ACCESS CODE CARD -->
+    <div class="gate-card" id="gateCard">
+      <div class="gate-card-top">
+        <div class="lock-icon">🔒</div>
+        <div class="gate-card-top-text">
+          <strong>Access Required</strong>
+          <span>These documents are shared with<br>invited partners & investors only.</span>
+        </div>
+      </div>
+      <div class="gate-card-body">
+        <label class="input-label" for="codeField">Access Code</label>
+        <input
+          type="text"
+          id="codeField"
+          class="code-input"
+          placeholder="· · · · · · · ·"
+          autocomplete="off"
+          spellcheck="false"
+          maxlength="20"
+        >
+        <button class="unlock-btn" onclick="attemptUnlock()">
+          Unlock Resources →
+        </button>
+        <div class="error-msg" id="errorMsg">
+          Incorrect code. Contact <a href="/cdn-cgi/l/email-protection#8fe6e1e9e0cfe7e6e3e3fce6ebeafcfbeef6fca1e1eafb" style="color:#c0392b"><span class="__cf_email__" data-cfemail="cfa6a1a9a08fa7a6a3a3bca6abaabcbbaeb6bce1a1aabb">[email&#160;protected]</span></a> for access.
+        </div>
+      </div>
+    </div>
+
+    <!-- PLAYBOOK PICKER (shown after unlock) -->
+    <div class="playbook-picker" id="playbookPicker">
+      <div class="picker-label">Choose a playbook to open</div>
+      <a href="STR_CoHost_Playbook.html" class="playbook-link">
+        <div class="playbook-emoji">📋</div>
+        <div class="playbook-link-text">
+          <strong>Tech Stack Playbook</strong>
+          <span>Website, GitHub Pages, Softr portal — phases 1–4</span>
+        </div>
+        <div class="playbook-arrow">→</div>
+      </a>
+      <a href="STR_CoHost_AI_Automation_Playbook.html" class="playbook-link">
+        <div class="playbook-emoji">🤖</div>
+        <div class="playbook-link-text">
+          <strong>AI Automation Playbook</strong>
+          <span>n8n, Claude API, guest messaging, owner reports — phase 6</span>
+        </div>
+        <div class="playbook-arrow">→</div>
+      </a>
+      <a href="pms-comparison.html" class="playbook-link">
+        <div class="playbook-emoji">⚖️</div>
+        <div class="playbook-link-text">
+          <strong>PMS Comparison Matrix</strong>
+          <span>OwnerRez vs Hospitable vs Hostaway vs Guesty vs Lodgify — scored for our AI stack</span>
+        </div>
+        <div class="playbook-arrow">→</div>
+      </a>
+    </div>
+
+    <div class="gate-footer-note">
+      Don't have an access code? <a href="index.html#contact">Request access →</a>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2026 Hillside Stays LLC · <a href="index.html">hillsidestays.net</a></p>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  var ACCESS_CODE = 'INVESTOR2026'; // ← change this to update the code
+
+  function attemptUnlock() {
+    var input = document.getElementById('codeField');
+    var val = input.value.trim().toUpperCase();
+
+    if (val === ACCESS_CODE) {
+      // Correct — show playbook picker, hide gate card
+      document.getElementById('gateCard').style.display = 'none';
+      document.getElementById('playbookPicker').classList.add('visible');
+      document.getElementById('errorMsg').style.display = 'none';
+      sessionStorage.setItem('hs_unlocked', '1');
+    } else {
+      // Wrong — shake and show error
+      input.classList.remove('error');
+      void input.offsetWidth; // force reflow to restart animation
+      input.classList.add('error');
+      document.getElementById('errorMsg').style.display = 'block';
+      input.select();
+    }
+  }
+
+  // Persist unlock for the session
+  if (sessionStorage.getItem('hs_unlocked') === '1') {
+    document.getElementById('gateCard').style.display = 'none';
+    document.getElementById('playbookPicker').classList.add('visible');
+  }
+
+  // Allow Enter key
+  document.getElementById('codeField').addEventLi
