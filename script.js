@@ -101,7 +101,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // ---- Scroll-triggered fade-up animations ----
 const fadeEls = document.querySelectorAll(
-  '.pain-card, .service-card, .step, .revenue-card, .faq-item, .compare-row'
+  '.pain-card, .service-card, .step, .revenue-card, .testimonial-card, .faq-item, .compare-row'
 );
 fadeEls.forEach(el => el.classList.add('fade-up'));
 
