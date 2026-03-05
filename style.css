@@ -961,6 +961,9 @@ a { text-decoration: none; color: inherit; }
   color: rgba(250,246,236,0.7);
   line-height: 1.8;
 }
+.about-text p:nth-of-type(2) {
+  clear: left;
+}
 .about-cta-box {
   clear: both;
   background: rgba(201,168,76,0.08);
