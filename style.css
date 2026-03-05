@@ -925,14 +925,16 @@ a { text-decoration: none; color: inherit; }
   background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
   pointer-events: none;
 }
-.about-grid {
-  display: grid;
-  grid-template-columns: 380px 1fr;
-  gap: 72px;
-  align-items: start;
+.about-content {
+  max-width: 860px;
+  margin: 0 auto;
 }
 .about-photo {
+  float: left;
+  width: 300px;
+  margin: 0 40px 24px 0;
   position: relative;
+  shape-outside: margin-box;
 }
 .about-photo::before {
   content: '';
@@ -1306,8 +1308,7 @@ a { text-decoration: none; color: inherit; }
   .ai-grid { grid-template-columns: 1fr; gap: 40px; }
   .revenue-grid { grid-template-columns: 1fr; gap: 40px; }
   .testimonials-grid { grid-template-columns: 1fr; }
-  .about-grid { grid-template-columns: 1fr; gap: 40px; }
-  .about-photo { max-width: 340px; margin: 0 auto; }
+  .about-photo { float: none; width: 260px; max-width: 100%; margin: 0 auto 32px; display: block; }
   .contact-grid { grid-template-columns: 1fr; gap: 40px; }
   .form-row { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
