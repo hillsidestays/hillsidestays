@@ -913,27 +913,93 @@ a { text-decoration: none; color: inherit; }
    ============================================ */
 .about-me {
   padding: 100px 0;
-  background: var(--warm-white);
+  background: var(--forest);
+  position: relative;
+  overflow: hidden;
+}
+.about-me::before {
+  content: '';
+  position: absolute;
+  bottom: -100px; left: -100px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+  pointer-events: none;
 }
 .about-grid {
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
+  grid-template-columns: 380px 1fr;
   gap: 72px;
-  align-items: center;
+  align-items: start;
+}
+.about-photo {
+  position: relative;
+}
+.about-photo::before {
+  content: '';
+  position: absolute;
+  top: 12px; left: 12px; right: -12px; bottom: -12px;
+  border: 1px solid rgba(201,168,76,0.3);
+  border-radius: var(--radius-lg);
+  pointer-events: none;
 }
 .about-photo img {
   width: 100%;
   border-radius: var(--radius-lg);
   object-fit: cover;
   aspect-ratio: 3/4;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+.about-text .section-eyebrow {
+  color: var(--gold);
 }
 .about-text h2 {
   margin-bottom: 20px;
   font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  color: var(--cream);
+}
+.about-text h2 em {
+  color: var(--gold);
 }
 .about-text p {
-  font-size: 1rem;
+  font-size: 0.95rem;
   margin-bottom: 16px;
+  color: rgba(250,246,236,0.7);
+  line-height: 1.8;
+}
+.about-cta-box {
+  background: rgba(201,168,76,0.08);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 12px;
+  padding: 24px 28px;
+  margin: 20px 0;
+}
+.about-cta-heading {
+  font-weight: 500;
+  color: rgba(250,246,236,0.85) !important;
+  margin-bottom: 12px !important;
+  font-size: 0.95rem;
+}
+.about-cta-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.about-cta-list li {
+  font-size: 0.92rem;
+  color: rgba(250,246,236,0.6);
+}
+.about-cta-list li strong {
+  color: var(--gold);
+}
+.about-outro {
+  font-size: 0.92rem !important;
+  color: rgba(250,246,236,0.55) !important;
+  line-height: 1.8 !important;
 }
 .about-text .btn-primary {
   margin-top: 12px;
@@ -944,7 +1010,7 @@ a { text-decoration: none; color: inherit; }
    ============================================ */
 .faq {
   padding: 100px 0;
-  background: var(--cream);
+  background: var(--warm-white);
 }
 .faq-list {
   max-width: 800px;
@@ -1241,6 +1307,7 @@ a { text-decoration: none; color: inherit; }
   .revenue-grid { grid-template-columns: 1fr; gap: 40px; }
   .testimonials-grid { grid-template-columns: 1fr; }
   .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .about-photo { max-width: 340px; margin: 0 auto; }
   .contact-grid { grid-template-columns: 1fr; gap: 40px; }
   .form-row { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
