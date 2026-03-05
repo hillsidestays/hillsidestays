@@ -101,16 +101,14 @@
       </a>
       <ul class="nav-links">
         <li><a href="#services">Services</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#why-us">Why Us</a></li>
         <li class="nav-dropdown">
-          <a href="#" class="nav-dropdown-toggle" onclick="return false;">How It Works ▾</a>
+          <a href="#" class="nav-dropdown-toggle" onclick="return false;">Properties ▾</a>
           <ul class="nav-dropdown-menu">
-            <li><a href="#how-it-works">🏡 Our Process</a></li>
-            <li><a href="HillsideStays_HowWeWork.html">📋 How We Work</a></li>
+            <li><a href="stays_v3.html">✨ Lightning Bug Holler</a></li>
           </ul>
         </li>
-        <li><a href="#why-us">Why Us</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a href="stays_v3.html">Hillside Properties</a></li>
         <li class="nav-dropdown">
           <a href="#" class="nav-dropdown-toggle" onclick="return false;">Resources ▾</a>
           <ul class="nav-dropdown-menu">
@@ -128,11 +126,10 @@
     </div>
     <div class="nav-mobile" id="mobileMenu">
       <a href="#services">Services</a>
-      <a href="#how-it-works">Our Process</a>
-      <a href="HillsideStays_HowWeWork.html">How We Work</a>
+      <a href="#how-it-works">How It Works</a>
       <a href="#why-us">Why Us</a>
-      <a href="#faq">FAQ</a>
-      <a href="stays_v3.html">Hillside Properties</a>
+      <div class="mobile-resources-label">Properties</div>
+      <a href="stays_v3.html" class="mobile-resource-link">✨ Lightning Bug Holler</a>
       <div class="mobile-resources-label">Resources</div>
       <a href="resources.html" class="mobile-resource-link">📋 Tech Stack Playbook</a>
       <a href="resources.html" class="mobile-resource-link">🤖 AI Automation Playbook</a>
@@ -251,7 +248,26 @@
       </div>
 
       <div class="services-grid">
-        <div class="service-card" data-num="01">
+        <div class="service-card featured" data-num="01">
+          <div class="service-icon">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 8H32V28H22L16 34V28H8V8Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M14 16H26M14 21H22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="28" cy="12" r="4" fill="currentColor" opacity="0.3"/>
+            </svg>
+          </div>
+          <div class="featured-badge">Most Impactful</div>
+          <h3>Direct Bookings Website</h3>
+          <p>We build you a custom direct bookings website — just like we did for Lightning Bug Holler. Cut out OTA fees, own your brand, and drive guests straight to you with SEO, social media, and smart marketing.</p>
+          <ul class="service-details">
+            <li>Custom website with your own domain</li>
+            <li>SEO optimization to rank in searches</li>
+            <li>Social media management & scheduled posts</li>
+            <li>Direct booking engine integration</li>
+          </ul>
+        </div>
+
+        <div class="service-card" data-num="02">
           <div class="service-icon">
             <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M8 28L14 22M14 22C14 22 16 25 20 25C24 25 26 22 26 22M26 22L32 28M20 8C14.477 8 10 12.477 10 18C10 21.5 11.8 24.6 14.5 26.4L13 32H27L25.5 26.4C28.2 24.6 30 21.5 30 18C30 12.477 25.523 8 20 8Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -267,7 +283,7 @@
           </ul>
         </div>
 
-        <div class="service-card featured" data-num="02">
+        <div class="service-card" data-num="03">
           <div class="service-icon">
             <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M10 28L20 10L30 28H10Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -275,7 +291,6 @@
               <circle cx="20" cy="10" r="2" fill="currentColor"/>
             </svg>
           </div>
-          <div class="featured-badge">Most Impactful</div>
           <h3>Dynamic Pricing Management</h3>
           <p>We use AI-powered pricing tools to adjust your rates daily based on local demand, events, competitor rates, and seasonal trends — maximizing every single night.</p>
           <ul class="service-details">
@@ -286,39 +301,22 @@
           </ul>
         </div>
 
-        <div class="service-card" data-num="03">
+        <div class="service-card" data-num="04">
           <div class="service-icon">
             <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M12 20C12 16 15 12 20 12C25 12 28 16 28 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
               <path d="M8 26H32" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
               <path d="M14 26V30M20 26V30M26 26V30" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-              <path d="M16 20H24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="20" cy="20" r="10" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
+              <path d="M20 14V20L24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.3"/>
             </svg>
           </div>
-          <h3>Cleaning Coordination</h3>
-          <p>We manage your cleaning team so every turnover happens on time, every time. No gaps. No excuses. Guests walk into a spotless property.</p>
+          <h3>Cleaning & Maintenance</h3>
+          <p>We manage your cleaning team and coordinate all maintenance. Every turnover happens on time, every repair gets handled fast — your property stays in top shape without you lifting a finger.</p>
           <ul class="service-details">
-            <li>Turnover scheduling & oversight</li>
-            <li>Quality control inspections</li>
-            <li>Supplies restocking coordination</li>
-            <li>Deep clean management</li>
-          </ul>
-        </div>
-
-        <div class="service-card" data-num="04">
-          <div class="service-icon">
-            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="20" cy="20" r="10" stroke="currentColor" stroke-width="1.5"/>
-              <path d="M20 14V20L24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M12 8L10 6M28 8L30 6M20 10V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <h3>Maintenance Coordination</h3>
-          <p>When something breaks, we handle it. We maintain a trusted network of local vendors in the WNC area and coordinate repairs quickly — keeping your property in top shape.</p>
-          <ul class="service-details">
-            <li>24/7 issue reporting & triage</li>
-            <li>Trusted local vendor network</li>
-            <li>Owner approval for larger repairs</li>
+            <li>Turnover scheduling & quality inspections</li>
+            <li>Supplies restocking & deep cleans</li>
+            <li>24/7 issue reporting & vendor coordination</li>
             <li>Preventative maintenance scheduling</li>
           </ul>
         </div>
@@ -472,6 +470,76 @@
       <div class="revenue-cta">
         <p>Want to know what <em>your specific property</em> could earn?</p>
         <a href="#contact" class="btn-primary">Get My Free Revenue Estimate</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">What People Say</div>
+        <h2>Trusted by property owners<br/><em>across WNC.</em></h2>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">"Hillside Stays completely transformed our rental. We went from stressing over every booking to just collecting deposits. Our revenue is up 30% and we haven't had to deal with a single guest issue."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">JS</div>
+            <div class="testimonial-info">
+              <strong>Jane S.</strong>
+              <span>Cabin Owner, Asheville</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">"The direct bookings website they built for us is a game changer. We're saving thousands in OTA fees and our calendar has never been fuller. The SEO work alone paid for itself in the first month."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">MR</div>
+            <div class="testimonial-info">
+              <strong>Mark R.</strong>
+              <span>Property Owner, Black Mountain</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">"I was skeptical about co-hosting, but Dylan and the team have been incredible. Communication is instant, the pricing strategy is dialed in, and my property has never looked better online."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">KT</div>
+            <div class="testimonial-info">
+              <strong>Karen T.</strong>
+              <span>Mountain Home Owner, Waynesville</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about-me" id="about-me">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-photo">
+          <div class="about-photo-placeholder">
+            <span>📸</span>
+            <p>Your photo here</p>
+          </div>
+        </div>
+        <div class="about-text">
+          <div class="section-eyebrow">Meet the Founder</div>
+          <h2>Hi, I'm Dylan.<br/><em>I'm a tech nerd who loves hospitality.</em></h2>
+          <p>I started Hillside Stays because I saw property owners in Western North Carolina leaving money on the table — not because they didn't care, but because they didn't have the tools or time to compete with the big players.</p>
+          <p>I'm obsessed with the tech side of short-term rentals: AI-powered pricing, SEO that actually moves the needle, custom direct booking websites, and social media strategies that drive real results. I built Lightning Bug Holler's entire online presence from scratch, and now I bring that same approach to every property I manage.</p>
+          <p>My background is in sales and digital marketing. I know how to get properties seen, booked, and reviewed — and I use every tool in my arsenal to make it happen for my clients.</p>
+          <a href="#contact" class="btn-primary">Let's Talk About Your Property</a>
+        </div>
       </div>
     </div>
   </section>
@@ -669,9 +737,9 @@
           <h4>Navigation</h4>
           <a href="#services">Services</a>
           <a href="#how-it-works">How It Works</a>
-          <a href="HillsideStays_HowWeWork.html">How We Work</a>
           <a href="#why-us">Why Hillside Stays</a>
-          <a href="#faq">FAQ</a>
+          <a href="#testimonials">Reviews</a>
+          <a href="#about-me">About</a>
           <a href="#contact">Contact</a>
           <a href="owner-portal.html">Owner Login</a>
         </div>
@@ -706,17 +774,21 @@
 
   <script src="script.js"></script>
   <script>
-    // Resources dropdown — toggle on click, close on outside click
-    var dropdown = document.querySelector('.nav-dropdown');
-    if (dropdown) {
-      dropdown.querySelector('.nav-dropdown-toggle').addEventListener('click', function(e) {
+    // Dropdowns — toggle on click, close on outside click
+    var dropdowns = document.querySelectorAll('.nav-dropdown');
+    dropdowns.forEach(function(dd) {
+      dd.querySelector('.nav-dropdown-toggle').addEventListener('click', function(e) {
         e.stopPropagation();
-        dropdown.classList.toggle('open');
+        // Close other dropdowns
+        dropdowns.forEach(function(other) {
+          if (other !== dd) other.classList.remove('open');
+        });
+        dd.classList.toggle('open');
       });
-      document.addEventListener('click', function() {
-        dropdown.classList.remove('open');
-      });
-    }
+    });
+    document.addEventListener('click', function() {
+      dropdowns.forEach(function(dd) { dd.classList.remove('open'); });
+    });
   </script>
 </body>
 </html>
