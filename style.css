@@ -932,12 +932,12 @@ a { text-decoration: none; color: inherit; }
 .about-header {
   display: flex;
   align-items: center;
-  gap: 40px;
-  margin-bottom: 40px;
+  gap: 48px;
+  margin-bottom: 48px;
 }
 .about-photo {
   flex-shrink: 0;
-  width: 240px;
+  width: 280px;
 }
 .about-photo img {
   width: 100%;
