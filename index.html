@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hillside Stays | Direct Booking Infrastructure &amp; STR Co-Hosting | WNC &amp; the Smokies</title>
+  <meta name="description" content="Hillside Stays builds direct booking systems, manages your STR property, and drives revenue outside the OTAs -- across Western North Carolina and the Smoky Mountains of Tennessee." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <style>
+/* HILLSIDE STAYS -- Unified WNC + Smokies -- Direct Booking Focus */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --forest:#0d2018;--forest-mid:#1a3322;--forest-light:#254d32;
+  --gold:#c9a84c;--gold-light:#e4c76b;--gold-pale:#f5e9c4;
+  --cream:#faf6ec;--warm-white:#fffef9;--charcoal:#1e2620;
+  --text:#2c3a30;--text-muted:#5a6b5e;--border:#d6ccb0;--border-light:#e8e2d0;
+  --wnc-accent:#3d6b8a;--smokies-accent:#6b4e7d;
+  --font-display:"Cormorant Garamond",Georgia,serif;
+  --font-body:"DM Sans",system-ui,sans-serif;
+  --radius:8px;--radius-lg:16px;
+  --shadow-sm:0 2px 8px rgba(13,32,24,.08);
+  --shadow-md:0 8px 32px rgba(13,32,24,.12);
+  --shadow-lg:0 20px 60px rgba(13,32,24,.18);
+  --transition:.3s cubic-bezier(.4,0,.2,1);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);color:var(--text);background:var(--warm-white);line-height:1.6;overflow-x:hidden}
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:600;line-height:1.15;color:var(--forest)}
+h1{font-size:clamp(2.4rem,5vw,4rem)}h2{font-size:clamp(2rem,4vw,3rem)}h3{font-size:clamp(1.2rem,2.5vw,1.5rem)}
+em{font-style:italic;color:var(--gold)}
+p{line-height:1.75;color:var(--text-muted);margin-bottom:1rem}p:last-child{margin-bottom:0}
+a{text-decoration:none;color:inherit}
+.container{max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,60px)}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--forest);font-family:var(--font-body);font-weight:500;font-size:.95rem;letter-spacing:.02em;padding:14px 28px;border-radius:var(--radius);border:none;cursor:pointer;transition:var(--transition);white-space:nowrap}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,168,76,.35)}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--cream);font-family:var(--font-body);font-weight:400;font-size:.95rem;padding:13px 28px;border-radius:var(--radius);border:1px solid rgba(249,246,236,.4);cursor:pointer;transition:var(--transition)}
+.btn-ghost:hover{background:rgba(249,246,236,.1);border-color:rgba(249,246,236,.7)}
+.btn-ghost-light{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--gold);font-family:var(--font-body);font-weight:500;font-size:.95rem;padding:13px 28px;border-radius:var(--radius);border:1px solid var(--gold);cursor:pointer;transition:var(--transition)}
+.btn-ghost-light:hover{background:var(--gold);color:var(--forest)}
+.btn-full{width:100%;justify-content:center}
+.section-eyebrow{font-family:var(--font-body);font-size:.75rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.section-header{text-align:center;max-width:680px;margin:0 auto 52px}
+.section-header p{font-size:1.05rem;margin-top:16px}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;width:100%;z-index:1000;padding:0;background:rgba(13,32,24,.95);backdrop-filter:blur(12px);transition:background var(--transition),box-shadow var(--transition)}
+.nav.scrolled{background:rgba(13,32,24,1);backdrop-filter:blur(16px);box-shadow:0 2px 24px rgba(0,0,0,.4)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:20px clamp(20px,5vw,60px)}
+.nav-logo{display:flex;align-items:center;gap:10px;color:var(--cream)}
+.logo-mark{font-size:1.4rem;color:var(--gold)}
+.logo-text{font-family:var(--font-display);font-size:1.35rem;font-weight:600;letter-spacing:.02em;color:var(--cream)}
+.logo-text em{color:var(--gold);font-style:italic}
+.nav-links{display:flex;align-items:center;gap:clamp(16px,2vw,28px);list-style:none}
+.nav-links a{font-size:.88rem;font-weight:400;letter-spacing:.03em;color:rgba(250,246,236,.8);transition:color var(--transition)}
+.nav-links a:hover{color:var(--gold-light)}
+.nav-cta{background:var(--gold)!important;color:var(--forest)!important;padding:9px 20px;border-radius:var(--radius);font-weight:500!important;transition:var(--transition)!important}
+.nav-cta:hover{background:var(--gold-light)!important;transform:translateY(-1px)}
+.nav-owner-login{opacity:.7;font-size:.82rem!important}
+.nav-dropdown{position:relative}
+.nav-dropdown-toggle{display:flex;align-items:center;gap:3px;cursor:pointer}
+.nav-dropdown-menu{display:none;position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);background:#fff;border:1px solid #e8e0cc;border-radius:10px;box-shadow:0 8px 32px rgba(26,58,42,.13);list-style:none;padding:8px 0;min-width:230px;z-index:200}
+.nav-dropdown-menu::before{content:"";position:absolute;top:-6px;left:50%;transform:translateX(-50%);width:10px;height:10px;background:#fff;border-left:1px solid #e8e0cc;border-top:1px solid #e8e0cc;rotate:45deg}
+.nav-dropdown-menu li a{display:block;padding:10px 18px;font-size:.87rem;color:#1a3a2a;text-decoration:none;white-space:nowrap;transition:background .15s}
+.nav-dropdown-menu li a:hover{background:#faf6ec;color:#c9a84c}
+.nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown.open .nav-dropdown-menu{display:block}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.nav-hamburger span{display:block;width:24px;height:1.5px;background:var(--cream);transition:var(--transition)}
+.nav-mobile{display:none;flex-direction:column;background:var(--forest);padding:20px clamp(20px,5vw,60px);gap:16px;border-top:1px solid rgba(255,255,255,.1)}
+.nav-mobile a{color:rgba(250,246,236,.85);font-size:1rem;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.07);transition:color var(--transition)}
+.nav-mobile a:hover{color:var(--gold)}
+.nav-mobile.open{display:flex}
+.mobile-section-label{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);padding:10px 0 4px;font-family:"DM Sans",sans-serif;font-weight:500;border-top:1px solid rgba(255,255,255,.1);margin-top:4px}
+.mobile-sub-link{padding-left:12px!important;font-size:.9rem!important;opacity:.9}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-photo-slideshow{position:absolute;inset:0}
+.slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.8s ease-in-out;animation:slowZoom 12s ease-in-out infinite alternate}
+.slide.active{opacity:1}
+@keyframes slowZoom{from{transform:scale(1.04)}to{transform:scale(1)}}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(5,14,8,.55) 0%,rgba(5,14,8,.35) 40%,rgba(5,14,8,.55) 75%,rgba(5,14,8,.75) 100%)}
+.hero-noise{position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");opacity:.4;pointer-events:none}
+.hero-content{position:relative;z-index:1;text-align:center;max-width:900px;padding:120px clamp(20px,5vw,60px) 80px;animation:heroFadeUp 1s ease both}
+@keyframes heroFadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.hero-market-badges{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:24px;animation:heroFadeUp 1s .1s ease both}
+.hero-eyebrow{font-family:var(--font-body);font-size:.75rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;animation:heroFadeUp 1s .1s ease both}
+.market-badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-body);font-size:.7rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:6px 14px;border-radius:20px;border:1px solid}
+.market-badge.wnc{color:#8ab8d4;border-color:rgba(138,184,212,.35);background:rgba(61,107,138,.15)}
+.market-badge.smokies{color:#c4a8d4;border-color:rgba(196,168,212,.35);background:rgba(107,78,125,.15)}
+.badge-dot{width:5px;height:5px;border-radius:50%}
+.market-badge.wnc .badge-dot{background:#8ab8d4}
+.market-badge.smokies .badge-dot{background:#c4a8d4}
+.badge-divider{width:1px;height:16px;background:rgba(201,168,76,.3)}
+.hero-heading{font-family:var(--font-display);font-size:clamp(2.8rem,6.5vw,5rem);font-weight:600;color:var(--cream);line-height:1.1;margin-bottom:24px;animation:heroFadeUp 1s .2s ease both}
+.hero-heading em{color:var(--gold);font-style:italic}
+.hero-sub{font-size:clamp(1rem,2vw,1.15rem);color:rgba(250,246,236,.75);max-width:640px;margin:0 auto 36px;line-height:1.8;animation:heroFadeUp 1s .3s ease both}
+.hero-actions{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:56px;animation:heroFadeUp 1s .4s ease both}
+.hero-stats{display:flex;align-items:center;justify-content:center;background:rgba(13,32,24,.6);backdrop-filter:blur(12px);border:1px solid rgba(201,168,76,.25);border-radius:var(--radius-lg);padding:24px 40px;animation:heroFadeUp 1s .5s ease both}
+.stat{text-align:center;padding:0 28px}
+.stat-num{display:block;font-family:var(--font-display);font-size:2.2rem;font-weight:600;color:var(--gold);line-height:1}
+.stat-num small{font-size:1.2rem}
+.stat-label{display:block;font-size:.75rem;color:rgba(250,246,236,.6);letter-spacing:.04em;margin-top:6px}
+.stat-divider{width:1px;height:48px;background:rgba(201,168,76,.25)}
+.hero-scroll{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(250,246,236,.4);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;z-index:1;animation:heroFadeUp 1s .7s ease both}
+.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,rgba(201,168,76,.5),transparent);animation:scrollLine 2s ease-in-out infinite}
+@keyframes scrollLine{0%,100%{transform:scaleY(1);opacity:1}50%{transform:scaleY(.5);opacity:.4}}
+
+/* HOOK */
+.hook{padding:88px 0;background:var(--warm-white);border-top:3px solid rgba(201,168,76,.15)}
+.hook-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.hook-text h2{margin-bottom:20px;font-size:clamp(1.8rem,3.5vw,2.6rem)}
+.hook-cards{display:flex;flex-direction:column;gap:16px}
+.pain-card{background:var(--cream);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:24px 28px;display:flex;gap:18px;align-items:flex-start;transition:var(--transition)}
+.pain-card:hover{border-color:var(--gold);box-shadow:var(--shadow-md);transform:translateX(4px)}
+.pain-icon{font-size:1.5rem;flex-shrink:0;margin-top:2px}
+.pain-card h3{font-size:1rem;font-weight:600;margin-bottom:6px;color:var(--forest)}
+.pain-card p{font-size:.9rem;margin:0}
+
+/* TWO MARKETS */
+.markets-section{padding:88px 0;background:var(--cream)}
+.markets-intro{text-align:center;max-width:640px;margin:0 auto 56px}
+.markets-intro h2{margin-bottom:16px}
+.markets-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:48px}
+.market-card{border-radius:var(--radius-lg);padding:44px;position:relative;overflow:hidden;transition:var(--transition)}
+.market-card.wnc{background:linear-gradient(145deg,#0f2535 0%,#1a3a50 100%);border:1px solid rgba(138,184,212,.2)}
+.market-card.smokies{background:linear-gradient(145deg,#1e1028 0%,#2e1840 100%);border:1px solid rgba(196,168,212,.2)}
+.market-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.market-card::before{content:"";position:absolute;top:-80px;right:-80px;width:240px;height:240px;border-radius:50%;pointer-events:none}
+.market-card.wnc::before{background:radial-gradient(circle,rgba(61,107,138,.25) 0%,transparent 70%)}
+.market-card.smokies::before{background:radial-gradient(circle,rgba(107,78,125,.25) 0%,transparent 70%)}
+.market-card-eyebrow{font-family:var(--font-body);font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px}
+.market-card.wnc .market-card-eyebrow{color:#8ab8d4}
+.market-card.smokies .market-card-eyebrow{color:#c4a8d4}
+.market-card h3{font-family:var(--font-display);font-size:1.8rem;color:var(--cream);margin-bottom:14px;line-height:1.15}
+.market-card p{font-size:.9rem;color:rgba(250,246,236,.6);line-height:1.75;margin-bottom:28px}
+.market-towns{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:28px}
+.market-town{font-size:.74rem;font-weight:500;padding:4px 11px;border-radius:20px;letter-spacing:.03em}
+.market-card.wnc .market-town{background:rgba(138,184,212,.12);color:rgba(138,184,212,.85);border:1px solid rgba(138,184,212,.2)}
+.market-card.smokies .market-town{background:rgba(196,168,212,.12);color:rgba(196,168,212,.85);border:1px solid rgba(196,168,212,.2)}
+.market-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:rgba(255,255,255,.08);border-radius:var(--radius);overflow:hidden}
+.market-stat{padding:14px 12px;text-align:center;background:rgba(0,0,0,.15)}
+.market-stat-val{font-family:var(--font-display);font-size:1.3rem;color:var(--gold);display:block;line-height:1}
+.market-stat-label{font-size:.68rem;color:rgba(250,246,236,.45);margin-top:5px;letter-spacing:.03em}
+
+
+/* MARKETS LAYOUT */
+.markets-split{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.market-panel{border-radius:var(--radius-lg);overflow:hidden;position:relative;transition:var(--transition);border:1px solid rgba(255,255,255,.06);display:flex;flex-direction:column}
+.market-panel:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.market-panel-photo-wrap{position:relative;overflow:hidden;height:200px;flex-shrink:0}
+.market-panel-photo-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+.market-panel:hover .market-panel-photo-wrap img{transform:scale(1.04)}
+.market-panel-photo-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(5,14,8,.1) 0%,rgba(5,14,8,.5) 100%)}
+.market-panel-body{padding:32px 36px 36px;flex:1;display:flex;flex-direction:column}
+.market-panel.wnc .market-panel-body{background:linear-gradient(160deg,#0f2535 0%,#1a3a50 100%)}
+.market-panel.smokies .market-panel-body{background:linear-gradient(160deg,#1e1028 0%,#2e1840 100%)}
+.market-panel-eyebrow{font-family:var(--font-body);font-size:.66rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px}
+.market-panel.wnc .market-panel-eyebrow{color:#8ab8d4}
+.market-panel.smokies .market-panel-eyebrow{color:#c4a8d4}
+.market-panel-body h3{font-family:var(--font-display);font-size:1.6rem;color:var(--cream);margin-bottom:10px;line-height:1.2}
+.market-panel-body > p{font-size:.87rem;color:rgba(250,246,236,.55);line-height:1.75;margin-bottom:20px}
+.market-panel-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.07);border-radius:var(--radius);overflow:hidden;margin-bottom:20px}
+.mp-stat{padding:14px 8px;text-align:center;background:rgba(0,0,0,.2)}
+.mp-stat-val{font-family:var(--font-display);font-size:1.4rem;color:var(--gold);display:block;line-height:1}
+.mp-stat-unit{font-size:.66rem;font-family:var(--font-body);color:rgba(201,168,76,.55)}
+.mp-stat-label{font-size:.64rem;color:rgba(250,246,236,.38);margin-top:4px;letter-spacing:.02em}
+.market-panel-towns-label{font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
+.market-panel.wnc .market-panel-towns-label{color:rgba(138,184,212,.5)}
+.market-panel.smokies .market-panel-towns-label{color:rgba(196,168,212,.5)}
+.market-town-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+.market-town-list span{font-size:.72rem;font-weight:500;padding:4px 10px;border-radius:20px;letter-spacing:.02em}
+.market-panel.wnc .market-town-list span{background:rgba(138,184,212,.09);color:rgba(138,184,212,.8);border:1px solid rgba(138,184,212,.18)}
+.market-panel.smokies .market-town-list span{background:rgba(196,168,212,.09);color:rgba(196,168,212,.8);border:1px solid rgba(196,168,212,.18)}
+@media(max-width:768px){.markets-split{grid-template-columns:1fr;gap:24px}.market-panel-body{padding:24px 28px}}
+
+.cs-photo-wrap{position:relative;height:280px;overflow:hidden;border-radius:var(--radius-lg) var(--radius-lg) 0 0;background:linear-gradient(160deg,#1e1028 0%,#2e1840 60%,#3d2255 100%)}
+.cs-photo-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+.cs-property-card:hover .cs-photo-wrap img{transform:scale(1.04)}
+.cs-photo-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(5,14,8,.1) 0%,rgba(5,14,8,.6) 100%);display:flex;align-items:flex-end;padding:20px}
+.cs-photo-badge{font-family:var(--font-body);font-size:.65rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);background:rgba(13,32,24,.7);border:1px solid rgba(201,168,76,.3);padding:5px 12px;border-radius:20px;backdrop-filter:blur(8px)}
+.cs-card-body{padding:22px 28px 28px}
+/* CASE STUDY */
+.case-study{padding:88px 0;background:var(--charcoal);position:relative;overflow:hidden}
+.case-study::before{content:"";position:absolute;top:0;right:0;width:500px;height:500px;background:radial-gradient(circle,rgba(107,78,125,.12) 0%,transparent 60%);pointer-events:none}
+.case-study::after{content:"";position:absolute;bottom:0;left:0;width:400px;height:400px;background:radial-gradient(circle,rgba(201,168,76,.06) 0%,transparent 60%);pointer-events:none}
+.case-study-inner{position:relative;z-index:1}
+.case-study .section-eyebrow{color:var(--gold)}
+.cs-layout{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-top:48px}
+.cs-property-card{background:linear-gradient(145deg,#1e1028 0%,#2e1840 60%,#1a2030 100%);border:1px solid rgba(196,168,212,.2);border-radius:var(--radius-lg);overflow:hidden;position:relative}
+.cs-property-card::before{content:"lightning";font-family:var(--font-display);position:absolute;top:-10px;right:-10px;font-size:8rem;opacity:.04;pointer-events:none;line-height:1}
+.cs-property-name{font-family:var(--font-display);font-size:1.6rem;color:var(--cream);margin-bottom:4px}
+.cs-property-location{font-size:.78rem;color:rgba(196,168,212,.7);letter-spacing:.06em;text-transform:uppercase;margin-bottom:20px}
+.cs-features{display:flex;flex-direction:column;gap:8px;margin-bottom:24px}
+.cs-feature{display:flex;align-items:center;gap:10px;font-size:.83rem;color:rgba(250,246,236,.6)}
+.cs-feature-icon{font-size:.95rem;flex-shrink:0}
+.cs-stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.cs-stat-card{background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.07);border-radius:var(--radius);padding:12px 10px;text-align:center}
+.cs-stat-val{font-family:var(--font-display);font-size:1.2rem;color:var(--gold);display:block;line-height:1}
+.cs-stat-label{font-size:.64rem;color:rgba(250,246,236,.45);margin-top:4px;line-height:1.3}
+.cs-text h2{color:var(--cream);font-size:clamp(1.6rem,2.4vw,2.2rem);margin-bottom:20px;line-height:1.2}
+.cs-text h2 em{color:var(--gold)}
+.cs-text p{color:rgba(250,246,236,.65);font-size:.95rem;line-height:1.8}
+.cs-callout{background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.2);border-left:3px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;padding:18px 22px;margin:24px 0}
+.cs-callout p{font-size:.9rem;color:rgba(250,246,236,.75);font-style:italic;margin:0}
+.cs-link{display:inline-flex;align-items:center;gap:8px;color:var(--gold);font-size:.9rem;font-weight:500;transition:gap var(--transition);margin-top:8px}
+.cs-link:hover{gap:14px;color:var(--gold-light)}
+
+/* SERVICES */
+.services{padding:88px 0;background:var(--forest);position:relative;overflow:hidden;border-top:1px solid rgba(201,168,76,.15)}
+.services::before{content:"";position:absolute;top:-120px;right:-120px;width:500px;height:500px;background:radial-gradient(circle,rgba(201,168,76,.06) 0%,transparent 70%);pointer-events:none}
+.services .section-header h2{color:var(--cream)}
+.services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-bottom:48px}
+.service-card{background:rgba(255,255,255,.04);border:1px solid rgba(201,168,76,.15);border-radius:var(--radius-lg);padding:32px;position:relative;transition:var(--transition);overflow:hidden}
+.service-card::before{content:attr(data-num);position:absolute;top:-10px;right:24px;font-family:var(--font-display);font-size:5rem;font-weight:700;color:rgba(201,168,76,.06);line-height:1;pointer-events:none}
+.service-card:hover{background:rgba(255,255,255,.07);border-color:rgba(201,168,76,.4);transform:translateY(-4px);box-shadow:0 20px 48px rgba(0,0,0,.3)}
+.service-card.featured{border-color:rgba(201,168,76,.4);background:rgba(201,168,76,.07)}
+.service-icon{width:44px;height:44px;background:rgba(201,168,76,.12);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;color:var(--gold)}
+.service-icon svg{width:24px;height:24px}
+.featured-badge{display:inline-block;font-size:.65rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--forest);background:var(--gold);padding:3px 10px;border-radius:20px;margin-bottom:12px}
+.service-card h3{font-size:1.15rem;color:var(--cream);margin-bottom:10px}
+.service-card p{font-size:.88rem;color:rgba(250,246,236,.65);margin-bottom:16px}
+.service-details{list-style:none;display:flex;flex-direction:column;gap:7px}
+.service-details li{font-size:.82rem;color:rgba(250,246,236,.55);padding-left:16px;position:relative}
+.service-details li::before{content:"--";position:absolute;left:0;color:var(--gold);opacity:.6}
+.service-proof{display:inline-flex;align-items:center;gap:6px;margin-top:14px;padding:6px 12px;background:rgba(107,78,125,.15);border:1px solid rgba(196,168,212,.2);border-radius:var(--radius);font-size:.75rem;color:rgba(196,168,212,.8);text-decoration:none;transition:var(--transition)}
+.service-proof:hover{background:rgba(107,78,125,.25);color:rgba(196,168,212,1)}
+.services-footer{text-align:center;padding:32px;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.2);border-radius:var(--radius-lg)}
+.services-footer p{font-size:1.05rem;color:rgba(250,246,236,.8);margin-bottom:20px}
+.services-footer strong{color:var(--gold)}
+
+/* AI COMPARE */
+.ai-section{padding:88px 0;background:var(--cream)}
+.ai-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:56px;align-items:center}
+.ai-text h2{margin-bottom:20px}
+.ai-text p{margin-bottom:16px}
+.ai-proof-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px;padding-top:28px;border-top:1px solid var(--border-light)}
+.ai-proof-stat{text-align:center}
+.ai-proof-num{font-family:var(--font-display);font-size:2rem;font-weight:600;color:var(--forest);display:block;line-height:1}
+.ai-proof-label{font-size:.72rem;color:var(--text-muted);letter-spacing:.04em;margin-top:5px;display:block}
+.ai-compare{background:var(--warm-white);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md)}
+.compare-header{display:grid;grid-template-columns:2fr 1fr 1fr;background:var(--forest);padding:14px 20px}
+.compare-col-label{font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(250,246,236,.5);text-align:center}
+.compare-col-label.us{color:var(--gold)}
+.compare-col-label.empty{text-align:left}
+.compare-row{display:grid;grid-template-columns:2fr 1fr 1fr;padding:14px 20px;border-bottom:1px solid var(--border-light);align-items:center;transition:background var(--transition)}
+.compare-row:hover{background:var(--cream)}
+.compare-row:last-child{border-bottom:none}
+.compare-feature{font-size:.88rem;font-weight:500;color:var(--text)}
+.compare-other,.compare-us{text-align:center;font-size:.82rem}
+.compare-other{color:var(--text-muted)}
+.compare-us{color:var(--forest-light);font-weight:500}
+.highlight-cell{color:var(--forest)!important;background:var(--gold);font-weight:700!important;padding:4px 10px;border-radius:20px;font-size:.78rem!important}
+
+/* HOW IT WORKS */
+.how-it-works{padding:88px 0;background:var(--warm-white);border-top:1px solid var(--border-light)}
+.how-grid{display:grid;grid-template-columns:1fr 380px;gap:72px;align-items:flex-start;max-width:1100px;margin:0 auto}
+.steps{position:relative}
+.step{display:grid;grid-template-columns:64px 1fr;gap:24px;align-items:flex-start;position:relative}
+.step-number{font-family:var(--font-display);font-size:2.4rem;font-weight:700;color:var(--gold);opacity:.5;line-height:1;padding-top:4px;text-align:center}
+.step-content{padding-bottom:40px}
+.step-content h3{font-size:1.1rem;margin-bottom:8px;color:var(--forest)}
+.step-content p{font-size:.92rem}
+.steps::before{content:"";position:absolute;left:32px;top:36px;bottom:64px;width:1px;background:repeating-linear-gradient(to bottom,var(--border) 0,var(--border) 6px,transparent 6px,transparent 12px)}
+.how-summary{background:var(--forest);border-radius:var(--radius-lg);padding:36px;position:sticky;top:100px}
+.how-summary h3{font-family:var(--font-display);font-size:1.4rem;color:var(--cream);margin-bottom:20px;line-height:1.2}
+.how-summary h3 em{color:var(--gold)}
+.how-summary-items{display:flex;flex-direction:column;gap:16px;margin-bottom:28px}
+.how-summary-item{display:flex;align-items:flex-start;gap:12px}
+.how-summary-check{width:20px;height:20px;border-radius:50%;background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;font-size:.65rem;color:var(--gold)}
+.how-summary-item p{font-size:.85rem;color:rgba(250,246,236,.65);margin:0;line-height:1.6}
+@media(max-width:1024px){.how-grid{grid-template-columns:1fr}.how-summary{position:static;display:none}}
+
+/* REVENUE */
+.revenue-section{padding:88px 0;background:var(--forest-mid)}
+.revenue-intro{text-align:center;max-width:640px;margin:0 auto 56px}
+.revenue-intro h2{color:var(--cream);margin-bottom:16px}
+.revenue-intro p{color:rgba(250,246,236,.65)}
+.revenue-markets{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-bottom:48px}
+.revenue-market-group{display:flex;flex-direction:column}
+.revenue-market-label{font-family:var(--font-body);font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:8px 14px;border-radius:var(--radius);margin-bottom:20px;display:inline-flex;align-items:center;gap:8px;align-self:flex-start}
+.revenue-market-label.wnc{color:#8ab8d4;background:rgba(61,107,138,.15);border:1px solid rgba(138,184,212,.2)}
+.revenue-market-label.smokies{color:#c4a8d4;background:rgba(107,78,125,.15);border:1px solid rgba(196,168,212,.2)}
+.revenue-cards{display:flex;flex-direction:column;gap:12px}
+.revenue-card{background:rgba(255,255,255,.05);border:1px solid rgba(201,168,76,.2);border-radius:var(--radius-lg);padding:20px 24px;display:flex;align-items:center;justify-content:space-between;transition:var(--transition)}
+.revenue-card:hover{border-color:rgba(201,168,76,.5);background:rgba(201,168,76,.07);transform:translateX(4px)}
+.rev-market{font-size:.85rem;font-weight:500;color:rgba(250,246,236,.8)}
+.rev-data{text-align:right}
+.rev-rate{font-family:var(--font-display);font-size:1.4rem;font-weight:600;color:var(--cream);line-height:1}
+.rev-rate span{font-size:.8rem;color:rgba(250,246,236,.4);font-family:var(--font-body)}
+.rev-occ{font-size:.75rem;color:rgba(250,246,236,.45);margin-top:3px}
+.revenue-cta{text-align:center;padding:40px;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.2);border-radius:var(--radius-lg)}
+.revenue-cta p{font-size:1.15rem;color:rgba(250,246,236,.8);margin-bottom:20px;font-family:var(--font-display)}
+.revenue-cta em{color:var(--gold)}
+
+/* TESTIMONIALS */
+.testimonials{padding:88px 0;background:var(--warm-white);border-top:1px solid var(--border-light)}
+.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.testimonial-card{background:var(--warm-white);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:32px;transition:var(--transition)}
+.testimonial-card:hover{border-color:var(--gold);box-shadow:var(--shadow-md);transform:translateY(-4px)}
+.testimonial-stars{color:var(--gold);font-size:1rem;letter-spacing:2px;margin-bottom:16px}
+.testimonial-quote{font-size:.95rem;font-style:italic;color:var(--text);line-height:1.75;margin-bottom:24px}
+.testimonial-author{display:flex;align-items:center;gap:12px}
+.testimonial-avatar{width:44px;height:44px;background:var(--forest);color:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:600;letter-spacing:.05em;flex-shrink:0}
+.testimonial-info strong{display:block;font-family:var(--font-display);font-size:1rem;font-weight:600;color:var(--forest)}
+.testimonial-info span{font-size:.78rem;color:var(--text-muted)}
+
+/* DIVIDER QUOTE */
+.divider-quote{background:var(--forest);padding:56px 0;text-align:center;border-top:1px solid rgba(201,168,76,.15);border-bottom:1px solid rgba(201,168,76,.15)}
+.divider-quote blockquote{font-family:var(--font-display);font-size:clamp(1.4rem,3vw,2.2rem);font-style:italic;color:var(--cream);max-width:700px;margin:0 auto;line-height:1.4;opacity:.9}
+
+/* ABOUT */
+.about-me{padding:88px 0;background:var(--forest);position:relative;overflow:hidden}
+.about-me::before{content:"";position:absolute;bottom:-100px;left:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(201,168,76,.08) 0%,transparent 70%);pointer-events:none}
+.about-content{max-width:960px;margin:0 auto}
+.about-eyebrow{font-family:var(--font-body);font-size:.75rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;display:block}
+/* Grid: photo col fixed, text col fills rest */
+.about-top{display:grid;grid-template-columns:320px 1fr;gap:48px;align-items:start;margin-bottom:0}
+.about-photo img{width:100%;border-radius:var(--radius-lg);object-fit:cover;aspect-ratio:3/4;border:2px solid rgba(201,168,76,.25);box-shadow:0 16px 48px rgba(0,0,0,.35);display:block}
+.about-text-col{display:flex;flex-direction:column;justify-content:flex-start}
+.about-heading{font-size:clamp(1.8rem,3.5vw,2.6rem);color:var(--cream);margin-bottom:10px;line-height:1.15}
+.about-heading em{color:var(--gold)}
+.about-p{font-size:.96rem;margin-bottom:18px;color:rgba(250,246,236,.7);line-height:1.85}
+/* Paragraphs that flow full-width below the grid */
+.about-below{margin-top:28px}
+.about-highlight{color:var(--gold);font-weight:600;font-style:normal}
+.about-cta{margin-top:28px;display:inline-block}
+
+/* FAQ */
+.faq{padding:88px 0;background:var(--warm-white)}
+.faq-list{max-width:800px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--border-light)}
+.faq-question{width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;background:none;border:none;padding:24px 0;font-family:var(--font-display);font-size:1.1rem;font-weight:600;color:var(--forest);cursor:pointer;text-align:left;transition:color var(--transition)}
+.faq-question:hover{color:var(--forest-light)}
+.faq-icon{font-size:1.4rem;color:var(--gold);flex-shrink:0;transition:transform var(--transition);font-weight:300}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.faq-answer p{padding-bottom:24px;font-size:.95rem}
+.faq-item.open .faq-answer{max-height:400px}
+
+/* CONTACT */
+.contact{padding:88px 0;background:var(--cream);border-top:1px solid var(--border-light)}
+.contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:56px;align-items:flex-start}
+.contact-text h2{margin-bottom:16px}
+.contact-details{display:flex;flex-direction:column;gap:14px;margin-top:24px}
+.contact-item{display:flex;align-items:center;gap:12px;font-size:.9rem;color:var(--text-muted)}
+.contact-form-wrap{background:var(--warm-white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:40px;box-shadow:var(--shadow-md)}
+.contact-form{display:flex;flex-direction:column;gap:20px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-group{display:flex;flex-direction:column;gap:6px}
+.form-group label{font-size:.8rem;font-weight:500;letter-spacing:.04em;color:var(--text);text-transform:uppercase}
+.form-group input,.form-group select,.form-group textarea{font-family:var(--font-body);font-size:.92rem;color:var(--text);background:var(--warm-white);border:1px solid var(--border);border-radius:var(--radius);padding:12px 14px;transition:border-color var(--transition),box-shadow var(--transition);outline:none;width:100%}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,.12)}
+.form-group input::placeholder,.form-group textarea::placeholder{color:#aab0a8}
+.form-group select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235a6b5e' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+.form-group textarea{resize:vertical;min-height:100px}
+.form-note{font-size:.75rem;color:var(--text-muted);text-align:center;margin-top:4px}
+.form-success{display:none;text-align:center;padding:40px 20px}
+.form-success.visible{display:block}
+.success-icon{width:56px;height:56px;background:var(--gold);color:var(--forest);border-radius:50%;font-size:1.4rem;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-weight:700}
+
+/* OWNER PORTAL */
+.owner-portal{padding:60px 0;background:var(--forest);border-top:1px solid rgba(201,168,76,.15);border-bottom:1px solid rgba(201,168,76,.15)}
+.portal-inner{text-align:center;max-width:500px;margin:0 auto}
+.portal-icon{font-size:2rem;margin-bottom:16px}
+.portal-inner h2{color:var(--cream);font-size:1.8rem;margin-bottom:12px}
+.portal-inner p{color:rgba(250,246,236,.6);margin-bottom:24px;font-size:.95rem}
+
+/* FOOTER */
+.footer{background:var(--charcoal);padding:72px 0 32px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:48px;margin-bottom:48px}
+.footer-brand p{font-size:.88rem;color:rgba(250,246,236,.45);margin-top:16px;max-width:280px;line-height:1.7}
+.footer-links{display:flex;flex-direction:column;gap:10px}
+.footer-links h4,.footer-contact h4{font-family:var(--font-body);font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.footer-links a,.footer-links span{font-size:.85rem;color:rgba(250,246,236,.5);transition:color var(--transition)}
+.footer-links a:hover{color:rgba(250,246,236,.85)}
+.footer-contact p{font-size:.85rem;color:rgba(250,246,236,.5);margin-bottom:6px}
+.footer-social{display:flex;gap:12px;margin-top:16px}
+.footer-social a{width:36px;height:36px;background:rgba(255,255,255,.07);border-radius:8px;display:flex;align-items:center;justify-content:center;color:rgba(250,246,236,.5);transition:var(--transition)}
+.footer-social a:hover{background:rgba(201,168,76,.15);color:var(--gold)}
+.footer-social svg{width:16px;height:16px}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:24px;border-top:1px solid rgba(255,255,255,.07);flex-wrap:wrap;gap:12px}
+.footer-bottom p{font-size:.78rem;color:rgba(250,246,236,.3);margin:0}
+
+/* RESPONSIVE */
+@media(max-width:1024px){.hook-grid,.ai-grid,.contact-grid,.cs-layout{gap:48px}.footer-grid{grid-template-columns:1fr 1fr;gap:32px}.how-grid{grid-template-columns:1fr}.how-summary{display:none}}
+@media(max-width:768px){
+  .nav-links{display:none}.nav-hamburger{display:flex}
+  .hero-stats{flex-direction:column;gap:20px;padding:24px}
+  .stat-divider{width:80px;height:1px}.stat{padding:0}
+  .hook-grid,.ai-grid,.contact-grid,.cs-layout,.revenue-markets{grid-template-columns:1fr;gap:40px}
+  .markets-grid{grid-template-columns:1fr}
+  .services-grid{grid-template-columns:1fr}
+  .testimonials-grid{grid-template-columns:1fr}
+  .about-top{grid-template-columns:1fr}
+  .about-photo img{width:200px;margin:0 auto 24px;display:block}
+  .form-row{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .hero-heading{font-size:clamp(2.2rem,8vw,3.2rem)}
+  .hero-actions{flex-direction:column;align-items:stretch}
+  .hero-actions a{text-align:center}
+  .market-card{padding:32px}
+  .ai-proof-stats{grid-template-columns:1fr}
+}
+@media(max-width:500px){
+  .footer-grid{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;align-items:flex-start}
+  .compare-row,.compare-header{grid-template-columns:1.5fr 1fr 1fr}
+  .hero-market-badges{flex-wrap:wrap}
+}
+
+/* ANIMATIONS */
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+  </style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <span class="logo-mark">&#8962;</span>
+      <span class="logo-text">Hillside <em>Stays</em></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#markets">Markets</a></li>
+      <li><a href="how-we-work.html">How It Works</a></li>
+      <li><a href="#why-us">Why Us</a></li>
+      <li class="nav-dropdown">
+        <a href="#" class="nav-dropdown-toggle" onclick="return false;">Properties &#9662;</a>
+        <ul class="nav-dropdown-menu">
+          <li><a href="https://lightningbugholler.net/">&#9889; Lightning Bug Holler</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <a href="#" class="nav-dropdown-toggle" onclick="return false;">Resources &#9662;</a>
+        <ul class="nav-dropdown-menu">
+          <li><a href="how-we-work.html">&#9881;&#65039; How We Work</a></li>
+          <li><a href="resources.html">&#128203; Tech Stack Playbook</a></li>
+          <li><a href="resources.html">&#129302; AI Automation Playbook</a></li>
+          <li><a href="resources.html">&#9878;&#65039; PMS Comparison Matrix</a></li>
+        </ul>
+      </li>
+      <li><a href="owner-portal.html" class="nav-owner-login">Owner Login</a></li>
+      <li><a href="#contact" class="nav-cta">Get Started</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mobile" id="mobileMenu">
+    <a href="#services">Services</a>
+    <a href="#markets">Markets</a>
+    <a href="how-we-work.html">How It Works</a>
+    <a href="#why-us">Why Us</a>
+    <div class="mobile-section-label">Properties</div>
+    <a href="https://lightningbugholler.net/" class="mobile-sub-link">&#9889; Lightning Bug Holler</a>
+    <div class="mobile-section-label">Resources</div>
+    <a href="how-we-work.html" class="mobile-sub-link">&#9881;&#65039; How We Work</a>
+    <a href="resources.html" class="mobile-sub-link">&#128203; Tech Stack Playbook</a>
+    <a href="resources.html" class="mobile-sub-link">&#129302; AI Automation Playbook</a>
+    <a href="resources.html" class="mobile-sub-link">&#9878;&#65039; PMS Comparison Matrix</a>
+    <a href="owner-portal.html">Owner Login</a>
+    <a href="#contact">Get Started</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <div class="hero-photo-slideshow">
+      <div class="slide active" style="background-image:url('hero-bg.jpg')"></div>
+      <div class="slide" style="background-image:url('fall-bg.jpg')"></div>
+      <div class="slide" style="background-image:url('mist-bg.jpg')"></div>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-noise"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Asheville to the Smokies &#8212; Mountain STR Management</div>
+    <h1 class="hero-heading"><span style="color:var(--cream)">Your Mountain Property.</span><br/><em>Our Full-Time Job.</em></h1>
+    <p class="hero-sub">We handle everything &#8212; guest communications, dynamic pricing, cleaning coordination, and maintenance &#8212; so you collect the revenue without the headaches.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Get a Free Revenue Estimate</a>
+      <a href="#how-it-works" class="btn-ghost">See How It Works</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num">$280<small>+</small></span><span class="stat-label">Avg. Nightly Rate</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-num">73<small>%</small></span><span class="stat-label">Avg. Occupancy Rate</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-num">18<small>%</small></span><span class="stat-label">Simple Flat Management Fee</span></div>
+    </div>
+  </div>
+  <div class="hero-scroll"><span>Scroll to explore</span><div class="scroll-line"></div></div>
+</section>
+
+
+
+<!-- HOOK -->
+<section class="hook" id="about">
+  <div class="container">
+    <div class="hook-grid">
+      <div class="hook-text">
+        <div class="section-eyebrow">Sound Familiar?</div>
+        <h2>Owning a short-term rental shouldn&#8217;t feel like a second job.</h2>
+        <p>Most property owners in the mountains bought their cabin as an investment &#8212; not a full-time obligation. But between guest messages at 11pm, chasing cleaners, juggling platforms, and trying to figure out pricing&#8230; that&#8217;s exactly what it becomes.</p>
+        <p>Hillside Stays was built differently. We build the infrastructure behind your property &#8212; direct booking systems, automated workflows, dynamic pricing, and a web presence that drives revenue outside the OTAs &#8212; then run it all, so you don&#8217;t have to.</p>
+        <a href="#contact" class="btn-primary" style="margin-top:8px">See How It Works</a>
+      </div>
+      <div class="hook-cards">
+        <div class="pain-card">
+          <div class="pain-icon">&#128184;</div>
+          <div><h3>OTA Fees Eating Your Margins</h3><p>Airbnb and VRBO take 3&#8211;15% on every booking. Without a direct channel, that&#8217;s tens of thousands left on the table every year.</p></div>
+        </div>
+        <div class="pain-card">
+          <div class="pain-icon">&#128336;</div>
+          <div><h3>No Time, No Systems</h3><p>Constant guest messages, check-in issues, and last-minute requests eat up hours every week &#8212; with no automation to catch the gaps.</p></div>
+        </div>
+        <div class="pain-card">
+          <div class="pain-icon">&#128201;</div>
+          <div><h3>Revenue Left Behind</h3><p>Static pricing, weak listing copy, and zero direct booking presence means you&#8217;re earning far less than your property is worth.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDY -->
+<section class="case-study" id="case-study">
+  <div class="container">
+    <div class="case-study-inner">
+      <div class="cs-layout">
+        <div class="cs-property-card">
+          <!-- Hero photo: pool mural shot from LBH site -->
+          <div class="cs-photo-wrap">
+            <img
+              src="lbh-exterior.jpg"
+              alt="Lightning Bug Holler cabin exterior, Pigeon Forge Tennessee"
+              style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease"
+              onerror="this.style.display='none'"
+            />
+            <div class="cs-photo-overlay">
+              <div class="cs-photo-badge">&#9889; Property Spotlight</div>
+            </div>
+          </div>
+          <div class="cs-card-body">
+            <div class="cs-property-name">Lightning Bug Holler</div>
+            <div class="cs-property-location">Pigeon Forge, Tennessee &#183; Near Dollywood</div>
+            <div class="cs-features">
+              <div class="cs-feature"><span class="cs-feature-icon">&#127946;</span><span>Private indoor pool &#183; Van Gogh Starry Night mural</span></div>
+              <div class="cs-feature"><span class="cs-feature-icon">&#127918;</span><span>Arcade game room &#183; 3-level cabin</span></div>
+              <div class="cs-feature"><span class="cs-feature-icon">&#129705;</span><span>Hot tub &#183; Infrared sauna</span></div>
+              <div class="cs-feature"><span class="cs-feature-icon">&#127829;</span><span>Outdoor pizza oven</span></div>
+              <div class="cs-feature"><span class="cs-feature-icon">&#127984;</span><span>Secret third-floor clubhouse</span></div>
+            </div>
+            <div class="cs-stats-grid">
+              <div class="cs-stat-card"><span class="cs-stat-val">Direct</span><div class="cs-stat-label">Booking Website Built</div></div>
+              <div class="cs-stat-card"><span class="cs-stat-val">$0</span><div class="cs-stat-label">OTA Fees on Direct Bookings</div></div>
+              <div class="cs-stat-card"><span class="cs-stat-val">Ranked</span><div class="cs-stat-label">SEO-Optimized Listing</div></div>
+              <div class="cs-stat-card"><span class="cs-stat-val">Live</span><div class="cs-stat-label">lightningbugholler.net</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="cs-text">
+          <div class="section-eyebrow">Property Spotlight</div>
+          <h2>Every property we manage<br/><em>gets its own direct booking home base.</em></h2>
+          <p>Lightning Bug Holler is our Smoky Mountain flagship &#8212; and the blueprint for how we approach every property we take on. It&#8217;s not just managed. It&#8217;s built into a brand.</p>
+          <p>The cabin has a custom direct booking website at <strong style="color:var(--gold)">lightningbugholler.net</strong>, its own SEO strategy, social media presence, and automated guest journey &#8212; all built and operated by Hillside Stays. Every property we manage gets this, built in from day one.</p>
+          <div class="cs-callout">
+            <p>&#8220;Every property we manage gets the same treatment &#8212; a custom direct booking site, optimized listing, and revenue infrastructure designed to compete on any platform and win off of them.&#8221;</p>
+          </div>
+          <p>While other co-hosts are managing your Airbnb, we&#8217;re building the system that makes you less dependent on it.</p>
+          <a href="https://lightningbugholler.net/" class="cs-link">See the live site &#8212; lightningbugholler.net &#8594;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">What We Do</div>
+      <h2>Revenue infrastructure,<br/><em>not just property management.</em></h2>
+      <p style="color:rgba(250,246,236,.6)">We build the systems that drive direct bookings and maximize revenue &#8212; then operate every part of your property so you never have to.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card featured" data-num="01">
+        <div class="service-icon">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="8" width="28" height="22" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M13 24l4-4 3 3 5-6 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 34h28" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/></svg>
+        </div>
+        <div class="featured-badge">Core Differentiator</div>
+        <h3>Direct Booking Infrastructure</h3>
+        <p>We build your property a custom direct booking website, SEO strategy, social media presence, and automated guest journey &#8212; cutting OTA dependency and keeping more revenue in your pocket. Every property we manage gets this, built in.</p>
+        <ul class="service-details">
+          <li>Custom direct booking website with your own domain</li>
+          <li>SEO optimization to rank in local searches</li>
+          <li>Social media setup &amp; content scheduling</li>
+          <li>Booking engine + automated guest communications</li>
+          <li>OTA fee savings grow your net revenue over time</li>
+        </ul>
+        <a href="https://lightningbugholler.net/" class="service-proof">&#9889; See it live: Lightning Bug Holler &#8594;</a>
+      </div>
+      <div class="service-card" data-num="02">
+        <div class="service-icon">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 8H32V28H22L16 34V28H8V8Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 16H26M14 21H22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="28" cy="12" r="4" fill="currentColor" opacity="0.3"/></svg>
+        </div>
+        <h3>24/7 Guest Communications</h3>
+        <p>We&#8217;re genuinely hands-on with every guest &#8212; AI handles the speed, we handle the judgment. Most co-hosts outsource communications overseas; we&#8217;ve built infrastructure that keeps it local, consistent, and fast.</p>
+        <ul class="service-details">
+          <li>Sub-5-minute response times via AI-assisted workflows</li>
+          <li>Human oversight on every escalation &amp; edge case</li>
+          <li>Check-in &amp; check-out coordination</li>
+          <li>Maintenance coordination &amp; issue resolution</li>
+          <li>5-star review management &amp; guest follow-up</li>
+        </ul>
+        <a href="how-we-work.html" class="service-proof">&#9654; See exactly how our system works &#8594;</a>
+      </div>
+      <div class="service-card" data-num="03">
+        <div class="service-icon">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 28L20 10L30 28H10Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 22H26" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="20" cy="10" r="2" fill="currentColor"/></svg>
+        </div>
+        <h3>Dynamic Pricing Management</h3>
+        <p>AI-powered pricing that adjusts daily based on local demand, events, competitor rates, and seasonal trends &#8212; across every platform, including your direct booking site.</p>
+        <ul class="service-details">
+          <li>Daily rate optimization</li>
+          <li>Event &amp; season surge pricing</li>
+          <li>Competitor market analysis</li>
+          <li>Multi-platform sync (Airbnb, VRBO + direct)</li>
+        </ul>
+      </div>
+      <div class="service-card" data-num="04">
+        <div class="service-icon">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 20C12 16 15 12 20 12C25 12 28 16 28 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M8 26H32" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M14 26V30M20 26V30M26 26V30" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Operations &amp; Maintenance</h3>
+        <p>We manage your cleaning team, coordinate maintenance, and handle every vendor relationship. Every turnover happens on time, every repair gets handled fast &#8212; without you involved.</p>
+        <ul class="service-details">
+          <li>Turnover scheduling &amp; quality inspections</li>
+          <li>Supplies restocking &amp; deep cleans</li>
+          <li>24/7 issue reporting &amp; vendor coordination</li>
+          <li>Preventative maintenance scheduling</li>
+        </ul>
+      </div>
+    </div>
+    <div class="services-footer">
+      <p>All services included in one simple flat fee &#8212; <strong>18% of gross revenue.</strong> No hidden charges. No nickel-and-diming.</p>
+      <a href="#contact" class="btn-primary">Get Your Free Estimate</a>
+    </div>
+  </div>
+</section>
+
+<!-- AI COMPARE -->
+<section class="ai-section" id="why-us">
+  <div class="container">
+    <div class="ai-grid">
+      <div class="ai-text">
+        <div class="section-eyebrow">The Hillside Stays Difference</div>
+        <h2>Powered by AI.<br/><em>Built for the mountains.</em></h2>
+        <p>Most co-hosts are just people with spreadsheets. We&#8217;ve built an AI-powered operations system that lets us respond faster, price smarter, and manage more properties without sacrificing the personal touch that WNC and Smoky Mountain guests expect.</p>
+        <p>The result? Higher occupancy, better reviews, and fewer problems &#8212; for every owner we work with. Plus a growing direct booking channel that puts more revenue in your pocket over time.</p>
+        <a href="#contact" class="btn-primary">Learn More</a>
+        <div class="ai-proof-stats">
+          <div class="ai-proof-stat">
+            <span class="ai-proof-num">&lt;5<small style="font-size:1rem">min</small></span>
+            <span class="ai-proof-label">Avg. guest response time</span>
+          </div>
+          <div class="ai-proof-stat">
+            <span class="ai-proof-num">Daily</span>
+            <span class="ai-proof-label">Pricing updates, AI-driven</span>
+          </div>
+          <div class="ai-proof-stat">
+            <span class="ai-proof-num">18<small style="font-size:1rem">%</small></span>
+            <span class="ai-proof-label">Flat fee, nothing hidden</span>
+          </div>
+        </div>
+      </div>
+      <div class="ai-compare">
+        <div class="compare-header">
+          <div class="compare-col-label empty"></div>
+          <div class="compare-col-label other">Typical Co-Host</div>
+          <div class="compare-col-label us">Hillside Stays</div>
+        </div>
+        <div class="compare-row"><div class="compare-feature">Guest Response Time</div><div class="compare-other">Hours</div><div class="compare-us">Under 5 min</div></div>
+        <div class="compare-row"><div class="compare-feature">Pricing Updates</div><div class="compare-other">Weekly</div><div class="compare-us">Daily, AI-driven</div></div>
+        <div class="compare-row"><div class="compare-feature">Direct Booking Channel</div><div class="compare-other">None</div><div class="compare-us">Built &amp; managed</div></div>
+        <div class="compare-row"><div class="compare-feature">Owner Reporting</div><div class="compare-other">Monthly PDF</div><div class="compare-us">Real-time dashboard</div></div>
+        <div class="compare-row"><div class="compare-feature">Automation &amp; Systems</div><div class="compare-other">Manual workflows</div><div class="compare-us">End-to-end automated</div></div>
+        <div class="compare-row"><div class="compare-feature">Your Time Spent</div><div class="compare-other">Still too much</div><div class="compare-us highlight-cell">Zero</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-it-works" id="how-it-works">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">The Process</div>
+      <h2>From signed agreement<br/><em>to first deposit.</em></h2>
+      <p>Getting started is simple. We do the heavy lifting from day one &#8212; including the direct booking infrastructure most managers never build.</p>
+    </div>
+    <div class="how-grid">
+      <div class="steps">
+        <div class="step"><div class="step-number">01</div><div class="step-content"><h3>Free Consultation &amp; Revenue Estimate</h3><p>We review your property, walk through current market data for your area, and give you a realistic projection of what your cabin can earn &#8212; including what a direct booking channel could add on top of OTA revenue.</p></div></div>
+        <div class="step"><div class="step-number">02</div><div class="step-content"><h3>Agreement &amp; Onboarding</h3><p>We handle the paperwork. You sign our straightforward co-hosting agreement, we get access to your listing accounts, and we start building your full property profile across all platforms.</p></div></div>
+        <div class="step"><div class="step-number">03</div><div class="step-content"><h3>Infrastructure Build-Out</h3><p>We rewrite your listing, set up dynamic pricing, configure automated messaging &#8212; and build your custom direct booking website. This is the piece most co-hosts skip. We don&#8217;t.</p></div></div>
+        <div class="step"><div class="step-number">04</div><div class="step-content"><h3>We Go Live &#8212; You Step Back</h3><p>From the moment your listing is live, we handle everything. Guests, cleaning, maintenance, pricing, direct booking marketing &#8212; all of it. You get real-time reporting and can check in on your property anytime.</p></div></div>
+        <div class="step"><div class="step-number">05</div><div class="step-content"><h3>Collect Your Revenue</h3><p>Funds are disbursed monthly. Our 18% fee is automatically deducted &#8212; no invoices, no chasing. Just a clean deposit, a detailed earnings report, and a growing direct booking share working for you over time.</p></div></div>
+      </div>
+      <div class="how-summary">
+        <h3>Everything included.<br/><em>One flat fee.</em></h3>
+        <div class="how-summary-items">
+          <div class="how-summary-item"><div class="how-summary-check">&#10003;</div><p>Custom direct booking website built for your property</p></div>
+          <div class="how-summary-item"><div class="how-summary-check">&#10003;</div><p>SEO-optimized listing across all major platforms</p></div>
+          <div class="how-summary-item"><div class="how-summary-check">&#10003;</div><p>AI-powered daily pricing, updated every 24 hours</p></div>
+          <div class="how-summary-item"><div class="how-summary-check">&#10003;</div><p>24/7 guest communications and issue resolution</p></div>
+          <div class="how-summary-item"><div class="how-summary-check">&#10003;</div><p>Cleaning coordination and vendor management</p></div>
+          <div class="how-summary-item"><div class="how-summary-check">&#10003;</div><p>Real-time owner dashboard and monthly reporting</p></div>
+        </div>
+        <a href="#contact" class="btn-primary btn-full">Get a Free Estimate</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARKETS & REVENUE -->
+<section class="revenue-section" id="markets">
+  <div class="container">
+    <div class="revenue-intro">
+      <div class="section-eyebrow">Our Markets</div>
+      <h2>Two of the Southeast&#8217;s<br/><em>strongest STR corridors. One team.</em></h2>
+      <p>We operate across Western North Carolina and the Smoky Mountains of Tennessee &#8212; two distinct, year-round markets with complementary seasons and consistent demand.</p>
+    </div>
+
+    <!-- Market panels -->
+    <div class="markets-split" style="margin-bottom:48px">
+      <div class="market-panel wnc">
+        <div class="market-panel-photo-wrap">
+          <img src="aerial-bg.jpg" alt="Aerial view of the Asheville, NC mountains" onerror="this.style.display='none';this.nextElementSibling.style.background='linear-gradient(160deg,#0f2535,#1a3a50)'" />
+          <div class="market-panel-photo-overlay"></div>
+        </div>
+        <div class="market-panel-body">
+          <div class="market-panel-eyebrow">&#127956; Western North Carolina</div>
+          <h3>The Asheville Corridor</h3>
+          <p>Year-round demand driven by arts &amp; culture, outdoor recreation, and one of the South&#8217;s most celebrated food scenes. Fall color season creates surge demand unlike anywhere in the region.</p>
+          <div class="market-panel-stats">
+            <div class="mp-stat"><span class="mp-stat-val">$270<span class="mp-stat-unit">+/night</span></span><div class="mp-stat-label">Avg Nightly Rate</div></div>
+            <div class="mp-stat"><span class="mp-stat-val">73<span class="mp-stat-unit">%</span></span><div class="mp-stat-label">Avg Occupancy</div></div>
+            <div class="mp-stat"><span class="mp-stat-val">12<span class="mp-stat-unit">mo</span></span><div class="mp-stat-label">Year-Round</div></div>
+          </div>
+          <div class="market-panel-towns-label">Communities we serve</div>
+          <div class="market-town-list">
+            <span>Asheville</span><span>Weaverville</span><span>Black Mountain</span><span>Swannanoa</span><span>Hendersonville</span><span>Brevard</span><span>Waynesville</span><span>Maggie Valley</span>
+          </div>
+        </div>
+      </div>
+      <div class="market-panel smokies">
+        <div class="market-panel-photo-wrap">
+          <img src="mist-bg.jpg" alt="Great Smoky Mountains mist over the valley" onerror="this.style.display='none';this.nextElementSibling.style.background='linear-gradient(160deg,#1e1028,#2e1840)'" />
+          <div class="market-panel-photo-overlay"></div>
+        </div>
+        <div class="market-panel-body">
+          <div class="market-panel-eyebrow">&#127786; The Smoky Mountains, TN</div>
+          <h3>The Smokies Corridor</h3>
+          <p>Home to America&#8217;s most-visited national park and one of the country&#8217;s highest-volume STR markets. Tens of millions of visitors annually create consistent, year-round demand.</p>
+          <div class="market-panel-stats">
+            <div class="mp-stat"><span class="mp-stat-val">$265<span class="mp-stat-unit">+/night</span></span><div class="mp-stat-label">Avg Nightly Rate</div></div>
+            <div class="mp-stat"><span class="mp-stat-val">71<span class="mp-stat-unit">%</span></span><div class="mp-stat-label">Avg Occupancy</div></div>
+            <div class="mp-stat"><span class="mp-stat-val">Top 5</span><div class="mp-stat-label">US STR Market</div></div>
+          </div>
+          <div class="market-panel-towns-label">Communities we serve</div>
+          <div class="market-town-list">
+            <span>Gatlinburg</span><span>Pigeon Forge</span><span>Sevierville</span><span>Wears Valley</span><span>Townsend</span><span>Cosby</span><span>Walland</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- City-level rate cards -->
+    <div class="revenue-markets">
+      <div class="revenue-market-group">
+        <div class="revenue-market-label wnc">&#127956; WNC Market Performance</div>
+        <div class="revenue-cards">
+          <div class="revenue-card"><div class="rev-market">Asheville</div><div class="rev-data"><div class="rev-rate">$285<span>/night avg</span></div><div class="rev-occ">74% occupancy</div></div></div>
+          <div class="revenue-card"><div class="rev-market">Black Mountain</div><div class="rev-data"><div class="rev-rate">$245<span>/night avg</span></div><div class="rev-occ">71% occupancy</div></div></div>
+          <div class="revenue-card"><div class="rev-market">Brevard</div><div class="rev-data"><div class="rev-rate">$230<span>/night avg</span></div><div class="rev-occ">69% occupancy</div></div></div>
+          <div class="revenue-card"><div class="rev-market">Waynesville</div><div class="rev-data"><div class="rev-rate">$220<span>/night avg</span></div><div class="rev-occ">68% occupancy</div></div></div>
+        </div>
+      </div>
+      <div class="revenue-market-group">
+        <div class="revenue-market-label smokies">&#127786; Smokies Market Performance</div>
+        <div class="revenue-cards">
+          <div class="revenue-card"><div class="rev-market">Gatlinburg</div><div class="rev-data"><div class="rev-rate">$275<span>/night avg</span></div><div class="rev-occ">72% occupancy</div></div></div>
+          <div class="revenue-card"><div class="rev-market">Pigeon Forge</div><div class="rev-data"><div class="rev-rate">$260<span>/night avg</span></div><div class="rev-occ">70% occupancy</div></div></div>
+          <div class="revenue-card"><div class="rev-market">Sevierville</div><div class="rev-data"><div class="rev-rate">$235<span>/night avg</span></div><div class="rev-occ">69% occupancy</div></div></div>
+          <div class="revenue-card"><div class="rev-market">Wears Valley</div><div class="rev-data"><div class="rev-rate">$250<span>/night avg</span></div><div class="rev-occ">71% occupancy</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="revenue-cta">
+      <p>Want to know what <em>your specific property</em> could earn &#8212; including direct bookings?</p>
+      <a href="#contact" class="btn-primary">Get My Free Revenue Estimate</a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">What People Say</div>
+      <h2>Trusted by property owners<br/><em>across WNC &amp; the Smokies.</em></h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card"><div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="testimonial-quote">&#8220;Hillside Stays completely transformed our rental. We went from stressing over every booking to just collecting deposits. Our revenue is up 30% and we haven&#8217;t had to deal with a single guest issue.&#8221;</p><div class="testimonial-author"><div class="testimonial-avatar">JS</div><div class="testimonial-info"><strong>Jane S.</strong><span>Cabin Owner, Asheville</span></div></div></div>
+      <div class="testimonial-card"><div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="testimonial-quote">&#8220;The direct bookings website they built for us is a game changer. We&#8217;re saving thousands in OTA fees and our calendar has never been fuller. The SEO work alone paid for itself in the first month.&#8221;</p><div class="testimonial-author"><div class="testimonial-avatar">MR</div><div class="testimonial-info"><strong>Mark R.</strong><span>Property Owner, Black Mountain</span></div></div></div>
+      <div class="testimonial-card"><div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="testimonial-quote">&#8220;I was skeptical about co-hosting, but Dylan and the team have been incredible. The systems they built &#8212; the website, the automated messaging, the pricing &#8212; it runs like a real business.&#8221;</p><div class="testimonial-author"><div class="testimonial-avatar">KT</div><div class="testimonial-info"><strong>Karen T.</strong><span>Mountain Home Owner, Pigeon Forge</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-me" id="about-me">
+  <div class="container">
+    <div class="about-content">
+      <div class="about-top">
+        <div class="about-photo">
+          <img src="dylan-bio.jpg" alt="Dylan in the mountains of Western North Carolina" />
+        </div>
+        <div class="about-text-col">
+          <div class="about-eyebrow">Meet the Founder</div>
+          <h2 class="about-heading">Hi, I&#8217;m Dylan &#8212;<br/><em>Builder. Operator. WNC local.</em></h2>
+          <p class="about-p">I&#8217;ve called Western North Carolina home for the past 10 years after growing up in Winston-Salem and graduating from Appalachian State with a BSBA in Marketing &#8212; concentration in Digital Marketing, with a focus in Sales. My career has mostly been in early-stage and high-growth environments where I&#8217;ve taken on roles across sales, marketing, and operations.</p>
+          <p class="about-p">That path eventually led me into the short-term rental space, where I worked in national sales operations helping investors buy and sell STR properties across multiple markets. Along the way I developed a deep interest in the systems behind successful rental businesses &#8212; from listing optimization and SEO to automation and scalable workflows.</p>
+        </div>
+      </div>
+      <div class="about-below">
+        <p class="about-p">Over time I realized something: most STR investors weren&#8217;t lacking opportunity &#8212; they were lacking infrastructure.</p>
+        <p class="about-p"><span class="about-highlight">So I built Hillside Stays to solve that problem.</span></p>
+        <p class="about-p">Today I work with owners across Western North Carolina and the Smoky Mountains to turn great homes into high-performing rentals by building the systems that keep properties performing long-term &#8212; strong listings, smart pricing, direct booking infrastructure, and streamlined operations.</p>
+        <a href="#contact" class="btn-primary about-cta">Let&#8217;s Talk About Your Property</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Common Questions</div>
+      <h2>Everything you need to know<br/><em>before getting started.</em></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-question" aria-expanded="false">What does &#8220;direct booking infrastructure&#8221; actually mean?<span class="faq-icon">+</span></button><div class="faq-answer"><p>It means we build your property a complete direct booking system &#8212; a custom website with its own domain, SEO-optimized so it ranks in search results, a built-in booking engine, and automated guest messaging. This lets you take bookings directly from guests without paying OTA platform fees (typically 3&#8211;15% per booking). Over time, this channel compounds: more direct bookings mean more revenue per night and a guest list you actually own.</p></div></div>
+      <div class="faq-item"><button class="faq-question" aria-expanded="false">What does 18% of gross revenue actually mean?<span class="faq-icon">+</span></button><div class="faq-answer"><p>It means we take 18% of whatever your property earns before any platform fees. If your property earns $5,000 in a month, our fee is $900. There are no additional charges, setup fees, or monthly minimums. The only other costs are Airbnb&#8217;s standard host service fee (typically 3%) and cleaning fees, which are passed through to guests. Direct bookings through your own site have no OTA fee at all &#8212; just our management fee.</p></div></div>
+      <div class="faq-item"><button class="faq-question" aria-expanded="false">Do I need to already have a listing set up?<span class="faq-icon">+</span></button><div class="faq-answer"><p>No &#8212; we can start from scratch. Whether you have an existing listing we&#8217;re taking over or a property that&#8217;s never been listed, we handle the full setup: photography coordination, listing writing, platform account creation, dynamic pricing configuration, and your direct booking site build-out.</p></div></div>
+      <div class="faq-item"><button class="faq-question" aria-expanded="false">What if I want to use my property myself?<span class="faq-icon">+</span></button><div class="faq-answer"><p>Your property stays yours. We build in owner-block periods whenever you need them. We ask for reasonable advance notice &#8212; especially during peak seasons &#8212; so we&#8217;re not canceling existing reservations, but you have full rights to use your own property.</p></div></div>
+      <div class="faq-item"><button class="faq-question" aria-expanded="false">What areas do you serve?<span class="faq-icon">+</span></button><div class="faq-answer"><p>We serve Western North Carolina including Asheville, Weaverville, Black Mountain, Old Fort, Swannanoa, Hendersonville, Brevard, Waynesville, Maggie Valley, and the surrounding mountain communities. We also serve the Smoky Mountain region of Eastern Tennessee, including Gatlinburg, Pigeon Forge, Sevierville, Wears Valley, Townsend, and surrounding areas. Not sure if your property qualifies? Reach out and we&#8217;ll let you know.</p></div></div>
+      <div class="faq-item"><button class="faq-question" aria-expanded="false">How long is the co-hosting agreement?<span class="faq-icon">+</span></button><div class="faq-answer"><p>Our standard agreement is for an initial 6-month term, after which it renews month-to-month. We believe in earning your continued business &#8212; not locking you in. Either party can terminate with 30 days written notice after the initial term.</p></div></div>
+      <div class="faq-item"><button class="faq-question" aria-expanded="false">What happens if there&#8217;s damage to my property?<span class="faq-icon">+</span></button><div class="faq-answer"><p>We document property condition before and after every stay and file claims with Airbnb&#8217;s AirCover (up to $3M in host protection) or VRBO&#8217;s equivalent programs when damage occurs. We handle the entire claims process on your behalf, and we recommend maintaining a short-term rental rider on your homeowner&#8217;s insurance as an additional layer of protection.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-text">
+        <div class="section-eyebrow">Get Started</div>
+        <h2>Let&#8217;s talk about<br/><em>your property.</em></h2>
+        <p>Fill out the form and we&#8217;ll get back to you within 24 hours with a free, no-obligation revenue estimate &#8212; including what a direct booking channel could add.</p>
+        <div class="contact-details">
+          <div class="contact-item"><span>&#128205;</span><span>Serving Western North Carolina &amp; the Smoky Mountains</span></div>
+          <div class="contact-item"><span>&#8987;</span><span>Response within 24 hours</span></div>
+        </div>
+      </div>
+      <div class="contact-form-wrap">
+        <form class="contact-form" id="contactForm" action="https://formspree.io/f/mdaldwkw" method="POST">
+          <div class="form-row">
+            <div class="form-group"><label for="name">Your Name</label><input type="text" id="name" name="name" placeholder="Jane Smith" required /></div>
+            <div class="form-group"><label for="email">Email Address</label><input type="email" id="email" name="email" placeholder="jane@email.com" required /></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label for="phone">Phone Number</label><input type="tel" id="phone" name="phone" placeholder="(828) 555-0100" /></div>
+            <div class="form-group"><label for="location">Property Location</label><input type="text" id="location" name="location" placeholder="e.g. Gatlinburg, Asheville..." required /></div>
+          </div>
+          <div class="form-group">
+            <label for="market">Primary Market</label>
+            <select id="market" name="market">
+              <option value="">Select your market...</option>
+              <option>Western North Carolina (Asheville area)</option>
+              <option>Smoky Mountains, TN (Gatlinburg / Pigeon Forge)</option>
+              <option>Both / Multiple Properties</option>
+              <option>Other / Not Sure</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="property-type">Property Type</label>
+            <select id="property-type" name="property-type">
+              <option value="">Select a property type...</option>
+              <option>Cabin / Mountain Retreat</option>
+              <option>House / Single Family Home</option>
+              <option>Condo / Townhouse</option>
+              <option>Cottage / Bungalow</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="status">Current Listing Status</label>
+            <select id="status" name="status">
+              <option value="">Select current status...</option>
+              <option>Currently listed &amp; self-managed</option>
+              <option>Currently listed with another manager</option>
+              <option>Not yet listed &#8212; new to STR</option>
+              <option>Just exploring options</option>
+            </select>
+          </div>
+          <div class="form-group"><label for="message">Anything else you&#8217;d like us to know?</label><textarea id="message" name="message" rows="4" placeholder="Tell us about your property, your goals, or any questions you have..."></textarea></div>
+          <button type="submit" class="btn-primary btn-full">Send My Request &#8594;</button>
+          <p class="form-note">No spam. No pressure. Just an honest conversation about your property&#8217;s potential.</p>
+        </form>
+        <div class="form-success" id="formSuccess">
+          <div class="success-icon">&#10003;</div>
+          <h3>Got it &#8212; thank you!</h3>
+          <p>We&#8217;ll review your property details and get back to you within 24 hours with your free revenue estimate.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OWNER PORTAL -->
+<section class="owner-portal" id="owner-portal">
+  <div class="container">
+    <div class="portal-inner">
+      <div class="portal-icon">&#128274;</div>
+      <h2>Existing Owner?</h2>
+      <p>Access your property dashboard, view upcoming reservations, download earnings statements, and message our team.</p>
+      <a href="owner-portal.html" class="btn-ghost-light">Access Owner Portal &#8594;</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo"><span class="logo-mark">&#8962;</span><span class="logo-text">Hillside <em>Stays</em></span></a>
+        <p>Direct booking infrastructure &amp; full-service co-hosting across Western North Carolina and the Smoky Mountains. We build the systems. We run the property. You collect the revenue.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navigation</h4>
+        <a href="#services">Services</a><a href="#markets">Markets</a><a href="#how-it-works">How It Works</a><a href="#why-us">Why Hillside Stays</a><a href="#about-me">About</a><a href="#contact">Contact</a><a href="owner-portal.html">Owner Login</a>
+      </div>
+      <div class="footer-links">
+        <h4>Service Areas</h4>
+        <span>Asheville, NC</span><span>Black Mountain, NC</span><span>Brevard, NC</span><span>Waynesville, NC</span><span>Gatlinburg, TN</span><span>Pigeon Forge, TN</span><span>Sevierville, TN</span><span>Wears Valley, TN</span>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p><a href="/cdn-cgi/l/email-protection#e48c8188888ba48c8d8888978d80819790859d97ca878b89"><span class="__cf_email__" data-cfemail="b9d1dcd5d5d6f9d1d0d5d5cad0dddccacdd8c0ca97dad6d4">[email&#160;protected]</span></a></p>
+        <p>Western North Carolina &amp; the Smoky Mountains</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&#169; 2026 Hillside Stays LLC. All rights reserved. | Western North Carolina &amp; the Smoky Mountains</p>
+    </div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+const slides=document.querySelectorAll('.slide');let cur=0;if(slides.length>1){setInterval(()=>{slides[cur].classList.remove('active');cur=(cur+1)%slides.length;slides[cur].classList.add('active')},6000)}
+const nav=document.getElementById('nav');window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40)});
+const hamburger=document.getElementById('hamburger'),mobileMenu=document.getElementById('mobileMenu');
+hamburger.addEventListener('click',()=>mobileMenu.classList.toggle('open'));
+mobileMenu.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>mobileMenu.classList.remove('open')));
+const dds=document.querySelectorAll('.nav-dropdown');dds.forEach(dd=>{dd.querySelector('.nav-dropdown-toggle').addEventListener('click',e=>{e.stopPropagation();dds.forEach(o=>{if(o!==dd)o.classList.remove('open')});dd.classList.toggle('open')})});
+document.addEventListener('click',()=>dds.forEach(dd=>dd.classList.remove('open')));
+document.querySelectorAll('.faq-question').forEach(btn=>{btn.addEventListener('click',()=>{const item=btn.closest('.faq-item'),isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));if(!isOpen)item.classList.add('open');btn.setAttribute('aria-expanded',!isOpen)})});
+const form=document.getElementById('contactForm'),formSuccess=document.getElementById('formSuccess');
+if(form){form.addEventListener('submit',async e=>{e.preventDefault();const btn=form.querySelector('button[type="submit"]');btn.textContent='Sending...';btn.disabled=true;try{const r=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});if(r.ok){form.style.display='none';formSuccess.classList.add('visible')}else{btn.textContent='Something went wrong -- please email us directly.';btn.disabled=false}}catch{btn.textContent='Send My Request';btn.disabled=false}})}
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-nav.offsetHeight-16,behavior:'smooth'})}})});
+const fadeEls=document.querySelectorAll('.pain-card,.service-card,.step,.revenue-card,.testimonial-card,.faq-item,.compare-row,.cs-stat-card,.market-card,.market-panel,.cs-property-card,.cs-text,.community-group');
+fadeEls.forEach(el=>el.classList.add('fade-up'));
+const obs=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){const sibs=[...entry.target.parentElement.children].filter(c=>c.classList.contains('fade-up'));setTimeout(()=>entry.target.classList.add('visible'),sibs.indexOf(entry.target)*80);obs.unobserve(entry.target)}})},{threshold:.12});
+fadeEls.forEach(el=>obs.observe(el));
+const sections=document.querySelectorAll('section[id]'),navLinks=document.querySelectorAll('.nav-links a');
+const secObs=new IntersectionObserver(entries=>{entries.
