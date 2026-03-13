@@ -1010,4 +1010,7 @@ fadeEls.forEach(el=>el.classList.add('fade-up'));
 const obs=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){const sibs=[...entry.target.parentElement.children].filter(c=>c.classList.contains('fade-up'));setTimeout(()=>entry.target.classList.add('visible'),sibs.indexOf(entry.target)*80);obs.unobserve(entry.target)}})},{threshold:.12});
 fadeEls.forEach(el=>obs.observe(el));
 const sections=document.querySelectorAll('section[id]'),navLinks=document.querySelectorAll('.nav-links a');
-const secObs=new IntersectionObserver(entries=>{entries.
+const secObs=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){navLinks.forEach(l=>{l.style.color='';if(l.getAttribute('href')==='#'+entry.target.id)l.style.color='var(--gold-light)'})}})}},{threshold:.4});sections.forEach(s=>secObs.observe(s));
+</script>
+</body>
+</html>
