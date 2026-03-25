@@ -1082,33 +1082,34 @@ a { text-decoration: none; color: inherit; }
   color: var(--text-muted);
 }
 .contact-icon { font-size: 1rem; }
-.contact-cal-link {
-  color: var(--gold);
-  text-decoration: none;
-  font-weight: 500;
-  transition: color var(--transition);
-}
-.contact-cal-link:hover { color: var(--gold-light); }
-
-.calendar-embed {
-  margin-top: 56px;
-  padding-top: 48px;
+.contact-cal-cta {
+  margin-top: 32px;
+  padding-top: 28px;
   border-top: 1px solid rgba(250,246,236,0.15);
 }
-.calendar-divider {
-  text-align: center;
-  margin-bottom: 32px;
+.contact-cal-label {
+  font-size: 0.85rem;
+  color: rgba(250,246,236,0.55);
+  margin-bottom: 12px;
+  letter-spacing: 0.03em;
 }
-.calendar-divider span {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-style: italic;
-  color: rgba(250,246,236,0.75);
+.btn-cal {
+  display: inline-block;
+  background: transparent;
+  border: 1.5px solid var(--gold);
+  color: var(--gold);
+  padding: 12px 24px;
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
   letter-spacing: 0.02em;
+  transition: background var(--transition), color var(--transition);
 }
-.calendar-embed iframe {
-  border-radius: var(--radius-lg);
-  display: block;
+.btn-cal:hover {
+  background: var(--gold);
+  color: var(--forest);
 }
 
 .contact-form-wrap {
