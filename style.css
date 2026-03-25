@@ -1082,6 +1082,34 @@ a { text-decoration: none; color: inherit; }
   color: var(--text-muted);
 }
 .contact-icon { font-size: 1rem; }
+.contact-cal-link {
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--transition);
+}
+.contact-cal-link:hover { color: var(--gold-light); }
+
+.calendar-embed {
+  margin-top: 56px;
+  padding-top: 48px;
+  border-top: 1px solid rgba(250,246,236,0.15);
+}
+.calendar-divider {
+  text-align: center;
+  margin-bottom: 32px;
+}
+.calendar-divider span {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-style: italic;
+  color: rgba(250,246,236,0.75);
+  letter-spacing: 0.02em;
+}
+.calendar-embed iframe {
+  border-radius: var(--radius-lg);
+  display: block;
+}
 
 .contact-form-wrap {
   background: var(--warm-white);
