@@ -1268,19 +1268,18 @@ a { text-decoration: none; color: inherit; }
 }
 .footer-social a {
   width: 38px; height: 38px;
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(250,246,236,0.25);
+  background: rgba(201,168,76,0.12);
+  border: 1px solid var(--gold);
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(250,246,236,0.85);
+  color: var(--gold);
   transition: var(--transition);
 }
 .footer-social a:hover {
-  background: rgba(201,168,76,0.2);
-  border-color: var(--gold);
-  color: var(--gold);
+  background: var(--gold);
+  color: var(--forest);
 }
 .footer-social svg { width: 18px; height: 18px; }
 .footer-bottom {
