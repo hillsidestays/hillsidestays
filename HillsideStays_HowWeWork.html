@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How We Work — Hillside Stays</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --forest:     #0d2018;
+  --forest-mid: #1a3322;
+  --forest-lt:  #254d32;
+  --gold:       #c9a84c;
+  --gold-lt:    #e4c76b;
+  --gold-dim:   #8a6e2a;
+  --cream:      #faf6ec;
+  --cream-dim:  #ede8d8;
+  --text:       #1e2620;
+  --muted:      #5a6b5e;
+  --white:      #ffffff;
+  --light:      #f5f2ea;
+  --border:     rgba(201,168,76,0.18);
+  --green:      #27ae60;
+  --amber:      #e67e22;
+  --blue:       #2980b9;
+  --purple:     #8e44ad;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'DM Sans',sans-serif; background:var(--cream); color:var(--text); font-size:15px; line-height:1.7; }
+
+body::after {
+  content:''; position:fixed; inset:0; pointer-events:none; z-index:999;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  opacity:0.45;
+}
+
+/* ── NAV ── */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:50;
+  padding:0 48px; height:62px;
+  display:flex; align-items:center; justify-content:space-between;
+  background:rgba(13,32,24,0.97); backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+}
+.nav-left { display:flex; align-items:center; gap:10px; text-decoration:none; }
+.nav-brand { font-family:'Cormorant Garamond',serif; font-size:19px; color:var(--gold); font-weight:600; }
+.nav-links { display:flex; align-items:center; gap:28px; }
+.nav-links a { font-size:13px; color:rgba(250,246,236,0.55); text-decoration:none; transition:color 0.2s; }
+.nav-links a:hover { color:var(--gold); }
+.nav-cta { background:var(--gold); color:var(--forest); padding:8px 20px; border-radius:6px; font-size:13px; font-weight:500; text-decoration:none; transition:background 0.2s; }
+.nav-cta:hover { background:var(--gold-lt); }
+
+/* ══════════════════════════
+   COMPACT HERO
+══════════════════════════ */
+.hero-wrap { background:var(--forest); border-bottom:1px solid var(--border); }
+.hero {
+  max-width:1160px; margin:0 auto;
+  padding:96px 48px 64px;
+  display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;
+}
+.hero-eyebrow {
+  font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.2em;
+  text-transform:uppercase; color:var(--gold-dim); margin-bottom:14px;
+}
+.hero h1 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(34px,4vw,54px); font-weight:600;
+  color:var(--gold); line-height:1.1; margin-bottom:14px;
+}
+.hero h1 em { color:var(--cream); font-style:italic; font-weight:400; }
+.hero-sub { font-size:14px; color:rgba(250,246,236,0.6); font-weight:300; line-height:1.8; margin-bottom:26px; max-width:440px; }
+.hero-actions { display:flex; gap:10px; flex-wrap:wrap; }
+.btn-gold { background:var(--gold); color:var(--forest); padding:11px 26px; border-radius:7px; font-size:13px; font-weight:500; text-decoration:none; transition:all 0.2s; }
+.btn-gold:hover { background:var(--gold-lt); transform:translateY(-1px); }
+.btn-outline { border:1px solid rgba(201,168,76,0.3); color:var(--gold); padding:10px 22px; border-radius:7px; font-size:13px; text-decoration:none; transition:all 0.2s; }
+.btn-outline:hover { border-color:var(--gold); background:rgba(201,168,76,0.07); }
+
+.hero-stats { display:grid; grid-template-columns:1fr 1fr; gap:2px; border-radius:12px; overflow:hidden; }
+.hero-stat { background:rgba(255,255,255,0.04); padding:22px 20px; border:1px solid rgba(255,255,255,0.05); transition:background 0.2s; }
+.hero-stat:hover { background:rgba(201,168,76,0.07); }
+.stat-num   { font-family:'Cormorant Garamond',serif; font-size:34px; font-weight:600; color:var(--gold); line-height:1; margin-bottom:4px; }
+.stat-label { font-size:11px; color:rgba(250,246,236,0.4); font-weight:300; line-height:1.4; }
+
+/* ── TICKER ── */
+.ticker-wrap { background:var(--gold); padding:9px 0; overflow:hidden; }
+.ticker-inner { display:flex; animation:ticker 30s linear infinite; white-space:nowrap; }
+.ticker-item { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:var(--forest); padding:0 30px; }
+.ticker-item::after { content:'·'; margin-left:30px; opacity:0.35; }
+@keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+/* ── SHARED ── */
+.section-wrap { padding:80px 0; }
+.section-wrap.bg-forest { background:var(--forest); }
+.section-wrap.bg-light  { background:var(--light); }
+.section-wrap.bg-cream  { background:var(--cream); }
+.inner { max-width:1160px; margin:0 auto; padding:0 48px; }
+
+.eyebrow { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:11px; }
+.eyebrow.light { color:var(--gold-dim); }
+.section-title { font-family:'Cormorant Garamond',serif; font-size:clamp(26px,3.5vw,44px); font-weight:600; color:var(--forest); line-height:1.12; margin-bottom:12px; }
+.section-title.on-dark { color:var(--gold); }
+.section-title em { color:var(--muted); font-style:italic; font-weight:400; }
+.section-title.on-dark em { color:var(--cream); }
+.section-intro { font-size:14px; color:var(--muted); font-weight:300; max-width:580px; line-height:1.8; margin-bottom:44px; }
+.section-intro.on-dark { color:rgba(250,246,236,0.55); }
+
+/* ══════════════════════════
+   FLOW MAP
+══════════════════════════ */
+.flow-diagram { display:flex; flex-direction:column; }
+
+.layer-label {
+  font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.18em;
+  text-transform:uppercase; color:rgba(201,168,76,0.35);
+  margin-bottom:8px; padding-left:2px;
+}
+
+.flow-layer { display:grid; gap:10px; }
+.flow-layer.g4 { grid-template-columns:repeat(4,1fr); }
+.flow-layer.g3 { grid-template-columns:repeat(3,1fr); }
+.flow-layer.g5 { grid-template-columns:repeat(5,1fr); }
+.flow-layer.g4-wide { grid-template-columns:repeat(4,1fr); }
+
+.connector {
+  display:flex; align-items:center; justify-content:center;
+  height:40px; position:relative; margin:4px 0;
+}
+.connector::before {
+  content:''; position:absolute; top:0; bottom:0; left:50%; width:1px;
+  background:linear-gradient(to bottom,rgba(201,168,76,0.4),rgba(201,168,76,0.08));
+}
+.connector-pill {
+  position:relative; z-index:1;
+  background:var(--forest-mid); border:1px solid rgba(201,168,76,0.18);
+  padding:3px 14px; border-radius:20px;
+  font-family:'DM Mono',monospace; font-size:9px;
+  letter-spacing:0.12em; text-transform:uppercase; color:rgba(201,168,76,0.5);
+}
+
+/* Flow cards */
+.fc {
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.07);
+  border-radius:10px; padding:17px 17px 15px;
+  position:relative; overflow:hidden;
+  transition:transform 0.2s, border-color 0.2s;
+}
+.fc:hover { transform:translateY(-2px); border-color:rgba(201,168,76,0.28); }
+.fc::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; }
+.fc.a-amber::before  { background:linear-gradient(90deg,var(--amber),transparent); }
+.fc.a-gold::before   { background:linear-gradient(90deg,var(--gold),transparent); }
+.fc.a-green::before  { background:linear-gradient(90deg,var(--green),transparent); }
+.fc.a-blue::before   { background:linear-gradient(90deg,var(--blue),transparent); }
+.fc.a-purple::before { background:linear-gradient(90deg,var(--purple),transparent); }
+.fc.hero-fc { background:linear-gradient(135deg,var(--forest-lt),var(--forest-mid)); border-color:rgba(201,168,76,0.28); }
+
+.fc-icon  { font-size:17px; margin-bottom:7px; display:block; }
+.fc-title { font-family:'Cormorant Garamond',serif; font-size:14px; font-weight:600; color:var(--gold); margin-bottom:2px; line-height:1.2; }
+.fc-sub   { font-family:'DM Mono',monospace; font-size:8px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(201,168,76,0.38); margin-bottom:7px; }
+.fc-desc  { font-size:11px; color:rgba(250,246,236,0.5); font-weight:300; line-height:1.6; }
+.fc-tag   { display:inline-block; margin-top:8px; font-family:'DM Mono',monospace; font-size:8px; padding:2px 7px; border-radius:3px; letter-spacing:0.07em; }
+.t-amber  { background:rgba(230,126,34,0.14); color:var(--amber); border:1px solid rgba(230,126,34,0.2); }
+.t-gold   { background:rgba(201,168,76,0.12); color:var(--gold);  border:1px solid rgba(201,168,76,0.2); }
+.t-green  { background:rgba(39,174,96,0.12);  color:var(--green); border:1px solid rgba(39,174,96,0.2); }
+.t-blue   { background:rgba(41,128,185,0.12); color:var(--blue);  border:1px solid rgba(41,128,185,0.2); }
+
+/* ── AGENTS LIST ── */
+.agents-list { display:flex; flex-direction:column; gap:2px; border-radius:12px; overflow:hidden; }
+.agent-row { display:grid; grid-template-columns:60px 1fr auto; align-items:center; background:var(--white); transition:all 0.22s; }
+.agent-row:hover { background:var(--forest); }
+.agent-row:hover .ag-title { color:var(--gold); }
+.agent-row:hover .ag-desc, .agent-row:hover .ag-when { color:rgba(250,246,236,0.6); }
+.agent-row:hover .ag-badge { background:rgba(201,168,76,0.13); color:var(--gold-lt); }
+.ag-num {
+  align-self:stretch; display:flex; align-items:center; justify-content:center;
+  font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:600; color:var(--gold);
+  background:rgba(201,168,76,0.05); border-right:1px solid var(--border); transition:background 0.22s;
+}
+.agent-row:hover .ag-num { background:rgba(201,168,76,0.1); }
+.ag-body { padding:18px 22px; }
+.ag-title { font-family:'Cormorant Garamond',serif; font-size:17px; font-weight:600; color:var(--forest); margin-bottom:3px; transition:color 0.22s; }
+.ag-desc  { font-size:12px; color:var(--muted); font-weight:300; transition:color 0.22s; }
+.ag-when  { font-family:'DM Mono',monospace; font-size:9px; color:var(--muted); margin-top:5px; letter-spacing:0.1em; text-transform:uppercase; transition:color 0.22s; }
+.ag-badge { margin:18px 20px 18px 0; padding:4px 13px; background:var(--light); border-radius:20px; font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); white-space:nowrap; transition:all 0.22s; }
+
+/* ── TECH POWERS ── */
+.powers-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; border-radius:12px; overflow:hidden; }
+.pw { background:var(--white); padding:28px 26px; transition:background 0.22s; }
+.pw:hover { background:var(--forest); }
+.pw:hover .pw-title { color:var(--gold); }
+.pw:hover .pw-sub, .pw:hover .pw-desc { color:rgba(250,246,236,0.6); }
+.pw:hover .pw-cost { color:var(--gold-lt); border-color:rgba(201,168,76,0.15); }
+.pw-icon  { font-size:22px; margin-bottom:12px; display:block; }
+.pw-title { font-family:'Cormorant Garamond',serif; font-size:19px; font-weight:600; color:var(--forest); margin-bottom:2px; transition:color 0.22s; }
+.pw-sub   { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.11em; text-transform:uppercase; color:var(--muted); margin-bottom:9px; transition:color 0.22s; }
+.pw-desc  { font-size:12px; color:var(--muted); font-weight:300; line-height:1.7; transition:color 0.22s; }
+.pw-cost  { font-family:'DM Mono',monospace; font-size:9px; color:var(--gold-dim); margin-top:12px; padding-top:10px; border-top:1px solid rgba(0,0,0,0.06); transition:all 0.22s; }
+
+/* ── FEE BREAKDOWN ── */
+.fee-bars { max-width:660px; }
+.fee-row-item { margin-bottom:26px; }
+.fee-row-top  { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:7px; }
+.fee-name { font-size:13px; color:var(--cream); font-weight:400; }
+.fee-pct  { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:600; color:var(--gold); }
+.fee-track { height:5px; background:rgba(255,255,255,0.08); border-radius:3px; overflow:hidden; margin-bottom:5px; }
+.fee-fill  { height:100%; border-radius:3px; }
+.fee-note  { font-size:11px; color:rgba(250,246,236,0.33); font-weight:300; }
+
+.fee-split { display:grid; grid-template-columns:1fr 1fr; gap:2px; border-radius:12px; overflow:hidden; margin-top:40px; }
+.fee-split-card { background:rgba(255,255,255,0.04); padding:28px 26px; }
+.fee-big { font-family:'Cormorant Garamond',serif; font-size:48px; font-weight:600; color:var(--gold); line-height:1; margin-bottom:8px; }
+.fee-split-label { font-size:12px; color:rgba(250,246,236,0.45); font-weight:300; line-height:1.6; }
+.fee-platform-note { font-size:11px; color:rgba(250,246,236,0.22); margin-top:28px; font-weight:300; }
+
+/* ── BENEFITS ── */
+.benefits-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+.bcard { background:var(--white); border:1px solid rgba(0,0,0,0.06); border-radius:11px; padding:24px 22px; transition:all 0.22s; }
+.bcard:hover { border-color:var(--gold); transform:translateY(-2px); box-shadow:0 6px 24px rgba(13,32,24,0.07); }
+.bcard-icon  { font-size:20px; margin-bottom:11px; display:block; }
+.bcard-title { font-family:'Cormorant Garamond',serif; font-size:17px; font-weight:600; color:var(--forest); margin-bottom:6px; }
+.bcard-desc  { font-size:12px; color:var(--muted); font-weight:300; line-height:1.7; }
+
+/* ── TRUST STRIP ── */
+.trust-strip { background:var(--forest-mid); border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:40px 48px; display:flex; justify-content:center; gap:52px; flex-wrap:wrap; }
+.ti { text-align:center; }
+.ti-num   { font-family:'Cormorant Garamond',serif; font-size:38px; font-weight:600; color:var(--gold); line-height:1; }
+.ti-label { font-size:11px; color:rgba(250,246,236,0.4); font-weight:300; margin-top:3px; }
+
+/* ── CTA ── */
+.cta-section { background:var(--forest); padding:84px 48px; text-align:center; }
+.cta-section h2 { font-family:'Cormorant Garamond',serif; font-size:clamp(30px,4.5vw,52px); font-weight:600; color:var(--gold); margin-bottom:12px; line-height:1.1; }
+.cta-section p  { font-size:14px; color:rgba(250,246,236,0.5); font-weight:300; max-width:440px; margin:0 auto 28px; }
+.cta-btns { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
+
+/* ── FOOTER ── */
+footer { background:var(--forest); border-top:1px solid rgba(201,168,76,0.08); padding:24px 48px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; }
+footer p { font-size:11px; color:rgba(250,246,236,0.22); }
+footer a { font-size:11px; color:rgba(201,168,76,0.38); text-decoration:none; }
+
+/* ── REVEAL ── */
+.reveal { opacity:0; transform:translateY(16px); transition:opacity 0.6s ease, transform 0.6s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+.d1 { transition-delay:0.07s; } .d2 { transition-delay:0.14s; } .d3 { transition-delay:0.21s; }
+
+@media(max-width:900px){
+  .hero { grid-template-columns:1fr; gap:36px; padding:88px 24px 52px; }
+  .flow-layer.g4,.flow-layer.g5 { grid-template-columns:1fr 1fr; }
+  .flow-layer.g3 { grid-template-columns:1fr 1fr; }
+  .powers-grid,.benefits-grid { grid-template-columns:1fr 1fr; }
+  .fee-split { grid-template-columns:1fr; }
+  .inner { padding:0 24px; }
+}
+@media(max-width:600px){
+  .flow-layer.g4,.flow-layer.g5,.flow-layer.g3 { grid-template-columns:1fr; }
+  .powers-grid,.benefits-grid { grid-template-columns:1fr; }
+  .ag-badge { display:none; }
+  .trust-strip { gap:28px; }
+  nav { padding:0 20px; }
+  .nav-links { display:none; }
+  .cta-section,.section-wrap { padding:60px 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-left" href="https://hillsidestays.net">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="margin-right:2px">
+      <path d="M12 2L22 9.5V22H16V15H8V22H2V9.5L12 2Z" fill="#C9A84C" opacity="0.9"/>
+    </svg>
+    <span class="nav-brand">Hillside Stays</span>
+  </a>
+  <div class="nav-links">
+    <a href="#how-it-works">How It Works</a>
+    <a href="#what-we-do">What We Do</a>
+    <a href="#our-fee">Our Fee</a>
+  </div>
+  <a class="nav-cta" href="#contact">Get Started</a>
+</nav>
+
+<!-- ══ COMPACT HERO ══ -->
+<div class="hero-wrap">
+  <div class="hero">
+    <div>
+      <p class="hero-eyebrow">Hillside Stays — Western North Carolina</p>
+      <h1>Your property,<br><em>always on.</em></h1>
+      <p class="hero-sub">A transparent look at the people, technology, and systems we invest in — and what that means for your revenue and peace of mind.</p>
+      <div class="hero-actions">
+        <a class="btn-gold" href="#contact">Get a Free Revenue Estimate</a>
+        <a class="btn-outline" href="https://hillsidestays.net/owner-portal.html">Owner Portal</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="stat-num">&lt;5 min</div>
+        <div class="stat-label">Avg guest response time</div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-num">24/7</div>
+        <div class="stat-label">Automated coverage</div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-num">18%</div>
+        <div class="stat-label">Simple, transparent fee</div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-num">73%+</div>
+        <div class="stat-label">WNC occupancy we target</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-inner">
+    <span class="ticker-item">24/7 Guest Response</span><span class="ticker-item">Automated Owner Reports</span>
+    <span class="ticker-item">Dynamic Pricing</span><span class="ticker-item">Cleaning Coordination</span>
+    <span class="ticker-item">Real-Time Booking Updates</span><span class="ticker-item">AI-Powered Management</span>
+    <span class="ticker-item">Western NC Specialists</span>
+    <span class="ticker-item">24/7 Guest Response</span><span class="ticker-item">Automated Owner Reports</span>
+    <span class="ticker-item">Dynamic Pricing</span><span class="ticker-item">Cleaning Coordination</span>
+    <span class="ticker-item">Real-Time Booking Updates</span><span class="ticker-item">AI-Powered Management</span>
+    <span class="ticker-item">Western NC Specialists</span>
+  </div>
+</div>
+
+<!-- ══ HOW IT WORKS — FLOW MAP ══ -->
+<div class="section-wrap bg-forest" id="how-it-works">
+  <div class="inner">
+    <div class="reveal">
+      <p class="eyebrow light">How It Works</p>
+      <h2 class="section-title on-dark">From booking to payout — <em>fully connected</em></h2>
+      <p class="section-intro on-dark">Every part of your property's management is connected end-to-end. Here's how a real event flows through our system — from the moment it happens to the moment it's resolved.</p>
+    </div>
+
+    <div class="flow-diagram">
+
+      <!-- LAYER 1 — TRIGGERS -->
+      <div class="layer-label reveal">What sets things in motion</div>
+      <div class="flow-layer g4 reveal">
+        <div class="fc a-amber">
+          <span class="fc-icon">💬</span>
+          <div class="fc-title">Guest Sends a Message</div>
+          <div class="fc-sub">Any platform, any hour</div>
+          <div class="fc-desc">A question, a request, an issue — arrives instantly from Airbnb or VRBO into our system.</div>
+          <span class="fc-tag t-amber">Real-time</span>
+        </div>
+        <div class="fc a-amber d1">
+          <span class="fc-icon">📅</span>
+          <div class="fc-title">A Booking Is Confirmed</div>
+          <div class="fc-sub">Instant notification</div>
+          <div class="fc-desc">New reservation locked in. Guest details, dates, property, and revenue captured immediately.</div>
+          <span class="fc-tag t-amber">Instant</span>
+        </div>
+        <div class="fc a-amber d2">
+          <span class="fc-icon">🚪</span>
+          <div class="fc-title">Checkout Approaches</div>
+          <div class="fc-sub">2 hours before</div>
+          <div class="fc-desc">The system knows checkout is coming. Turnover prep kicks off automatically — no reminders needed.</div>
+          <span class="fc-tag t-amber">Scheduled</span>
+        </div>
+        <div class="fc a-amber d3">
+          <span class="fc-icon">⏰</span>
+          <div class="fc-title">Scheduled Tasks Fire</div>
+          <div class="fc-sub">Daily & monthly</div>
+          <div class="fc-desc">Pricing review every morning at 7am. Owner reports sent on the 1st of every month, automatically.</div>
+          <span class="fc-tag t-amber">Automated</span>
+        </div>
+      </div>
+
+      <div class="connector reveal"><span class="connector-pill">routed through our management system</span></div>
+
+      <!-- LAYER 2 — INFRASTRUCTURE -->
+      <div class="layer-label reveal">What processes it</div>
+      <div class="flow-layer g3 reveal">
+        <div class="fc hero-fc a-gold">
+          <span class="fc-icon">⚡</span>
+          <div class="fc-title">Our Automation Engine</div>
+          <div class="fc-sub">The backbone of everything</div>
+          <div class="fc-desc">Every trigger flows through our professional workflow platform. It routes data, makes the right calls, and coordinates all moving parts — instantly and correctly, every time.</div>
+          <span class="fc-tag t-gold">Always running</span>
+        </div>
+        <div class="fc a-gold d1" style="background:rgba(255,255,255,0.05)">
+          <span class="fc-icon">🧠</span>
+          <div class="fc-title">AI Intelligence Layer</div>
+          <div class="fc-sub">State-of-the-art AI</div>
+          <div class="fc-desc">Trained on your property, house rules, and the WNC market. Drafts guest responses, analyzes pricing, and writes owner reports — in your voice, around the clock.</div>
+          <span class="fc-tag t-gold">Context-aware</span>
+        </div>
+        <div class="fc a-gold d2" style="background:rgba(255,255,255,0.05)">
+          <span class="fc-icon">🏠</span>
+          <div class="fc-title">Property Management Hub</div>
+          <div class="fc-sub">Unified across platforms</div>
+          <div class="fc-desc">Your listings, calendar, inbox, and booking data — all in one place, synced in real time across every platform your property lives on.</div>
+          <span class="fc-tag t-gold">Multi-platform</span>
+        </div>
+      </div>
+
+      <div class="connector reveal"><span class="connector-pill">five things happen automatically for your property</span></div>
+
+      <!-- LAYER 3 — 5 ACTIONS -->
+      <div class="layer-label reveal">What happens for you</div>
+      <div class="flow-layer g5 reveal">
+        <div class="fc a-green">
+          <span class="fc-icon">✉️</span>
+          <div class="fc-title">Guest Gets a Response</div>
+          <div class="fc-desc">Accurate, warm, and immediate. Every message, every time.</div>
+          <span class="fc-tag t-green">24/7</span>
+        </div>
+        <div class="fc a-green d1">
+          <span class="fc-icon">🎉</span>
+          <div class="fc-title">Welcome Sent & Booking Logged</div>
+          <div class="fc-desc">Guest welcomed. Revenue recorded. Calendar updated.</div>
+          <span class="fc-tag t-green">Instant</span>
+        </div>
+        <div class="fc a-green d2">
+          <span class="fc-icon">🧹</span>
+          <div class="fc-title">Cleaning Team Notified</div>
+          <div class="fc-desc">Full turnover brief sent. No calls needed from you.</div>
+          <span class="fc-tag t-green">Auto</span>
+        </div>
+        <div class="fc a-green d2">
+          <span class="fc-icon">💰</span>
+          <div class="fc-title">Pricing Optimized</div>
+          <div class="fc-desc">Daily rate review. More revenue, fewer gaps.</div>
+          <span class="fc-tag t-green">Daily</span>
+        </div>
+        <div class="fc a-green d3">
+          <span class="fc-icon">📊</span>
+          <div class="fc-title">You Get Your Report</div>
+          <div class="fc-desc">Monthly summary on the 1st. Your payout, clearly laid out.</div>
+          <span class="fc-tag t-green">Monthly</span>
+        </div>
+      </div>
+
+      <div class="connector reveal"><span class="connector-pill">all data stored in your owner portal</span></div>
+
+      <!-- LAYER 4 — DATA -->
+      <div class="layer-label reveal">Where your data lives</div>
+      <div class="flow-layer g4 reveal">
+        <div class="fc a-blue">
+          <span class="fc-icon">📋</span>
+          <div class="fc-title">Revenue & Booking Records</div>
+          <div class="fc-sub">Always up to date</div>
+          <div class="fc-desc">Every booking, every dollar, every payout tracked in real time and accessible in your portal.</div>
+          <span class="fc-tag t-blue">Live data</span>
+        </div>
+        <div class="fc a-blue d1">
+          <span class="fc-icon">📁</span>
+          <div class="fc-title">Your Documents</div>
+          <div class="fc-sub">Organized & on demand</div>
+          <div class="fc-desc">Management agreement, inspection reports, monthly PDFs — stored and linked from your portal.</div>
+          <span class="fc-tag t-blue">On demand</span>
+        </div>
+        <div class="fc a-blue d2">
+          <span class="fc-icon">📆</span>
+          <div class="fc-title">Booking Calendar</div>
+          <div class="fc-sub">Reservations & turnover</div>
+          <div class="fc-desc">Real-time view of every reservation, check-in, checkout, and cleaning window at your property.</div>
+          <span class="fc-tag t-blue">Real-time</span>
+        </div>
+        <div class="fc a-blue d3" style="border-color:rgba(201,168,76,0.22)">
+          <span class="fc-icon">🌐</span>
+          <div class="fc-title">Your Owner Portal</div>
+          <div class="fc-sub">hillsidestays.net/owner-portal</div>
+          <div class="fc-desc">Your private dashboard. Performance, earnings, and documents — visible anytime, from any device.</div>
+          <span class="fc-tag t-blue">Your login</span>
+        </div>
+      </div>
+
+    </div><!-- /flow-diagram -->
+  </div>
+</div>
+
+<!-- ══ WHAT WE DO ══ -->
+<div class="section-wrap bg-light" id="what-we-do">
+  <div class="inner">
+    <div class="reveal">
+      <p class="eyebrow">What We Do — Every Day</p>
+      <h2 class="section-title">Five things happening <em>automatically</em></h2>
+      <p class="section-intro" style="margin-bottom:28px;">From the moment a guest inquires to your monthly payout summary, our system handles the details so you don't have to.</p>
+    </div>
+    <div class="agents-list reveal">
+      <div class="agent-row">
+        <div class="ag-num">01</div>
+        <div class="ag-body">
+          <div class="ag-title">Guest Communications — Around the Clock</div>
+          <div class="ag-desc">Every message gets a thoughtful, accurate response — immediately. Check-in questions, parking, WiFi, local recommendations — answered in minutes, not hours. Happy guests leave better reviews.</div>
+          <div class="ag-when">Triggered · Every inbound message · 24 hours a day</div>
+        </div>
+        <div class="ag-badge">Always On</div>
+      </div>
+      <div class="agent-row">
+        <div class="ag-num">02</div>
+        <div class="ag-body">
+          <div class="ag-title">New Booking — Instant Welcome & Logging</div>
+          <div class="ag-desc">The moment a booking confirms, your guest receives a personalized welcome with everything they need. Revenue logged, calendar updated, guest file created — automatically.</div>
+          <div class="ag-when">Triggered · Every confirmed booking · Instantly</div>
+        </div>
+        <div class="ag-badge">Instant</div>
+      </div>
+      <div class="agent-row">
+        <div class="ag-num">03</div>
+        <div class="ag-body">
+          <div class="ag-title">Cleaning Coordination — Turnover Without the Calls</div>
+          <div class="ag-desc">Two hours before every checkout, your cleaning team receives a complete turnover brief — property, checkout time, next check-in window, and checklist. No calls or texts from you required.</div>
+          <div class="ag-when">Triggered · 2 hours before checkout · Every time</div>
+        </div>
+        <div class="ag-badge">Automated</div>
+      </div>
+      <div class="agent-row">
+        <div class="ag-num">04</div>
+        <div class="ag-body">
+          <div class="ag-title">Dynamic Pricing — Revenue Optimized Daily</div>
+          <div class="ag-desc">Every morning our system analyzes your calendar, days out, local demand, and seasonal patterns. Your property is never priced on a stale rate that leaves money on the table.</div>
+          <div class="ag-when">Triggered · Every morning · Per property</div>
+        </div>
+        <div class="ag-badge">Daily</div>
+      </div>
+      <div class="agent-row">
+        <div class="ag-num">05</div>
+        <div class="ag-body">
+          <div class="ag-title">Owner Reports — First of Every Month</div>
+          <div class="ag-desc">On the 1st of each month, you receive a clean summary — revenue, nights booked, occupancy, payout breakdown. Also visible anytime through your owner portal.</div>
+          <div class="ag-when">Triggered · 1st of every month · Delivered to your inbox</div>
+        </div>
+        <div class="ag-badge">Monthly</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip reveal">
+  <div class="ti"><div class="ti-num">&lt;5 min</div><div class="ti-label">Avg guest response time</div></div>
+  <div class="ti"><div class="ti-num">24/7</div><div class="ti-label">Automated coverage</div></div>
+  <div class="ti"><div class="ti-num">~$104</div><div class="ti-label">Monthly tech investment</div></div>
+  <div class="ti"><div class="ti-num">18%</div><div class="ti-label">Simple, transparent fee</div></div>
+</div>
+
+<!-- ══ WHAT POWERS IT ══ -->
+<div class="section-wrap bg-cream">
+  <div class="inner">
+    <div class="reveal">
+      <p class="eyebrow">Our Technology Investment</p>
+      <h2 class="section-title">What powers your <em>property</em></h2>
+      <p class="section-intro">We invest in professional-grade tools so your property gets enterprise-level management — the same systems used by the industry's top operators, included in your 18% fee.</p>
+    </div>
+    <div class="powers-grid reveal">
+      <div class="pw">
+        <span class="pw-icon">🤖</span>
+        <div class="pw-title">AI Intelligence Layer</div>
+        <div class="pw-sub">Anthropic Claude</div>
+        <div class="pw-desc">State-of-the-art AI that handles guest communications, pricing analysis, and monthly reporting — trained on your specific property, house rules, and the WNC market.</div>
+        <div class="pw-cost">Included in our management fee</div>
+      </div>
+      <div class="pw">
+        <span class="pw-icon">⚡</span>
+        <div class="pw-title">Automation Engine</div>
+        <div class="pw-sub">Professional Workflow Platform</div>
+        <div class="pw-desc">Every trigger, every action, every notification runs through a professional automation platform. When a guest books, dozens of things happen automatically — instantly, correctly, every time.</div>
+        <div class="pw-cost">Included in our management fee</div>
+      </div>
+      <div class="pw">
+        <span class="pw-icon">🏠</span>
+        <div class="pw-title">Property Hub</div>
+        <div class="pw-sub">Unified Property Management</div>
+        <div class="pw-desc">Your property's command center. Unified inbox across Airbnb and VRBO, automated messaging sequences, calendar sync, and real-time data flowing to your owner portal.</div>
+        <div class="pw-cost">Included in our management fee</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ FEE BREAKDOWN ══ -->
+<div class="section-wrap bg-forest" id="our-fee">
+  <div class="inner">
+    <div class="reveal">
+      <p class="eyebrow light">Where Your Fee Goes</p>
+      <h2 class="section-title on-dark">A transparent look at <em>our 18%</em></h2>
+      <p class="section-intro on-dark">Most co-hosts charge 20–30% and pocket the difference. We charge 18% and invest a meaningful portion of it directly into technology that works harder for your property, every single day.</p>
+    </div>
+    <div class="fee-bars reveal">
+      <div class="fee-row-item">
+        <div class="fee-row-top">
+          <span class="fee-name">Dylan — Hands-on management, local expertise & owner relationship</span>
+          <span class="fee-pct">~15%</span>
+        </div>
+        <div class="fee-track"><div class="fee-fill" style="width:83.3%;background:linear-gradient(90deg,#c9a84c,#e4c76b)"></div></div>
+        <p class="fee-note">Your primary point of contact. Property oversight, guest escalations, vendor relationships, and every decision that requires a human who knows your property and this market.</p>
+      </div>
+      <div class="fee-row-item">
+        <div class="fee-row-top">
+          <span class="fee-name">AI & Automation Stack — The technology that never sleeps</span>
+          <span class="fee-pct">~2–3%</span>
+        </div>
+        <div class="fee-track"><div class="fee-fill" style="width:16.7%;background:linear-gradient(90deg,#27ae60,#52be80)"></div></div>
+        <p class="fee-note">Covers our full AI communications system, automation workflows, property management platform, and owner reporting infrastructure — running 24/7 on your property's behalf.</p>
+      </div>
+    </div>
+    <div class="fee-split reveal">
+      <div class="fee-split-card">
+        <div class="fee-big">~15%</div>
+        <div class="fee-split-label">Is your dedicated human manager — available, responsive, and invested in your property's success</div>
+      </div>
+      <div class="fee-split-card">
+        <div class="fee-big">~2–3%</div>
+        <div class="fee-split-label">Powers the technology running guest comms, pricing analysis, reports, and coordination automatically every day</div>
+      </div>
+    </div>
+    <p class="fee-platform-note reveal">Note: Platform fees (Airbnb, VRBO) are charged separately by the platforms and come directly out of gross booking revenue before our fee is calculated. We do not mark up platform fees.</p>
+  </div>
+</div>
+
+<!-- ══ OWNER BENEFITS ══ -->
+<div class="section-wrap bg-cream">
+  <div class="inner">
+    <div class="reveal">
+      <p class="eyebrow">What This Means For You</p>
+      <h2 class="section-title">Your property, <em>fully managed</em></h2>
+      <p class="section-intro">The result of combining professional technology with local expertise is a property that performs better — and requires genuinely less of your time.</p>
+    </div>
+    <div class="benefits-grid reveal">
+      <div class="bcard">
+        <span class="bcard-icon">💤</span>
+        <div class="bcard-title">True Passive Income</div>
+        <div class="bcard-desc">Guest questions, cleaning schedules, calendar management — handled before you even know they happened.</div>
+      </div>
+      <div class="bcard">
+        <span class="bcard-icon">📈</span>
+        <div class="bcard-title">Revenue That Doesn't Stagnate</div>
+        <div class="bcard-desc">Daily pricing analysis means your rates respond to real market conditions. More in peak season, fewer gaps in slow periods.</div>
+      </div>
+      <div class="bcard">
+        <span class="bcard-icon">🔍</span>
+        <div class="bcard-title">Full Visibility, Always</div>
+        <div class="bcard-desc">Your owner portal gives you a live view of reservations, earnings, documents, and upcoming payouts — any device, anytime.</div>
+      </div>
+      <div class="bcard">
+        <span class="bcard-icon">⭐</span>
+        <div class="bcard-title">Reviews That Build Your Rating</div>
+        <div class="bcard-desc">Faster responses and smoother check-ins lead directly to better reviews — which means higher search placement and more bookings.</div>
+      </div>
+      <div class="bcard">
+        <span class="bcard-icon">🤝</span>
+        <div class="bcard-title">A Real Partner, Not a Platform</div>
+        <div class="bcard-desc">We're a local Asheville business. You have direct access to Dylan — not a call center or a support ticket system.</div>
+      </div>
+      <div class="bcard">
+        <span class="bcard-icon">📋</span>
+        <div class="bcard-title">Monthly Clarity on Every Dollar</div>
+        <div class="bcard-desc">Your monthly report shows exactly what your property earned, what it cost, and what your payout is — no surprises, every month.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ CTA ══ -->
+<div class="cta-section" id="contact">
+  <p class="eyebrow" style="color:var(--gold-dim);margin-bottom:12px">Ready to get started?</p>
+  <h2>Let's put your property<br>to work.</h2>
+  <p>Schedule a free, no-pressure conversation about your property and what Hillside Stays can do for you.</p>
+  <div class="cta-btns">
+    <a class="btn-gold" href="https://hillsidestays.net/#contact">Get a Free Revenue Estimate</a>
+    <a class="btn-outline" href="https://hillsidestays.net/owner-portal.html">Owner Portal Login</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Hillside Stays LLC · Asheville, Western North Carolina</p>
+  <a href="https://hillsidestays.net">hillsidestays.net</a>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold:0.07, rootMargin:'0px 0px -28px 0px' });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
