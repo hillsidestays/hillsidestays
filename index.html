@@ -428,6 +428,69 @@ a{text-decoration:none;color:inherit}
   .hero-market-badges{flex-wrap:wrap}
 }
 
+/* OTA FEES SECTION */
+.ota-section{padding:88px 0;background:var(--forest);position:relative;overflow:hidden}
+.ota-section::before{content:"";position:absolute;top:-80px;right:-80px;width:500px;height:500px;background:radial-gradient(circle,rgba(201,168,76,.07) 0%,transparent 60%);pointer-events:none}
+.ota-section::after{content:"";position:absolute;bottom:-80px;left:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(107,78,125,.08) 0%,transparent 60%);pointer-events:none}
+.ota-section h2{color:var(--cream)}
+.ota-section .section-header p{color:rgba(250,246,236,.55)}
+.ota-scenario-label{text-align:center;font-size:.72rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(250,246,236,.35);margin-bottom:32px}
+.ota-booking-grid{display:grid;grid-template-columns:1fr 48px 1fr;max-width:820px;margin:48px auto 72px}
+.ota-booking-card{border-radius:var(--radius-lg);padding:28px 32px}
+.ota-card-airbnb{background:rgba(255,80,80,.05);border:1px solid rgba(255,100,80,.18)}
+.ota-card-direct{background:rgba(201,168,76,.06);border:1px solid rgba(201,168,76,.22)}
+.ota-card-platform{font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;margin-bottom:22px}
+.ota-card-airbnb .ota-card-platform{color:rgba(255,140,120,.65)}
+.ota-card-direct .ota-card-platform{color:var(--gold)}
+.ota-receipt-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(250,246,236,.06)}
+.ota-receipt-row:last-of-type{border-bottom:none}
+.ota-lbl{font-size:.88rem;color:rgba(250,246,236,.5)}
+.ota-val{font-family:var(--font-display);font-size:1.05rem;font-weight:500;color:var(--cream)}
+.ota-row-guest .ota-lbl,.ota-row-guest .ota-val{color:var(--cream)}
+.ota-row-guest .ota-val{font-size:1.25rem}
+.ota-row-fee .ota-val{color:#e07060}
+.ota-row-zero .ota-val{color:rgba(201,168,76,.65)}
+.ota-row-sub{opacity:.5}
+.ota-row-net{padding-top:16px!important;margin-top:6px}
+.ota-row-net .ota-lbl{color:var(--cream)!important;font-weight:500}
+.ota-row-net .ota-val{font-size:1.3rem!important}
+.ota-card-direct .ota-row-net .ota-val{color:var(--gold)!important}
+.ota-card-note{margin-top:20px;padding:12px 16px;border-radius:var(--radius);font-size:.79rem;line-height:1.6}
+.ota-card-airbnb .ota-card-note{background:rgba(255,80,80,.07);border-left:3px solid rgba(255,80,80,.3);color:rgba(255,160,140,.7)}
+.ota-card-direct .ota-card-note{background:rgba(201,168,76,.07);border-left:3px solid rgba(201,168,76,.3);color:rgba(201,168,76,.8)}
+.ota-vs-col{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding-bottom:80px}
+.ota-vs-line{width:1px;flex:1;background:rgba(250,246,236,.1)}
+.ota-vs-text{font-family:var(--font-display);font-size:.95rem;color:rgba(250,246,236,.3)}
+.ota-annual{margin-top:0}
+.ota-annual-title{font-family:var(--font-display);font-size:1.7rem;color:var(--cream);text-align:center;margin-bottom:8px}
+.ota-annual-sub{text-align:center;font-size:.72rem;color:rgba(250,246,236,.35);letter-spacing:.1em;text-transform:uppercase;margin-bottom:52px}
+.ota-bars-layout{display:grid;grid-template-columns:1fr 60px 1fr;max-width:640px;margin:0 auto 40px;align-items:end}
+.ota-scenario{display:flex;flex-direction:column;align-items:center}
+.ota-scenario-name{font-size:.7rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(250,246,236,.4);margin-bottom:20px;text-align:center}
+.ota-scenario-featured .ota-scenario-name{color:var(--gold)}
+.ota-bar{width:100%;height:300px;display:flex;flex-direction:column;gap:2px;border-radius:var(--radius)}
+.ota-bar-seg{min-height:0;overflow:hidden}
+.ota-seg-you{background:var(--gold);border-radius:var(--radius) var(--radius) 0 0}
+.ota-seg-mgmt{background:rgba(250,246,236,.1)}
+.ota-seg-ota{background:#a93226;border-radius:0 0 var(--radius) var(--radius)}
+.ota-bar-legend{width:100%;margin-top:16px;display:flex;flex-direction:column;gap:6px}
+.ota-legend-row{display:flex;align-items:center;gap:8px;font-size:.8rem}
+.ota-legend-dot{width:10px;height:10px;border-radius:2px;flex-shrink:0}
+.ota-legend-name{color:rgba(250,246,236,.45);flex:1}
+.ota-legend-amount{font-family:var(--font-display);font-size:.95rem;color:var(--cream)}
+.ota-legend-amount.keep{color:var(--gold-light)}
+.ota-legend-amount.fee{color:#e07060}
+.ota-scenario-total{margin-top:16px;font-family:var(--font-display);font-size:1.3rem;color:var(--cream);text-align:center}
+.ota-scenario-featured .ota-scenario-total{color:var(--gold)}
+.ota-gain-pill{display:inline-block;background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.3);color:var(--gold);font-size:.75rem;font-family:var(--font-body);font-weight:600;padding:3px 10px;border-radius:20px;margin-left:8px;vertical-align:middle}
+.ota-mid-col{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding-bottom:100px;color:rgba(250,246,236,.25);font-size:.65rem;letter-spacing:.05em;text-transform:uppercase;text-align:center;line-height:1.5}
+.ota-mid-col svg{width:28px;height:28px}
+.ota-footnote{max-width:520px;margin:0 auto 48px;text-align:center;font-size:.88rem;color:rgba(250,246,236,.4);line-height:1.75}
+.ota-footnote strong{color:var(--gold)}
+.ota-cta-wrap{text-align:center}
+.ota-cta-wrap>p{color:rgba(250,246,236,.45);margin-bottom:24px}
+@media(max-width:768px){.ota-booking-grid{grid-template-columns:1fr;gap:16px}.ota-vs-col{flex-direction:row;padding-bottom:0;height:40px}.ota-vs-line{flex:none;width:40px;height:1px}.ota-bars-layout{grid-template-columns:1fr 40px 1fr}.ota-bar{height:240px}.ota-scenario-total{font-size:1.1rem}}
+
 /* ANIMATIONS */
 .fade-up{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
 .fade-up.visible{opacity:1;transform:translateY(0)}
@@ -659,6 +722,89 @@ a{text-decoration:none;color:inherit}
     <div class="services-footer">
       <p>All services included in one simple flat fee &#8212; <strong>18% of gross revenue.</strong> No hidden charges. No nickel-and-diming.</p>
       <a href="#contact" class="btn-primary">Get Your Free Estimate</a>
+    </div>
+  </div>
+</section>
+
+<!-- OTA FEES -->
+<section class="ota-section" id="ota-math">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">The Real Math</div>
+      <h2>What OTA fees are silently<br/><em>taking from your bottom line.</em></h2>
+      <p>Most owners see their gross revenue number and assume that&#8217;s close to what they earn. It isn&#8217;t. Every booking through Airbnb or VRBO extracts fees from both you and your guest &#8212; here&#8217;s what a single real booking actually looks like.</p>
+    </div>
+
+    <div class="ota-scenario-label">A 3-night booking &#8212; $250/night &#183; $750 base rate</div>
+    <div class="ota-booking-grid">
+      <div class="ota-booking-card ota-card-airbnb">
+        <div class="ota-card-platform">Booked via Airbnb</div>
+        <div class="ota-receipt-row ota-row-guest"><span class="ota-lbl">Guest pays</span><span class="ota-val">$855</span></div>
+        <div class="ota-receipt-row ota-row-fee"><span class="ota-lbl">Airbnb guest service fee</span><span class="ota-val">&#8722;$105</span></div>
+        <div class="ota-receipt-row ota-row-sub"><span class="ota-lbl">Your listing rate</span><span class="ota-val">$750</span></div>
+        <div class="ota-receipt-row ota-row-fee"><span class="ota-lbl">Airbnb host fee (3%)</span><span class="ota-val">&#8722;$22.50</span></div>
+        <div class="ota-receipt-row ota-row-net"><span class="ota-lbl">You receive</span><span class="ota-val">$727.50</span></div>
+        <div class="ota-card-note">Airbnb captured $127.50 &#8212; 14.9% of the full transaction. None of it went to you or your guest.</div>
+      </div>
+      <div class="ota-vs-col">
+        <div class="ota-vs-line"></div>
+        <div class="ota-vs-text">vs.</div>
+        <div class="ota-vs-line"></div>
+      </div>
+      <div class="ota-booking-card ota-card-direct">
+        <div class="ota-card-platform">Booked via Direct Site</div>
+        <div class="ota-receipt-row ota-row-guest"><span class="ota-lbl">Guest pays</span><span class="ota-val">$750</span></div>
+        <div class="ota-receipt-row ota-row-zero"><span class="ota-lbl">Guest service fee</span><span class="ota-val">$0</span></div>
+        <div class="ota-receipt-row ota-row-sub"><span class="ota-lbl">Your listing rate</span><span class="ota-val">$750</span></div>
+        <div class="ota-receipt-row ota-row-zero"><span class="ota-lbl">Host platform fee</span><span class="ota-val">$0</span></div>
+        <div class="ota-receipt-row ota-row-net"><span class="ota-lbl">You receive</span><span class="ota-val">$750</span></div>
+        <div class="ota-card-note">Your guest saves $105. You net $22.50 more. Every dollar stays between you and your guest.</div>
+      </div>
+    </div>
+
+    <div class="ota-annual">
+      <div class="ota-annual-title">What it adds up to annually</div>
+      <div class="ota-annual-sub">$60,000/year cabin &#183; 50% Airbnb (3% host fee) &#183; 50% VRBO (8% host fee)</div>
+      <div class="ota-bars-layout">
+        <div class="ota-scenario">
+          <div class="ota-scenario-name">100% OTA</div>
+          <div class="ota-bar">
+            <div class="ota-bar-seg ota-seg-you" style="flex:76.5"></div>
+            <div class="ota-bar-seg ota-seg-mgmt" style="flex:18"></div>
+            <div class="ota-bar-seg ota-seg-ota" style="flex:5.5"></div>
+          </div>
+          <div class="ota-bar-legend">
+            <div class="ota-legend-row"><span class="ota-legend-dot" style="background:var(--gold)"></span><span class="ota-legend-name">You keep</span><span class="ota-legend-amount keep">$45,900</span></div>
+            <div class="ota-legend-row"><span class="ota-legend-dot" style="background:rgba(250,246,236,.15)"></span><span class="ota-legend-name">Management</span><span class="ota-legend-amount">$10,800</span></div>
+            <div class="ota-legend-row"><span class="ota-legend-dot" style="background:#a93226"></span><span class="ota-legend-name">OTA fees</span><span class="ota-legend-amount fee">$3,300</span></div>
+          </div>
+          <div class="ota-scenario-total">$45,900<span style="font-size:.9rem;opacity:.5"> /yr</span></div>
+        </div>
+        <div class="ota-mid-col">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 20h24M24 12l8 8-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>year 2+<br/>w/ direct</span>
+        </div>
+        <div class="ota-scenario ota-scenario-featured">
+          <div class="ota-scenario-name">40% Direct Bookings</div>
+          <div class="ota-bar">
+            <div class="ota-bar-seg ota-seg-you" style="flex:78.7"></div>
+            <div class="ota-bar-seg ota-seg-mgmt" style="flex:18"></div>
+            <div class="ota-bar-seg ota-seg-ota" style="flex:3.3"></div>
+          </div>
+          <div class="ota-bar-legend">
+            <div class="ota-legend-row"><span class="ota-legend-dot" style="background:var(--gold)"></span><span class="ota-legend-name">You keep</span><span class="ota-legend-amount keep">$47,220</span></div>
+            <div class="ota-legend-row"><span class="ota-legend-dot" style="background:rgba(250,246,236,.15)"></span><span class="ota-legend-name">Management</span><span class="ota-legend-amount">$10,800</span></div>
+            <div class="ota-legend-row"><span class="ota-legend-dot" style="background:#a93226"></span><span class="ota-legend-name">OTA fees</span><span class="ota-legend-amount fee">$1,980</span></div>
+          </div>
+          <div class="ota-scenario-total">$47,220<span style="font-size:.9rem;opacity:.5"> /yr</span> <span class="ota-gain-pill">+$1,320</span></div>
+        </div>
+      </div>
+      <p class="ota-footnote">Meanwhile, your guests collectively save an estimated <strong>$3,000+ in platform service fees</strong> on those same direct bookings &#8212; making them far more likely to return and rebook without ever touching an OTA again.</p>
+    </div>
+
+    <div class="ota-cta-wrap">
+      <p>Every property we manage gets a direct booking channel built on day one. The fee savings start immediately and compound as your direct audience grows.</p>
+      <a href="#contact" class="btn-primary">See What Your Property Could Earn</a>
     </div>
   </div>
 </section>
@@ -1008,7 +1154,7 @@ document.querySelectorAll('.faq-question').forEach(btn=>{btn.addEventListener('c
 const form=document.getElementById('contactForm'),formSuccess=document.getElementById('formSuccess');
 if(form){form.addEventListener('submit',async e=>{e.preventDefault();const btn=form.querySelector('button[type="submit"]');btn.textContent='Sending...';btn.disabled=true;try{const r=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});if(r.ok){form.style.display='none';formSuccess.classList.add('visible')}else{btn.textContent='Something went wrong -- please email us directly.';btn.disabled=false}}catch{btn.textContent='Send My Request';btn.disabled=false}})}
 document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-nav.offsetHeight-16,behavior:'smooth'})}})});
-const fadeEls=document.querySelectorAll('.pain-card,.service-card,.step,.revenue-card,.testimonial-card,.faq-item,.compare-row,.cs-stat-card,.market-card,.market-panel,.cs-property-card,.cs-text,.community-group');
+const fadeEls=document.querySelectorAll('.pain-card,.service-card,.step,.revenue-card,.testimonial-card,.faq-item,.compare-row,.cs-stat-card,.market-card,.market-panel,.cs-property-card,.cs-text,.community-group,.ota-booking-card,.ota-scenario');
 fadeEls.forEach(el=>el.classList.add('fade-up'));
 const obs=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){const sibs=[...entry.target.parentElement.children].filter(c=>c.classList.contains('fade-up'));setTimeout(()=>entry.target.classList.add('visible'),sibs.indexOf(entry.target)*80);obs.unobserve(entry.target)}})},{threshold:.12});
 fadeEls.forEach(el=>obs.observe(el));
