@@ -364,7 +364,7 @@ code.inline{font-family:'DM Mono',monospace;font-size:.81em;background:var(--cre
           <div class="sub-step"><div class="sub-step-alpha">a</div><div>Sign up at hospitable.com — Hospitable imports existing Airbnb and VRBO listings automatically on connection. No manual property entry from scratch.</div></div>
           <div class="sub-step"><div class="sub-step-alpha">b</div><div>Complete property profiles: house manual, check-in instructions, WiFi details, parking, local recommendations. This context feeds every guest message Claude writes — the more detail, the better the output.</div></div>
           <div class="sub-step"><div class="sub-step-alpha">c</div><div><strong>Set up native messaging sequences:</strong> Go to <strong>Automations</strong> and configure Hospitable's built-in message templates for each of the 6 touchpoints (booking confirmation, pre-arrival, check-in day, mid-stay, checkout reminder, post-stay review request). These run directly through Hospitable — no n8n required. Write them in your brand voice; they're the guest-facing front line of your operation.</div></div>
-          <div class="sub-step"><div class="sub-step-alpha">d</div><div>Configure owner payout settings under each property — management fee percentage and payout schedule. This feeds Workflow 4 (monthly owner reports).</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">d</div><div>Configure owner payout settings under each property — co-hosting service fee percentage and payout schedule. This feeds Workflow 4 (monthly owner reports).</div></div>
         </div>
         <div class="edu-block">
           Every detail you enter in Hospitable's property profile — amenities, house rules, check-in instructions, local recommendations — becomes context Claude draws on when drafting guest messages. <strong>A well-configured Hospitable property profile is the difference between messages that feel generic and messages that feel like they came from someone who genuinely knows and cares about the property.</strong> This is your competitive advantage made operational.
@@ -404,7 +404,7 @@ code.inline{font-family:'DM Mono',monospace;font-size:.81em;background:var(--cre
           <div class="sub-step"><div class="sub-step-alpha">a</div><div>Sign up at ownerrez.com using the client's business email. Free trial — no credit card to start.</div></div>
           <div class="sub-step"><div class="sub-step-alpha">b</div><div>Complete the property setup wizard: property name, address, bedrooms/bathrooms, amenities, check-in/out times, and house rules. Take your time — this data feeds every guest message Claude writes.</div></div>
           <div class="sub-step"><div class="sub-step-alpha">c</div><div>Connect listing channels: <strong>Settings → Channels</strong>. Complete the OAuth connection for Airbnb and VRBO. OwnerRez pulls existing bookings automatically.</div></div>
-          <div class="sub-step"><div class="sub-step-alpha">d</div><div>Configure owner accounting: <strong>Settings → Owner Statements</strong>. Set the management fee percentage, payout schedule, and expense categories. This is what powers owner financial reporting — OwnerRez's strongest advantage over Hospitable.</div></div>
+          <div class="sub-step"><div class="sub-step-alpha">d</div><div>Configure owner accounting: <strong>Settings → Owner Statements</strong>. Set the co-hosting service fee percentage, payout schedule, and expense categories. This is what powers owner financial reporting — OwnerRez's strongest advantage over Hospitable.</div></div>
           <div class="sub-step"><div class="sub-step-alpha">e</div><div>Add the owner contact — their name, email, and payout details — so statements generate automatically each month.</div></div>
         </div>
         <div class="edu-block">
@@ -919,7 +919,7 @@ Body (JSON):
       <div class="step-body">
         <div class="prompt-block">
           <div class="prompt-label"><span>🤖 System Prompt — Review Responses</span><button class="copy-btn" data-target="reviewSys">Copy</button></div>
-          <div class="prompt-content" id="reviewSys">You are a professional short-term rental property manager writing public responses to guest reviews on behalf of the property owner. These responses appear publicly on Airbnb and VRBO — they are read by future guests as much as by the reviewer.
+          <div class="prompt-content" id="reviewSys">You are a professional short-term rental co-host writing public responses to guest reviews on behalf of the property owner. These responses appear publicly on Airbnb and VRBO — they are read by future guests as much as by the reviewer.
 
 RESPONSE PHILOSOPHY:
 - Positive reviews (4–5 stars): Thank sincerely, reference something specific they mentioned, invite them back. Warm and brief — under 80 words.
@@ -960,7 +960,7 @@ ADDITIONAL CONTEXT:
       <div class="step-body">
         <div class="prompt-block">
           <div class="prompt-label"><span>🤖 System Prompt — Monthly Owner Report</span><button class="copy-btn" data-target="reportSys">Copy</button></div>
-          <div class="prompt-content" id="reportSys">You are a professional short-term rental property manager writing a monthly performance report to a property owner. This report arrives by email on the 1st of each month and is the owner's primary window into their investment.
+          <div class="prompt-content" id="reportSys">You are a professional short-term rental co-host writing a monthly performance report to a property owner. This report arrives by email on the 1st of each month and is the owner's primary window into their investment.
 
 TONE & APPROACH:
 - Write as a trusted advisor and expert, not a data summary
@@ -971,7 +971,7 @@ TONE & APPROACH:
 
 REPORT STRUCTURE (follow this order):
 1. Headline: one sentence with net payout and a brief honest characterization of the month
-2. The numbers: 3–4 sentences covering revenue, occupancy, average rate, and management fee — written as narrative prose, not a table
+2. The numbers: 3–4 sentences covering revenue, occupancy, average rate, and co-hosting service fee — written as narrative prose, not a table
 3. Notable stays: mention any interesting bookings (long stays, repeat guests, holidays) in 1–2 sentences. Skip if nothing notable.
 4. Comparison: one sentence comparing to last month and prior year if data available
 5. Looking ahead: 2–3 sentences on next month's bookings, pricing notes, anything the owner should know
@@ -1090,7 +1090,7 @@ ADDITIONAL CONTEXT (include only if relevant):
     <div>
       <div class="section-phase">Full Stack Cost Summary</div>
       <div class="section-title">What the Complete AI System Costs</div>
-      <div class="section-desc">The full AI-enabled stack — website, portal, and automation — runs for a fraction of one booking's management fee. Everything below assumes the Softr portal path and n8n Cloud hosting.</div>
+      <div class="section-desc">The full AI-enabled stack — website, portal, and automation — runs for a fraction of one booking's co-hosting service fee. Everything below assumes the Softr portal path and n8n Cloud hosting.</div>
     </div>
   </div>
 
@@ -1122,7 +1122,7 @@ ADDITIONAL CONTEXT (include only if relevant):
   </table>
 
   <div class="edu-block">
-    At an 18% management fee, a single $400/night booking generates $72 in revenue — <strong>covering the entire monthly software stack in one night.</strong> Every additional booking is pure margin. The AI layer pays for itself in the first guest message you don't have to write.
+    At a 15% co-hosting service fee, a single $400/night booking generates $60 in revenue — <strong>covering the entire monthly software stack in one night.</strong> Every additional booking is pure margin. The AI layer pays for itself in the first guest message you don't have to write.
   </div>
 
   <div class="divider-line"></div>
@@ -1201,7 +1201,7 @@ I need help with: [DESCRIBE WHAT YOU NEED]</div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:20px">
         <div style="background:var(--forest);border-radius:12px;padding:22px;text-align:center">
           <div style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(201,168,76,.7);margin-bottom:6px">Mgmt Fee</div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--gold);font-weight:400">18%</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--gold);font-weight:400">15%</div>
           <div style="font-size:.75rem;color:rgba(255,255,255,.45);margin-top:3px">of gross booking revenue</div>
         </div>
         <div style="background:var(--forest);border-radius:12px;padding:22px;text-align:center">
@@ -1212,7 +1212,7 @@ I need help with: [DESCRIBE WHAT YOU NEED]</div>
         <div style="background:var(--forest);border-radius:12px;padding:22px;text-align:center">
           <div style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(201,168,76,.7);margin-bottom:6px">Fee per Property</div>
           <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--gold);font-weight:400">~$756</div>
-          <div style="font-size:.75rem;color:rgba(255,255,255,.45);margin-top:3px">management fee / mo</div>
+          <div style="font-size:.75rem;color:rgba(255,255,255,.45);margin-top:3px">co-hosting service fee / mo</div>
         </div>
         <div style="background:var(--forest);border-radius:12px;padding:22px;text-align:center">
           <div style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(201,168,76,.7);margin-bottom:6px">Tech Cost / Property</div>
@@ -1238,7 +1238,7 @@ I need help with: [DESCRIBE WHAT YOU NEED]</div>
       <!-- TECH MOAT -->
       <div style="background:linear-gradient(135deg,var(--forest) 0%,var(--forest-mid) 100%);border-radius:14px;padding:28px 30px;margin-bottom:20px">
         <div style="font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:12px">The Technology Moat</div>
-        <p style="color:rgba(255,255,255,.82);font-size:.87rem;line-height:1.8;margin-bottom:14px">Most co-hosting businesses are fundamentally manual labor businesses dressed up as property management. Their operational cost scales linearly with the number of properties they manage. Ours doesn't.</p>
+        <p style="color:rgba(255,255,255,.82);font-size:.87rem;line-height:1.8;margin-bottom:14px">Most co-hosting businesses are fundamentally manual labor businesses. Their operational cost scales linearly with the number of properties they co-host. Ours doesn't.</p>
         <p style="color:rgba(255,255,255,.82);font-size:.87rem;line-height:1.8">Our AI stack (Claude API + n8n) handles the top five time costs of STR management — guest communications, owner reporting, review responses, booking data sync, and performance monitoring — with no human intervention for the vast majority of interactions. The time we save goes into relationship-building, market analysis, and portfolio growth: the work that actually creates competitive advantage.</p>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px">
           <div style="background:rgba(255,255,255,.06);border-radius:8px;padding:14px 16px">

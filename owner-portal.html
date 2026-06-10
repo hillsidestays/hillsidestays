@@ -298,7 +298,7 @@
       <div class="sheet-hint">📊 <span><strong>Dylan — Admin note:</strong> Update your Google Sheet and owners see changes instantly on refresh. No code edits needed.</span></div>
       <div class="stats-grid">
         <div class="stat-card green"><div class="stat-label">Gross Revenue</div><div class="stat-value" id="s-revenue">—</div><div class="stat-sub" id="s-revenue-sub">—</div><div class="delta up" id="s-revenue-delta">—</div></div>
-        <div class="stat-card gold"><div class="stat-label">Your Payout</div><div class="stat-value" id="s-payout">—</div><div class="stat-sub">After 18% management fee</div><div class="delta up" id="s-payout-delta">—</div></div>
+        <div class="stat-card gold"><div class="stat-label">Your Payout</div><div class="stat-value" id="s-payout">—</div><div class="stat-sub">After 15% co-hosting service fee</div><div class="delta up" id="s-payout-delta">—</div></div>
         <div class="stat-card bark"><div class="stat-label">Occupancy Rate</div><div class="stat-value" id="s-occ">—</div><div class="stat-sub" id="s-occ-sub">—</div><div class="delta up" id="s-occ-delta">—</div></div>
         <div class="stat-card muted"><div class="stat-label">Avg Nightly Rate</div><div class="stat-value" id="s-rate">—</div><div class="stat-sub">Dynamic pricing active</div><div class="delta" id="s-rate-delta">—</div></div>
       </div>
@@ -349,13 +349,13 @@
       <div class="ytd-banner">
         <div class="ytd-item"><div class="label">Year-to-Date Gross Revenue</div><div class="value" id="ytd-gross">—</div><div class="sub">2026</div></div>
         <div class="ytd-divider"></div>
-        <div class="ytd-item"><div class="label">Year-to-Date Your Payout</div><div class="value" id="ytd-payout">—</div><div class="sub">After management fee</div></div>
+        <div class="ytd-item"><div class="label">Year-to-Date Your Payout</div><div class="value" id="ytd-payout">—</div><div class="sub">After co-hosting service fee</div></div>
         <div class="ytd-divider"></div>
         <div class="ytd-item"><div class="label">Total Nights Booked</div><div class="value" id="ytd-nights">—</div><div class="sub">Year to date</div></div>
       </div>
       <div class="card">
         <div class="card-header"><div class="card-title">Monthly Breakdown</div></div>
-        <table class="res-table"><thead><tr><th>Month</th><th>Nights</th><th>Occupancy</th><th>Gross Revenue</th><th>Management Fee</th><th>Your Payout</th></tr></thead><tbody id="earnings-tbody"></tbody></table>
+        <table class="res-table"><thead><tr><th>Month</th><th>Nights</th><th>Occupancy</th><th>Gross Revenue</th><th>Co-Hosting Service Fee</th><th>Your Payout</th></tr></thead><tbody id="earnings-tbody"></tbody></table>
       </div>
     </div>
 
@@ -552,7 +552,7 @@ function populate(owner) {
   setText('display-period',   kv.period || '');
 
   setStat('s-revenue', kv.stat_revenue, kv.stat_revenue_sub,  kv.stat_revenue_delta, kv.stat_revenue_up !== 'false');
-  setStat('s-payout',  kv.stat_payout,  'After 18% mgmt fee', kv.stat_payout_delta,  kv.stat_payout_up  !== 'false');
+  setStat('s-payout',  kv.stat_payout,  'After 15% co-hosting fee', kv.stat_payout_delta,  kv.stat_payout_up  !== 'false');
   setStat('s-occ',     kv.stat_occ,     kv.stat_occ_sub,      kv.stat_occ_delta,     kv.stat_occ_up     !== 'false');
   setStat('s-rate',    kv.stat_rate,    'Dynamic pricing',    kv.stat_rate_delta,    kv.stat_rate_up    === 'true');
 
@@ -611,7 +611,7 @@ function populate(owner) {
   document.getElementById('breakdown').innerHTML = `
     <div class="brow"><span class="bl">Total Gross Revenue</span><span class="bv">${kv.bd_gross||'—'}</span></div>
     <div class="brow"><span class="bl">Cleaning Fees (pass-through)</span><span class="bv">${kv.bd_cleaning||'—'}</span></div>
-    <div class="brow neg"><span class="bl">Management Fee (18%)</span><span class="bv">${kv.bd_fee||'—'}</span></div>
+    <div class="brow neg"><span class="bl">Co-Hosting Service Fee (15%)</span><span class="bv">${kv.bd_fee||'—'}</span></div>
     <div class="brow"><span class="bl">Maintenance Costs</span><span class="bv">${kv.bd_maintenance||'$0.00'}</span></div>
     <div class="brow total"><span class="bl">Your Net Payout</span><span class="bv">${kv.bd_net||'—'}</span></div>`;
 
